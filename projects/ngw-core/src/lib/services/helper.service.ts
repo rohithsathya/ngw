@@ -1,8 +1,9 @@
 import { ElementRef, Injectable } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
+// @Injectable({
+//   providedIn: 'root'
+// })
+@Injectable()
 export class HelperService {
   themeColors = ['default','primary','secondary','sucess','error','warning'];
   defaultColor = this.themeColors[0];

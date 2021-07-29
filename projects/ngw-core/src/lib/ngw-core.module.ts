@@ -31,6 +31,7 @@ import { AlignDirective } from './layouts/align.directive';
 import { NgwBtnDirective } from './elements/ngw-btn.directive';
 import { NgwFormControlDirective } from './elements/ngw-form-control.directive';
 import { NgwTypoDirective } from './elements/ngw-typo.directive';
+import { HelperService } from './services/helper.service';
 
 
 let componentsList = [
@@ -71,6 +72,9 @@ let componentsList = [
 @NgModule({
   declarations: componentsList,
   imports: [],
+  providers:[
+    HelperService
+  ],
   exports:componentsList
 })
 export class NgwCoreModule { 
