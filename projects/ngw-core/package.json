@@ -1,7 +1,7 @@
 {
     "name": "ngw-core",
     "version": "0.0.1",
-    "description": "Angular widgets - Easy copy-paste widgets for angular projects",
+    "description": "Angular widgets Core - Core Components for Angular Widgets",
     "author": "getrohith.sathya@gmail.com",
     "license": "MIT",
     "dependencies": {
