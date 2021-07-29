@@ -1,0 +1,18 @@
+{
+  "name": "ngw-core",
+  "version": "0.0.1",
+  "description": "Angular widgets - Easy copy-paste widgets for angular projects",
+  "author": "getrohith.sathya@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
+  "main": "bundles/ngw-core.umd.js",
+  "module": "fesm2015/ngw-core.js",
+  "es2015": "fesm2015/ngw-core.js",
+  "esm2015": "esm2015/ngw-core.js",
+  "fesm2015": "fesm2015/ngw-core.js",
+  "typings": "ngw-core.d.ts",
+  "metadata": "ngw-core.metadata.json",
+  "sideEffects": false
+}
