@@ -7,6 +7,12 @@ https://angular.io/guide/creating-libraries#use-typescript-path-mapping-for-peer
 >git commit -m "first Draft"
 >git push  (git push -u origin master)
 
+
+npm run build
+npm publish 
+npm uninstall defaeco-core --save;
+npm install  defaeco-core@latest --save;
+
 # Ngw
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.8.
