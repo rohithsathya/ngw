@@ -3,7 +3,7 @@
  */
 
 export * from './lib/ngw-core.module';
-
+//Core Directives
 export * from './lib/directive/regular/bg-color.directive';
 export * from './lib/directive/regular/border.directive';
 export * from './lib/directive/regular/ellipsis.directive';
@@ -30,9 +30,13 @@ export * from './lib/directive/hover/radius.hover.directive';
 export * from './lib/directive/hover/shadow.hover.directive';
 export * from './lib/directive/hover/text-color.hover.directive';
 export * from './lib/directive/hover/width.hover.directive';
+//Layouts
 export * from './lib/layouts/row.directive';
 export * from './lib/layouts/col.directive';
 export * from './lib/layouts/align.directive';
+//Elements
 export * from './lib/elements/ngw-btn.directive';
 export * from './lib/elements/ngw-form-control.directive';
 export * from './lib/elements/ngw-typo.directive';
+//Services
+export * from './lib/services/helper.service'
