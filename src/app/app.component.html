@@ -1,3 +1,28 @@
-<h3 ngwTypo="subheading-2" margin="10px">PHmG123DG1233..!!!</h3>
+<div>
 
-<button ngwBtn="" margin="10px" color="Primary">Default Button</button>
+    <!-- header -->
+    <div row height="60px" bgColor="primary" shadow="3" padding.x="24px" padding.y="8px" position="fixed" width="100%" style="top:0;z-index:10000;">
+        <div width="100px" align.y="center" fontSize="24px" textColor="primary-contrast" style="font-style: italic;cursor: pointer;" routerLink="/">NGW</div>
+        <div col="fill" align.y="center">
+            <button ngwBtn="flat" margin.right="10px" color="primary" routerLink="/core">Core</button>
+            <button ngwBtn="flat" margin.right="10px" color="primary" routerLink="/components">Components</button>
+            <button ngwBtn="flat" margin.right="10px" color="primary" routerLink="/theme">Theme</button>
+        </div>
+    </div>
+    <div margin.top="76px">
+        <router-outlet></router-outlet>
+    </div>
+    <!-- footer -->
+    <div row bgColor="primary">
+        <div col="100%" align.y="center" align.x="center" padding.y="24px">
+            <div row>
+                <div ngwTypo="body" textColor="primary-contrast" margin="0px" padding.right="4px">Made With</div>
+                <div ngwTypo="body" textColor="primary-contrast" margin="0px" padding.right="4px">
+                    <i class="material-icons" textColor="red">favorite</i>
+                </div>
+                <div ngwTypo="body" textColor="primary-contrast" margin="0px">By GGG</div>
+            </div>
+
+        </div>
+    </div>
+</div>

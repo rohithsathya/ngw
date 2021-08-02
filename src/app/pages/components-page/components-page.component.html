@@ -1,0 +1,38 @@
+<div padding="24px">
+    <h3>Ngw Buttons</h3>
+    <p>NGW buttons are native button or a elements enhanced with material design styling and ink ripples. </p>
+    <!-- tabs -->
+    <div margin="auto" width="80%">
+        <div class="tab">
+            <button class="tablinks" [ngClass]="{'active':currentTabIndex ==0}" (click)="currentTabIndex=0">Preview</button>
+            <button class="tablinks" [ngClass]="{'active':currentTabIndex ==1}" (click)="currentTabIndex=1">Code</button>
+            <button class="tablinks" [ngClass]="{'active':currentTabIndex ==2}" (click)="currentTabIndex=2">API</button>
+        </div>
+        <div class="tabcontent" [hidden]="currentTabIndex !=0">
+            <h3>Preview goes here</h3>
+        </div>
+        <div class="tabcontent" [hidden]="currentTabIndex !=1">
+            <h3>code goes here</h3>
+            <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
+                {{codeSnippet}}
+            </pre>
+        </div>
+        <div class="tabcontent" [hidden]="currentTabIndex !=2">
+            <h3>API Documentation goes here</h3>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>@Input() Color:string</td>
+                    <td>Theme color palette for the component</td>
+                </tr>
+                <tr>
+                    <td>@Input() disable:boolean</td>
+                    <td>Whether ripple is disbaled.</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

@@ -4,13 +4,25 @@ import { NgwCoreModule } from 'ngw-core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ComponentsPageComponent } from './pages/components-page/components-page.component';
+import { CorePageComponent } from './pages/core-page/core-page.component';
+import { ThemePageComponent } from './pages/theme-page/theme-page.component';
+import { IntroPageComponent } from './pages/intro-page/intro-page.component';
+import { JsonEditorDirective } from './directive/json-editor.directive';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ComponentsPageComponent,
+    CorePageComponent,
+    ThemePageComponent,
+    IntroPageComponent,
+    JsonEditorDirective
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     NgwCoreModule
   ],

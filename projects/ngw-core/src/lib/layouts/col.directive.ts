@@ -40,7 +40,10 @@ export class ColDirective implements OnInit,OnDestroy,OnChanges {
   }
 
   ngOnDestroy(){
-    this.observer.unObserve(this.el.nativeElement);
+    try{
+      this.observer?.unObserve(this.el.nativeElement);
+    }catch(e){}
+    
   }
 
   apply(width:number){

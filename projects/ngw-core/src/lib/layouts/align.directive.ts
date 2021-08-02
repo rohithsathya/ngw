@@ -58,8 +58,8 @@ export class AlignDirective implements OnChanges {
     }
 
     if(this.alignY){
-      let ai = this.alignY == 'top' ? 'flex-start' : this.alignX; //align items
-      ai = this.alignX == 'bottom' ? 'flex-end' : this.alignX;
+      let ai = this.alignY == 'top' ? 'flex-start' : this.alignY; //align items
+      ai = this.alignX == 'bottom' ? 'flex-end' : this.alignY;
 
       this.helper.applyStyle(this.el,'display','flex');
       this.helper.applyStyle(this.el,'alignItems',ai);

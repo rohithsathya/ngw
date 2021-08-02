@@ -1,0 +1,14 @@
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0px;
+}
+
+input[type="color"]::-webkit-color-swatch {
+    border-color: #eee;
+    border-radius: 50%;
+}
+
+input[type="color"] {
+    padding: 1px;
+    border-radius: 50%;
+    border-color: gray;
+}

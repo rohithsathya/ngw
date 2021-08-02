@@ -449,7 +449,7 @@ export class NgwCoreModule {
           background-color:var(${cssVarName});
         }
         .ngw-border-color-${className},.ngw-border-hover-color-${className}:hover{
-          background-color:var(${cssVarName});
+          border-color:var(${cssVarName});
         }
     `;
   }

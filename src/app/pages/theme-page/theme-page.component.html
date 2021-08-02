@@ -1,0 +1,108 @@
+<p ngwTypo="title" align.x="center" padding="20px 0px 0px 0px">NGW Theme Generator</p>
+
+
+<div row>
+    <div col="50%" padding="12px">
+        <p ngwTypo="title">Color Palette</p>
+        <p ngwTypo="body-1">
+            <span textColor="red">*</span> Click on Any color to start changing the theme. Color shade move from light to dark (50 lightest, 900 darkest), Contrast - text color used on colored background. Colors 50 to 900 will be auto generated based
+            on the main color, update then if you wish to change.
+        </p>
+
+        <div row>
+            <div col="100%">
+                <div row>
+                    <div *ngFor="let mc of allColors" col.lg="100%" col.md="100%" col.sm="100%" margin.top="20px">
+                        <div row>
+                            <div width="100px" row>
+                                <div col="100%" align="centercenter">
+                                    <input height="30px" width="30px" type="color" style="cursor: pointer;" [(ngModel)]="colors[mc]['500']" (change)="mainColorChange()">
+                                </div>
+                                <div col="100%" align="centercenter" ngwTypo="subheading-2" style="text-transform: capitalize;">
+                                    {{mc}}
+                                </div>
+                            </div>
+                            <div col="fill">
+                                <div *ngFor="let lcl of allColorVariations" style="display: inline-block;margin-left: 20px;">
+                                    <div col="100%" align="centercenter">
+                                        <input height="20px" width="20px" type="color" style="cursor: pointer;" [(ngModel)]="colors[mc][lcl]">
+                                    </div>
+                                    <div col="100%" align="centercenter" ngwTypo="subheading-2" style="text-transform: capitalize;">
+                                        {{lcl}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div col="50%" padding="12px">
+        <!-- preview section -->
+        <div>
+            <p ngwTypo="title">Theme Preview</p>
+            <p ngwTypo="subheading-2">Buttons</p>
+            <div>
+                <button ngwBtn="raised" margin="10px">Default Button</button>
+                <button ngwBtn="raised" margin="10px" color="primary">primary Button</button>
+                <button ngwBtn="raised" margin="10px" color="secondary">secondary Button</button>
+                <button ngwBtn="raised" margin="10px" color="success">success Button</button>
+                <button ngwBtn="raised" margin="10px" color="warning">warning Button</button>
+                <button ngwBtn="raised" margin="10px" color="error">error Button</button>
+
+            </div>
+            <p ngwTypo="subheading-2" padding="12px 0px 0px 0px">Form Fields</p>
+            <div row>
+                <div col="50%" padding="8px">
+                    <label ngwTypo="caption">Default State</label>
+                    <input type="text" ngwFormControl placeholder="Enter a value" />
+                </div>
+
+                <div col="50%" padding="8px">
+                    <label ngwTypo="caption">Success State</label>
+                    <input type="text" ngwFormControl color="success" placeholder="Enter a value" />
+                </div>
+
+                <div col="50%" padding="8px">
+                    <label ngwTypo="caption">Warning State</label>
+                    <input type="text" ngwFormControl color="warning" placeholder="Enter a value" />
+                </div>
+
+                <div col="50%" padding="8px">
+                    <label ngwTypo="caption">Error State</label>
+                    <input type="text" ngwFormControl color="error" placeholder="Enter a value" />
+                </div>
+            </div>
+        </div>
+        <!-- config json section -->
+        <div padding.y="24px">
+            <p ngwTypo="title">Config JSON</p>
+            <p ngwTypo="body-1">
+                ConfigJSON for the selected theme colors
+            </p>
+            <div [ngwJsonEditor]="configObj" heigth="400px" width="100%"></div>
+        </div>
+        <!-- Usage Section -->
+        <div padding.y="24px">
+            <p ngwTypo="title">Applying Theme</p>
+            <div>
+                <div margin.left="20px">
+                    <!-- <h3 ngwTypo="subheading-2" align.x="center">Adding Theme</h3> -->
+                    <p ngwTypo="body-1">
+                        Pass the above config json while importing <strong>NgwCoreModule</strong> module in <strong>app.module.ts</strong> file.
+                    </p>
+                    <div margin.y="5px">
+                        <button ngwBtn="" color="primary" (click)="copyConfigToClipBoard()">
+                            <span class="material-icons">content_copy</span> &nbsp; Copy Config JSON
+                        </button>
+                    </div>
+                    <pre class="prettyprint" style="max-width: 500px;overflow: auto;" margin="auto" bgColor="white">
+                        {{codeSnippet}}
+                    </pre>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

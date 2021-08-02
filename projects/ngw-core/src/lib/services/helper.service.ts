@@ -5,7 +5,7 @@ import { ElementRef, Injectable } from '@angular/core';
 // })
 @Injectable()
 export class HelperService {
-  themeColors = ['default','primary','secondary','sucess','error','warning'];
+  themeColors = ['default','primary','secondary','success','error','warning'];
   defaultColor = this.themeColors[0];
   constructor() { }
 
@@ -91,5 +91,6 @@ export class HelperService {
     }
     return shdowToApply;
   }
+
 
 }
