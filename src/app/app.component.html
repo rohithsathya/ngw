@@ -4,12 +4,13 @@
     <div row height="60px" bgColor="primary" shadow="3" padding.x="24px" padding.y="8px" position="fixed" width="100%" style="top:0;z-index:10000;">
         <div width="100px" align.y="center" fontSize="24px" textColor="primary-contrast" style="font-style: italic;cursor: pointer;" routerLink="/">NGW</div>
         <div col="fill" align.y="center">
+            <button ngwBtn="flat" margin.right="10px" color="primary" routerLink="/start">Get Started</button>
             <button ngwBtn="flat" margin.right="10px" color="primary" routerLink="/core">Core</button>
             <button ngwBtn="flat" margin.right="10px" color="primary" routerLink="/components">Components</button>
             <button ngwBtn="flat" margin.right="10px" color="primary" routerLink="/theme">Theme</button>
         </div>
     </div>
-    <div margin.top="76px">
+    <div margin.top="60px">
         <router-outlet></router-outlet>
     </div>
     <!-- footer -->

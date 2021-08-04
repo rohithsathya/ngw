@@ -10,6 +10,7 @@ import { ThemePageComponent } from './pages/theme-page/theme-page.component';
 import { IntroPageComponent } from './pages/intro-page/intro-page.component';
 import { JsonEditorDirective } from './directive/json-editor.directive';
 import { FormsModule } from '@angular/forms';
+import { GettingStartedPageComponent } from './pages/getting-started-page/getting-started-page.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormsModule } from '@angular/forms';
     CorePageComponent,
     ThemePageComponent,
     IntroPageComponent,
-    JsonEditorDirective
+    JsonEditorDirective,
+    GettingStartedPageComponent
   ],
   imports: [
     BrowserModule,

@@ -4,3 +4,43 @@ body {
     background-color: #fafafa;
     margin: 0px;
 }
+
+.ngw-sd-wrapper {
+    overflow-x: hidden;
+}
+
+.ngw-sd-sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -15rem;
+    transition: margin 0.25s ease-out;
+}
+
+.ngw-sd-sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+}
+
+.ngw-sd-sidebar-wrapper .list-group {
+    width: 15rem;
+}
+
+#page-content-wrapper {
+    min-width: 100vw;
+}
+
+body.sb-sidenav-toggled .ngw-sd-wrapper .ngw-sd-sidebar-wrapper {
+    margin-left: 0;
+}
+
+@media (min-width: 768px) {
+    .ngw-sd-sidebar-wrapper {
+        margin-left: 0;
+    }
+    #page-content-wrapper {
+        min-width: 0;
+        width: 100%;
+    }
+    body.sb-sidenav-toggled .ngw-sd-wrapper .ngw-sd-sidebar-wrapper {
+        margin-left: -15rem;
+    }
+}
