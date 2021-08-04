@@ -1,0 +1,45 @@
+import { ModuleWithProviders } from '@angular/core';
+import * as i0 from "@angular/core";
+import * as i1 from "./directive/regular/bg-color.directive";
+import * as i2 from "./directive/regular/border.directive";
+import * as i3 from "./directive/regular/ellipsis.directive";
+import * as i4 from "./directive/regular/fit.directive";
+import * as i5 from "./directive/regular/font-size.directive";
+import * as i6 from "./directive/regular/font-weight.directive";
+import * as i7 from "./directive/regular/gradient-bg-color.directive";
+import * as i8 from "./directive/regular/height.directive";
+import * as i9 from "./directive/regular/margin.directive";
+import * as i10 from "./directive/regular/padding.directive";
+import * as i11 from "./directive/regular/position.directive";
+import * as i12 from "./directive/regular/radius.directive";
+import * as i13 from "./directive/regular/shadow.directive";
+import * as i14 from "./directive/regular/text-color.directive";
+import * as i15 from "./directive/regular/width.directive";
+import * as i16 from "./directive/hover/bg-color.hover.directive";
+import * as i17 from "./directive/hover/border.hover.directive";
+import * as i18 from "./directive/hover/font-size.hover.directive";
+import * as i19 from "./directive/hover/font-weight.hover.directive";
+import * as i20 from "./directive/hover/height.hover.directive";
+import * as i21 from "./directive/hover/margin.hover.directive";
+import * as i22 from "./directive/hover/padding.hover.directive";
+import * as i23 from "./directive/hover/radius.hover.directive";
+import * as i24 from "./directive/hover/shadow.hover.directive";
+import * as i25 from "./directive/hover/text-color.hover.directive";
+import * as i26 from "./directive/hover/width.hover.directive";
+import * as i27 from "./layouts/row.directive";
+import * as i28 from "./layouts/col.directive";
+import * as i29 from "./layouts/align.directive";
+import * as i30 from "./elements/ngw-btn.directive";
+import * as i31 from "./elements/ngw-form-control.directive";
+import * as i32 from "./elements/ngw-typo.directive";
+export declare class NgwCoreModule {
+    private static configObj;
+    constructor();
+    private static setupNgw;
+    static configure(config: any): ModuleWithProviders<NgwCoreModule>;
+    private static getColorCss;
+    static ɵfac: i0.ɵɵFactoryDef<NgwCoreModule, never>;
+    static ɵmod: i0.ɵɵNgModuleDefWithMeta<NgwCoreModule, [typeof i1.BgColorDirective, typeof i2.BorderDirective, typeof i3.EllipsisDirective, typeof i4.FitDirective, typeof i5.FontSizeDirective, typeof i6.FontWeightDirective, typeof i7.GradientBgColorDirective, typeof i8.HeightDirective, typeof i9.MarginDirective, typeof i10.PaddingDirective, typeof i11.PositionDirective, typeof i12.RadiusDirective, typeof i13.ShadowDirective, typeof i14.TextColorDirective, typeof i15.WidthDirective, typeof i16.BgColorHoverDirective, typeof i17.BorderHoverDirective, typeof i18.FontSizeHoverDirective, typeof i19.FontWeightHoverDirective, typeof i20.HeightHoverDirective, typeof i21.MarginHoverDirective, typeof i22.PaddingHoverDirective, typeof i23.RadiusHoverDirective, typeof i24.ShadowHoverDirective, typeof i25.TextColorHoverDirective, typeof i26.WidthHoverDirective, typeof i27.RowDirective, typeof i28.ColDirective, typeof i29.AlignDirective, typeof i30.NgwBtnDirective, typeof i31.NgwFormControlDirective, typeof i32.NgwTypoDirective], never, [typeof i1.BgColorDirective, typeof i2.BorderDirective, typeof i3.EllipsisDirective, typeof i4.FitDirective, typeof i5.FontSizeDirective, typeof i6.FontWeightDirective, typeof i7.GradientBgColorDirective, typeof i8.HeightDirective, typeof i9.MarginDirective, typeof i10.PaddingDirective, typeof i11.PositionDirective, typeof i12.RadiusDirective, typeof i13.ShadowDirective, typeof i14.TextColorDirective, typeof i15.WidthDirective, typeof i16.BgColorHoverDirective, typeof i17.BorderHoverDirective, typeof i18.FontSizeHoverDirective, typeof i19.FontWeightHoverDirective, typeof i20.HeightHoverDirective, typeof i21.MarginHoverDirective, typeof i22.PaddingHoverDirective, typeof i23.RadiusHoverDirective, typeof i24.ShadowHoverDirective, typeof i25.TextColorHoverDirective, typeof i26.WidthHoverDirective, typeof i27.RowDirective, typeof i28.ColDirective, typeof i29.AlignDirective, typeof i30.NgwBtnDirective, typeof i31.NgwFormControlDirective, typeof i32.NgwTypoDirective]>;
+    static ɵinj: i0.ɵɵInjectorDef<NgwCoreModule>;
+}
+//# sourceMappingURL=ngw-core.module.d.ts.map

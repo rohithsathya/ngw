@@ -1,0 +1,1 @@
+{"version":3,"file":"ellipsis.directive.d.ts","sourceRoot":"","sources":["../../../../../projects/ngw-core/src/lib/directive/regular/ellipsis.directive.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,aAAa,EAAa,UAAU,EAAE,MAAM,eAAe,CAAC;;AAErE,qBAGa,iBAAmB,YAAW,aAAa;IAE1C,OAAO,CAAC,EAAE;gBAAF,EAAE,EAAC,UAAU;IACjC,eAAe;iCAHJ,iBAAiB;2CAAjB,iBAAiB;CAO7B"}
