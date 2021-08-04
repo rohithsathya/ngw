@@ -75,14 +75,6 @@
                 </div>
             </div>
         </div>
-        <!-- config json section -->
-        <div padding.y="24px">
-            <p ngwTypo="title">Config JSON</p>
-            <p ngwTypo="body-1">
-                ConfigJSON for the selected theme colors
-            </p>
-            <div [ngwJsonEditor]="configObj" heigth="400px" width="100%"></div>
-        </div>
         <!-- Usage Section -->
         <div padding.y="24px">
             <p ngwTypo="title">Applying Theme</p>
@@ -90,7 +82,7 @@
                 <div margin.left="20px">
                     <!-- <h3 ngwTypo="subheading-2" align.x="center">Adding Theme</h3> -->
                     <p ngwTypo="body-1">
-                        Pass the above config json while importing <strong>NgwCoreModule</strong> module in <strong>app.module.ts</strong> file.
+                        Pass the below config json while importing <strong>NgwCoreModule</strong> module in <strong>app.module.ts</strong> file.
                     </p>
                     <div margin.y="5px">
                         <button ngwBtn="" color="primary" (click)="copyConfigToClipBoard()">
@@ -102,6 +94,15 @@
                     </pre>
                 </div>
             </div>
+        </div>
+
+        <!-- config json section -->
+        <div padding.y="24px">
+            <p ngwTypo="title">Config JSON</p>
+            <p ngwTypo="body-1">
+                ConfigJSON for the selected theme colors
+            </p>
+            <div [ngwJsonEditor]="configObj" heigth="400px" width="100%"></div>
         </div>
 
     </div>
