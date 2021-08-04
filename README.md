@@ -13,6 +13,11 @@ npm publish
 npm uninstall defaeco-core --save;
 npm install  defaeco-core@latest --save;
 
+# to publish pages
+install angular-cli-ghpages
+> ng add angular-cli-ghpages
+>ng deploy --base-href=/ngw/
+
 # Ngw
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.8.
