@@ -1,6 +1,9 @@
 For library deployment and npm publish
 https://angular.io/guide/creating-libraries#use-typescript-path-mapping-for-peer-dependencies
 
+> link to documents :
+https://rohithsathya.github.io/ngw/
+
 
 >git add .
 >git status

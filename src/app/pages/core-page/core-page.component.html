@@ -17,14 +17,989 @@
         <!-- Page content-->
         <div class="container-fluid">
 
+            <!-- bg-color -->
+            <div *ngIf="currentCompIndex == 0">
+                <h3 class="mt-4"> <code>bgColor</code>, <code>hover.bgColor</code> </h3>
+                <p>Directive used for applying background color for a given element</p>
+                <!-- tabs -->
+                <div margin="auto" width="80%">
+                    <div class="tab">
+                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==0}" (click)="currentTabIndex=0">API</button>
+                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==1}" (click)="currentTabIndex=1">Preview & Code</button>
+                        <!-- <button class="tablinks" [ngClass]="{'active':currentTabIndex ==2}" (click)="currentTabIndex=2">Code</button> -->
+                    </div>
+                    <div class="tabcontent" [hidden]="currentTabIndex !=0">
+                        <table>
+                            <tr>
+                                <th>Directive</th>
+                                <th>Description</th>
+                                <th>Allowed Values</th>
+                            </tr>
+                            <tr>
+                                <td> <code>bgColor</code> </td>
+                                <td> To apply background color </td>
+                                <td> Any Valid css color value and ngw theme color<br/><small class="text-muted">(e.g. red, rgb(234,234,123), #eee, #0d6efd, primary, error-300)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>hover.bgColor</code> </td>
+                                <td> To apply background color </td>
+                                <td> Any Valid css color value and ngw theme color<br/><small class="text-muted">(e.g. red, rgb(234,234,123), #eee, #0d6efd, primary, error-300)</small></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="tabcontent" [hidden]="currentTabIndex !=1">
+                        <!-- preview section -->
+                        <div row>
+                            <div col="50%">
+                                <code>bgColor</code>
+                                <div height="120px" width="120px" bgColor="primary-400" margin="30px"></div>
+                            </div>
+                            <div col="50%">
+                                <code>hover.bgColor</code>
+                                <div height="120px" width="120px" bgColor="secondary-400" hover.bgColor="green" margin="30px"></div>
+                            </div>
+                        </div>
+                        <!-- code section -->
+                        <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
+                            {{codeSnippet[0]}}
+                        </pre>
 
-            <h1 class="mt-4">Simple Sidebar</h1>
-            <p>{{currentComp.desc}}</p>
-            <p>
-                Make sure to keep all page content within the
-                <code>#page-content-wrapper</code> . The top navbar is optional, and just for demonstration. Just create an element with the
-                <code>#sidebarToggle</code> ID which will toggle the menu when clicked.
-            </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Border-color -->
+            <div *ngIf="currentCompIndex == 1">
+                <h3 class="mt-4"> <code>border</code>, <code>hover.border</code> </h3>
+                <p>Directive used for applying border for a given element</p>
+                <!-- tabs -->
+                <div margin="auto" width="80%">
+                    <div class="tab">
+                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==0}" (click)="currentTabIndex=0">API</button>
+                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==1}" (click)="currentTabIndex=1">Preview & Code</button>
+                        <!-- <button class="tablinks" [ngClass]="{'active':currentTabIndex ==2}" (click)="currentTabIndex=2">Code</button> -->
+                    </div>
+                    <div class="tabcontent" [hidden]="currentTabIndex !=0">
+                        <table>
+                            <tr>
+                                <th>Directive</th>
+                                <th>Description</th>
+                                <th>Allowed Values</th>
+                            </tr>
+                            <tr>
+                                <td> <code>border</code> </td>
+                                <td> To apply border </td>
+                                <td> Any Valid css border value<br/><small class="text-muted">(e.g. 1px solid #eee, solid)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>border.width</code> </td>
+                                <td> To apply border width </td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>border.color</code> </td>
+                                <td> To apply border color </td>
+                                <td>Any Valid css color value and ngw theme color<br/><small class="text-muted">(e.g. red, rgb(234,234,123), #eee, #0d6efd, primary, error-300)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>border.style</code> </td>
+                                <td> To apply border style </td>
+                                <td>Any Valid css border style<br/><small class="text-muted">(e.g. solid, dotted)</small></td>
+                            </tr>
+
+                            <tr>
+                                <td> <code>hover.border</code> </td>
+                                <td> To apply border on hover </td>
+                                <td> Any Valid css border value<br/><small class="text-muted">(e.g. 1px solid #eee, solid)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>hover.border.width</code> </td>
+                                <td> To apply border width on hover </td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>hover.border.color</code> </td>
+                                <td> To apply border color on hover </td>
+                                <td>Any Valid css color value and ngw theme color<br/><small class="text-muted">(e.g. red, rgb(234,234,123), #eee, #0d6efd, primary, error-300)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>hover.border.style</code> </td>
+                                <td> To apply border style on hover </td>
+                                <td>Any Valid css border style<br/><small class="text-muted">(e.g. solid, dotted)</small></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="tabcontent" [hidden]="currentTabIndex !=1">
+                        <!-- preview section -->
+                        <div row>
+                            <div col="50%">
+                                <code>border</code>
+                                <div height="120px" width="120px" border="2px solid black" margin="30px"></div>
+                            </div>
+                            <div col="50%">
+                                <code>hover.border</code>
+                                <div height="120px" width="120px" border="2px solid black" hover.border.color="primary" margin="30px"></div>
+                            </div>
+                        </div>
+                        <!-- code section -->
+                        <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
+                            {{codeSnippet[1]}}
+                        </pre>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ellipsis -->
+            <div *ngIf="currentCompIndex == 2">
+                <h3 class="mt-4"> <code>ellipsis</code></h3>
+                <p>To add ellipsis(...) behavior to text</p>
+                <!-- tabs -->
+                <div margin="auto" width="80%">
+                    <div class="tab">
+                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==0}" (click)="currentTabIndex=0">API</button>
+                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==1}" (click)="currentTabIndex=1">Preview & Code</button>
+                        <!-- <button class="tablinks" [ngClass]="{'active':currentTabIndex ==2}" (click)="currentTabIndex=2">Code</button> -->
+                    </div>
+                    <div class="tabcontent" [hidden]="currentTabIndex !=0">
+                        <table>
+                            <tr>
+                                <th>Directive</th>
+                                <th>Description</th>
+                                <th>Allowed Values</th>
+                            </tr>
+                            <tr>
+                                <td> <code>ellipsis</code> </td>
+                                <td> To add ellipsis(...) behavior to text </td>
+                                <td> true or false<br/><small class="text-muted">(e.g. true)</small></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="tabcontent" [hidden]="currentTabIndex !=1">
+                        <!-- preview section -->
+                        <div row>
+                            <div col="100%">
+                                <code>ellipsis</code>
+                                <p ellipsis="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+                                    laborum.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- code section -->
+                        <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
+                            {{codeSnippet[2]}}
+                        </pre>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- fit -->
+            <div *ngIf="currentCompIndex == 3">
+                <h3 class="mt-4"> <code>fit</code></h3>
+                <p>used to specify how an <code>img</code> should be resized to fit its container.</p>
+                <!-- tabs -->
+                <div margin="auto" width="80%">
+                    <div class="tab">
+                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==0}" (click)="currentTabIndex=0">API</button>
+                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==1}" (click)="currentTabIndex=1">Preview & Code</button>
+                    </div>
+                    <div class="tabcontent" [hidden]="currentTabIndex !=0">
+                        <table>
+                            <tr>
+                                <th>Directive</th>
+                                <th>Description</th>
+                                <th>Allowed Values</th>
+                            </tr>
+                            <tr>
+                                <td> <code>fit</code> </td>
+                                <td> used to specify how an <code>img</code> should be resized to fit its container.</td>
+                                <td>fill, contain, cover, none, scale-down</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="tabcontent" [hidden]="currentTabIndex !=1">
+                        <!-- preview section -->
+                        <div><code>fit</code></div>
+                        <div row margin.y="10px">
+                            <div col="100%">
+                                <img src="https://www.w3schools.com/css/paris.jpg" fit="cover" height="150px" width="150px" />
+                            </div>
+                        </div>
+                        <!-- code section -->
+                        <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
+                            {{codeSnippet[3]}}
+                        </pre>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- fontSize -->
+            <div *ngIf="currentCompIndex == 4">
+                <h3 class="mt-4"> <code>fontSize</code>, <code>hover.fontSize</code> </h3>
+                <p>used for setting the size of a font.</p>
+                <!-- tabs -->
+                <div margin="auto" width="80%">
+                    <div class="tab">
+                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==0}" (click)="currentTabIndex=0">API</button>
+                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==1}" (click)="currentTabIndex=1">Preview & Code</button>
+                        <!-- <button class="tablinks" [ngClass]="{'active':currentTabIndex ==2}" (click)="currentTabIndex=2">Code</button> -->
+                    </div>
+                    <div class="tabcontent" [hidden]="currentTabIndex !=0">
+                        <table>
+                            <tr>
+                                <th>Directive</th>
+                                <th>Description</th>
+                                <th>Allowed Values</th>
+                            </tr>
+                            <tr>
+                                <td> <code>fontSize</code> </td>
+                                <td> sets the size of the font </td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>hover.fontSize</code> </td>
+                                <td> sets the size of the font on hover </td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="tabcontent" [hidden]="currentTabIndex !=1">
+                        <!-- preview section -->
+                        <div row>
+                            <div col="50%">
+                                <code>fontSize</code>
+                                <p fontSize="20px">This text has size of 20px</p>
+                            </div>
+                            <div col="50%">
+                                <code>hover.bgColor</code>
+                                <p fontSize="20px" hover.fontSize="30px">This text has size of 20px and will change to 30px on hover</p>
+                            </div>
+                        </div>
+                        <!-- code section -->
+                        <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
+                            {{codeSnippet[4]}}
+                        </pre>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- fontWeight -->
+            <div *ngIf="currentCompIndex == 5">
+                <h3 class="mt-4"> <code>fontWeight</code>, <code>hover.fontWeight</code> </h3>
+                <p>sets how thick or thin characters in text should be displayed.</p>
+                <!-- tabs -->
+                <div margin="auto" width="80%">
+                    <div class="tab">
+                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==0}" (click)="currentTabIndex=0">API</button>
+                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==1}" (click)="currentTabIndex=1">Preview & Code</button>
+                        <!-- <button class="tablinks" [ngClass]="{'active':currentTabIndex ==2}" (click)="currentTabIndex=2">Code</button> -->
+                    </div>
+                    <div class="tabcontent" [hidden]="currentTabIndex !=0">
+                        <table>
+                            <tr>
+                                <th>Directive</th>
+                                <th>Description</th>
+                                <th>Allowed Values</th>
+                            </tr>
+                            <tr>
+                                <td> <code>fontWeight</code> </td>
+                                <td> sets how thick or thin characters in text should </td>
+                                <td> Any Valid css weight property<br/><small class="text-muted">(e.g. 100, 500, 900, lighter, bold,bolder)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>hover.fontWeight</code> </td>
+                                <td>sets how thick or thin characters in text should on hover </td>
+                                <td> Any Valid css weight property<br/><small class="text-muted">(e.g. 100, 500, 900, lighter, bold,bolder)</small></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="tabcontent" [hidden]="currentTabIndex !=1">
+                        <!-- preview section -->
+                        <div row>
+                            <div col="50%">
+                                <code>fontSize</code>
+                                <p fontWeight="400">This text has weight of 400</p>
+                            </div>
+                            <div col="50%">
+                                <code>hover.bgColor</code>
+                                <p fontWeight="400" hover.fontWeight="900">This text has weight of 400 and will change to 900 on hover</p>
+                            </div>
+                        </div>
+                        <!-- code section -->
+                        <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
+                            {{codeSnippet[5]}}
+                        </pre>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- gradientBgColor -->
+            <div *ngIf="currentCompIndex == 6">
+                <h3 class="mt-4"> <code>gradientBgColor</code></h3>
+                <p>To add Gradient Background color to elements</p>
+                <!-- tabs -->
+                <div margin="auto" width="80%">
+                    <div class="tab">
+                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==0}" (click)="currentTabIndex=0">API</button>
+                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==1}" (click)="currentTabIndex=1">Preview & Code</button>
+                        <!-- <button class="tablinks" [ngClass]="{'active':currentTabIndex ==2}" (click)="currentTabIndex=2">Code</button> -->
+                    </div>
+                    <div class="tabcontent" [hidden]="currentTabIndex !=0">
+                        <table>
+                            <tr>
+                                <th>Directive</th>
+                                <th>Description</th>
+                                <th>Allowed Values</th>
+                            </tr>
+                            <tr>
+                                <td> <code>gradientBgColor</code> </td>
+                                <td> To add Gradient Background color </td>
+                                <td> Valid ngw theme color<br/><small class="text-muted">(e.g. primary,secondary,warning)</small></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="tabcontent" [hidden]="currentTabIndex !=1">
+                        <!-- preview section -->
+                        <div row>
+                            <div col="100%">
+                                <code>gradientBgColor</code>
+                                <div height="120px" width="120px" gradientBgColor="primary" margin="30px"></div>
+                            </div>
+                        </div>
+                        <!-- code section -->
+                        <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
+                            {{codeSnippet[6]}}
+                        </pre>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- height -->
+            <div *ngIf="currentCompIndex == 7">
+                <h3 class="mt-4"> <code>height</code>, <code>hover.height</code> </h3>
+                <p>sets the height of an element.</p>
+                <!-- tabs -->
+                <div margin="auto" width="80%">
+                    <div class="tab">
+                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==0}" (click)="currentTabIndex=0">API</button>
+                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==1}" (click)="currentTabIndex=1">Preview & Code</button>
+                        <!-- <button class="tablinks" [ngClass]="{'active':currentTabIndex ==2}" (click)="currentTabIndex=2">Code</button> -->
+                    </div>
+                    <div class="tabcontent" [hidden]="currentTabIndex !=0">
+                        <table>
+                            <tr>
+                                <th>Directive</th>
+                                <th>Description</th>
+                                <th>Allowed Values</th>
+                            </tr>
+                            <tr>
+                                <td> <code>height</code> </td>
+                                <td> sets the height of an element </td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>hover.height</code> </td>
+                                <td>sets the height of an element on hover </td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="tabcontent" [hidden]="currentTabIndex !=1">
+                        <!-- preview section -->
+                        <div row>
+
+                            <div col="50%">
+                                <code>height</code>
+                                <div height="120px" width="120px" border="1px solid" margin="30px">
+                                    height = 120px
+                                </div>
+                            </div>
+
+                            <div col="50%">
+                                <code>hover.height</code>
+                                <div height="120px" hover.height="200px" width="120px" border="1px solid" margin="30px">
+                                    height = 120px hover = 200px
+                                </div>
+                            </div>
+                        </div>
+                        <!-- code section -->
+                        <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
+                            {{codeSnippet[7]}}
+                        </pre>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- margin -->
+            <div *ngIf="currentCompIndex == 8">
+                <h3 class="mt-4"> <code>margin</code>, <code>hover.margin</code> </h3>
+                <p>sets margin i.e. to create space around elements, outside of any defined borders.</p>
+                <!-- tabs -->
+                <div margin="auto" width="80%">
+                    <div class="tab">
+                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==0}" (click)="currentTabIndex=0">API</button>
+                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==1}" (click)="currentTabIndex=1">Preview & Code</button>
+                        <!-- <button class="tablinks" [ngClass]="{'active':currentTabIndex ==2}" (click)="currentTabIndex=2">Code</button> -->
+                    </div>
+                    <div class="tabcontent" [hidden]="currentTabIndex !=0">
+                        <table>
+                            <tr>
+                                <th>Directive</th>
+                                <th>Description</th>
+                                <th>Allowed Values</th>
+                            </tr>
+                            <tr>
+                                <td> <code>margin</code> </td>
+                                <td> sets margin of an element </td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>margin.top</code> </td>
+                                <td> sets top margin of an element </td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>margin.left</code> </td>
+                                <td> sets left margin of an element </td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>margin.bottom</code> </td>
+                                <td> sets bottom margin of an element </td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>margin.right</code> </td>
+                                <td> sets right margin of an element </td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>margin.x</code> </td>
+                                <td> sets left and right margin of an element </td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>margin.y</code> </td>
+                                <td> sets top and bottom margin of an element </td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+
+                            <tr>
+                                <td> <code>hover.margin</code> </td>
+                                <td> sets margin of an element on hover </td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>hover.margin.top</code> </td>
+                                <td> sets top margin of an element on hover</td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>hover.margin.left</code> </td>
+                                <td> sets left margin of an element on hover</td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>hover.margin.bottom</code> </td>
+                                <td> sets bottom margin of an element on hover</td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>hover.margin.right</code> </td>
+                                <td> sets right margin of an element on hover</td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>hover.margin.x</code> </td>
+                                <td> sets left and right margin of an element on hover </td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>hover.margin.y</code> </td>
+                                <td> sets top and bottom margin of an element on hover </td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+
+                        </table>
+                    </div>
+                    <div class="tabcontent" [hidden]="currentTabIndex !=1">
+                        <!-- preview section -->
+                        <div row>
+
+                            <div col="50%">
+                                <code>margin</code>
+                                <div border="1px solid" margin="30px">
+                                    outer div
+                                    <div height="120px" border="1px solid" margin="30px">
+                                        margin = 30px
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div col="50%">
+                                <code>hover.margin</code>
+                                <div border="1px solid" margin="30px">
+                                    outer div
+                                    <div height="120px" border="1px solid" margin="30px" hover.margin="50px">
+                                        margin = 30px hover margin = 50px
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- code section -->
+                        <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
+                            {{codeSnippet[currentCompIndex]}}
+                        </pre>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- padding -->
+            <div *ngIf="currentCompIndex == 9">
+                <h3 class="mt-4"> <code>padding</code>, <code>hover.padding</code> </h3>
+                <p>sets padding i.e. to create space around elements, outside of any defined borders.</p>
+                <!-- tabs -->
+                <div margin="auto" width="80%">
+                    <div class="tab">
+                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==0}" (click)="currentTabIndex=0">API</button>
+                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==1}" (click)="currentTabIndex=1">Preview & Code</button>
+                        <!-- <button class="tablinks" [ngClass]="{'active':currentTabIndex ==2}" (click)="currentTabIndex=2">Code</button> -->
+                    </div>
+                    <div class="tabcontent" [hidden]="currentTabIndex !=0">
+                        <table>
+                            <tr>
+                                <th>Directive</th>
+                                <th>Description</th>
+                                <th>Allowed Values</th>
+                            </tr>
+                            <tr>
+                                <td> <code>padding</code> </td>
+                                <td> sets padding of an element </td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>padding.top</code> </td>
+                                <td> sets top padding of an element </td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>padding.left</code> </td>
+                                <td> sets left padding of an element </td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>padding.bottom</code> </td>
+                                <td> sets bottom padding of an element </td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>padding.right</code> </td>
+                                <td> sets right padding of an element </td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>padding.x</code> </td>
+                                <td> sets left and right padding of an element </td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>padding.y</code> </td>
+                                <td> sets top and bottom padding of an element </td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+
+                            <tr>
+                                <td> <code>hover.padding</code> </td>
+                                <td> sets padding of an element on hover </td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>hover.padding.top</code> </td>
+                                <td> sets top padding of an element on hover</td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>hover.padding.left</code> </td>
+                                <td> sets left padding of an element on hover</td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>hover.padding.bottom</code> </td>
+                                <td> sets bottom padding of an element on hover</td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>hover.padding.right</code> </td>
+                                <td> sets right padding of an element on hover</td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>hover.padding.x</code> </td>
+                                <td> sets left and right padding of an element on hover </td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>hover.padding.y</code> </td>
+                                <td> sets top and bottom padding of an element on hover </td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+
+                        </table>
+                    </div>
+                    <div class="tabcontent" [hidden]="currentTabIndex !=1">
+                        <!-- preview section -->
+                        <div row>
+
+                            <div col="50%">
+                                <code>padding</code>
+                                <div border="1px solid" margin="30px" padding="30px" bgColor="primary-300">
+                                    padding = 30px
+                                    <div height="120px" border="1px solid" bgColor="secondary"></div>
+                                </div>
+                            </div>
+
+                            <div col="50%">
+                                <code>hover.padding</code>
+                                <div border="1px solid" margin="30px" bgColor="primary-300" padding="30px" hover.padding="50px">
+                                    padding = 30px hover padding = 30px
+                                    <div height="120px" border="1px solid" bgColor="secondary">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- code section -->
+                        <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
+                            {{codeSnippet[currentCompIndex]}}
+                        </pre>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- position -->
+            <div *ngIf="currentCompIndex == 10">
+                <h3 class="mt-4"> <code>position</code></h3>
+                <p>specifies the type of positioning method used for an element.</p>
+                <!-- tabs -->
+                <div margin="auto" width="80%">
+                    <div class="tab">
+                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==0}" (click)="currentTabIndex=0">API</button>
+                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==1}" (click)="currentTabIndex=1">Preview & Code</button>
+                    </div>
+                    <div class="tabcontent" [hidden]="currentTabIndex !=0">
+                        <table>
+                            <tr>
+                                <th>Directive</th>
+                                <th>Description</th>
+                                <th>Allowed Values</th>
+                            </tr>
+                            <tr>
+                                <td> <code>position</code> </td>
+                                <td> specifies the type of positioning method used for an element .</td>
+                                <td>static, relative, fixed, absolute or sticky</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="tabcontent" [hidden]="currentTabIndex !=1">
+                        <!-- preview section -->
+                        <div><code>position</code></div>
+                        <div row margin.y="10px" position="relative" height="200px" border="1px solid">
+                            <div col="100%" position="absolute" bgColor="primary-300" style="bottom: 50px;" padding="10px">
+                                absolutely positioned <br/> bottom 50px
+                            </div>
+                        </div>
+                        <!-- code section -->
+                        <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
+                            {{codeSnippet[currentCompIndex]}}
+                        </pre>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- radius -->
+            <div *ngIf="currentCompIndex == 11">
+                <h3 class="mt-4"> <code>radius</code>, <code>hover.radius</code> </h3>
+                <p>defines the radius of the element's corners.</p>
+                <!-- tabs -->
+                <div margin="auto" width="80%">
+                    <div class="tab">
+                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==0}" (click)="currentTabIndex=0">API</button>
+                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==1}" (click)="currentTabIndex=1">Preview & Code</button>
+                        <!-- <button class="tablinks" [ngClass]="{'active':currentTabIndex ==2}" (click)="currentTabIndex=2">Code</button> -->
+                    </div>
+                    <div class="tabcontent" [hidden]="currentTabIndex !=0">
+                        <table>
+                            <tr>
+                                <th>Directive</th>
+                                <th>Description</th>
+                                <th>Allowed Values</th>
+                            </tr>
+                            <tr>
+                                <td> <code>radius</code> </td>
+                                <td> defines the radius of the element's all 4 corners </td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>radius.topLeft</code> </td>
+                                <td> defines the radius of the element's Top Left corner </td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>radius.topRight</code> </td>
+                                <td> defines the radius of the element's top Right corner </td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>radius.bottomLeft</code> </td>
+                                <td> defines the radius of the element's bottom Left corner </td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>radius.bottomRight</code> </td>
+                                <td> defines the radius of the element's bottom Right corner </td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+
+                            <tr>
+                                <td> <code>hover.radius</code> </td>
+                                <td> defines the radius of the element's all 4 corners on hover </td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>hover.radius.topLeft</code> </td>
+                                <td> defines the radius of the element's Top Left corner on hover </td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>hover.radius.topRight</code> </td>
+                                <td> defines the radius of the element's top Right corner on hover </td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>hover.radius.bottomLeft</code> </td>
+                                <td> defines the radius of the element's bottom Left corner on hover </td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>hover.radius.bottomRight</code> </td>
+                                <td> defines the radius of the element's bottom Right corner on hover</td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="tabcontent" [hidden]="currentTabIndex !=1">
+                        <!-- preview section -->
+                        <div row>
+                            <div col="50%">
+                                <code>radius</code>
+                                <div height="120px" width="120px" border="1px solid" margin="30px" radius="4px">
+                                    radius = 4px
+                                </div>
+                            </div>
+
+                            <div col="50%">
+                                <code>hover.radius</code>
+                                <div height="220px" hover.radius="50%" width="220px" border="1px solid" margin="30px" radius="4px" align.x="center" align.y="center">
+                                    radius = 4px hover = 50%
+                                </div>
+                            </div>
+                        </div>
+                        <!-- code section -->
+                        <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
+                            {{codeSnippet[currentCompIndex]}}
+                        </pre>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- shadow -->
+            <div *ngIf="currentCompIndex == 12">
+                <h3 class="mt-4"> <code>shadow</code>, <code>hover.shadow</code> </h3>
+                <p>Attaches one or more shadows to an element.</p>
+                <!-- tabs -->
+                <div margin="auto" width="80%">
+                    <div class="tab">
+                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==0}" (click)="currentTabIndex=0">API</button>
+                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==1}" (click)="currentTabIndex=1">Preview & Code</button>
+                        <!-- <button class="tablinks" [ngClass]="{'active':currentTabIndex ==2}" (click)="currentTabIndex=2">Code</button> -->
+                    </div>
+                    <div class="tabcontent" [hidden]="currentTabIndex !=0">
+                        <table>
+                            <tr>
+                                <th>Directive</th>
+                                <th>Description</th>
+                                <th>Allowed Values</th>
+                            </tr>
+                            <tr>
+                                <td> <code>shadow</code> </td>
+                                <td> To apply box shadow to an element </td>
+                                <td> Any Valid box shadow value or any value b/w 0 and 5<br/><small class="text-muted">(e.g. 1,2,3,4,5)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>hover.shadow</code> </td>
+                                <td> To apply box shadow to an element on hover </td>
+                                <td> Any Valid box shadow value or any value b/w 0 and 5<br/><small class="text-muted">(e.g. 1,2,3,4,5)</small></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="tabcontent" [hidden]="currentTabIndex !=1">
+                        <!-- preview section -->
+                        <div row>
+                            <div col="50%">
+                                <code>shadow</code>
+                                <div height="120px" width="120px" bgColor="white" margin="30px" shadow="2" padding="5px">shadow=2</div>
+                            </div>
+                            <div col="50%">
+                                <code>hover.shadow</code>
+                                <div height="120px" width="120px" bgColor="white" margin="30px" shadow="2" hover.shadow="5" padding="5px">shadow=2 hover=5</div>
+                            </div>
+                        </div>
+                        <!-- code section -->
+                        <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
+                            {{codeSnippet[currentCompIndex]}}
+                        </pre>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- textColor -->
+            <div *ngIf="currentCompIndex == 13">
+                <h3 class="mt-4"> <code>textColor</code>, <code>hover.textColor</code> </h3>
+                <p>used for setting the color of text.</p>
+                <!-- tabs -->
+                <div margin="auto" width="80%">
+                    <div class="tab">
+                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==0}" (click)="currentTabIndex=0">API</button>
+                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==1}" (click)="currentTabIndex=1">Preview & Code</button>
+                        <!-- <button class="tablinks" [ngClass]="{'active':currentTabIndex ==2}" (click)="currentTabIndex=2">Code</button> -->
+                    </div>
+                    <div class="tabcontent" [hidden]="currentTabIndex !=0">
+                        <table>
+                            <tr>
+                                <th>Directive</th>
+                                <th>Description</th>
+                                <th>Allowed Values</th>
+                            </tr>
+                            <tr>
+                                <td> <code>textColor</code> </td>
+                                <td> sets the color of the font </td>
+                                <td> Any Valid css color value and ngw theme color<br/><small class="text-muted">(e.g. red, rgb(234,234,123), #eee, #0d6efd, primary, error-300)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>hover.textColor</code> </td>
+                                <td> sets the color of the font on hover </td>
+                                <td> Any Valid css color value and ngw theme color<br/><small class="text-muted">(e.g. red, rgb(234,234,123), #eee, #0d6efd, primary, error-300)</small></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="tabcontent" [hidden]="currentTabIndex !=1">
+                        <!-- preview section -->
+                        <div row>
+                            <div col="50%">
+                                <code>textColor</code>
+                                <p fontSize="20px" textColor="primary">Primary Color Text</p>
+                            </div>
+                            <div col="50%">
+                                <code>hover.textColor</code>
+                                <p fontSize="20px" textColor="secondary" hover.textColor="teal">Secondary Color Text and will change to teal on hover</p>
+                            </div>
+                        </div>
+                        <!-- code section -->
+                        <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
+                            {{codeSnippet[currentCompIndex]}}
+                        </pre>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- width -->
+            <div *ngIf="currentCompIndex == 14">
+                <h3 class="mt-4"> <code>width</code>, <code>hover.width</code> </h3>
+                <p>sets the width of an element.</p>
+                <!-- tabs -->
+                <div margin="auto" width="80%">
+                    <div class="tab">
+                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==0}" (click)="currentTabIndex=0">API</button>
+                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==1}" (click)="currentTabIndex=1">Preview & Code</button>
+                        <!-- <button class="tablinks" [ngClass]="{'active':currentTabIndex ==2}" (click)="currentTabIndex=2">Code</button> -->
+                    </div>
+                    <div class="tabcontent" [hidden]="currentTabIndex !=0">
+                        <table>
+                            <tr>
+                                <th>Directive</th>
+                                <th>Description</th>
+                                <th>Allowed Values</th>
+                            </tr>
+                            <tr>
+                                <td> <code>width</code> </td>
+                                <td> sets the width of an element </td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>hover.width</code> </td>
+                                <td>sets the width of an element on hover </td>
+                                <td> Any Valid css length property<br/><small class="text-muted">(e.g. 2px, 0.2em)</small></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="tabcontent" [hidden]="currentTabIndex !=1">
+                        <!-- preview section -->
+                        <div row>
+
+                            <div col="50%">
+                                <code>height</code>
+                                <div height="120px" width="120px" border="1px solid" margin="30px">
+                                    width = 120px
+                                </div>
+                            </div>
+
+                            <div col="50%">
+                                <code>hover.width</code>
+                                <div height="120px" hover.width="200px" width="120px" border="1px solid" margin="30px">
+                                    width = 120px hover = 200px
+                                </div>
+                            </div>
+                        </div>
+                        <!-- code section -->
+                        <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
+                            {{codeSnippet[currentCompIndex]}}
+                        </pre>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
         </div>
     </div>
 </div>

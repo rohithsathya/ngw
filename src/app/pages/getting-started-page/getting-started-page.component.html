@@ -1,28 +1,31 @@
 <div class="container" style="max-width: 720px;padding-top: 32px;">
     <h3>Getting Started with NGW</h3>
     <p>
-        This guide explains how to set up your Angular project to begin using Angular Material. It includes information on prerequisites, installing Angular Material, and optionally displaying a sample material component in your application to verify your setup.
+        This guide explains how to set up your Angular project to begin using <code>Ngw</code>. It includes information on installing and importing <code>Ngw</code> to your Angular Application.
     </p>
 
-    <h5>Install NGW</h5>
+    <h5>Install <code>Ngw</code></h5>
     <p>
-        Use the Angular CLI's installation schematic to set up your Angular Material project by running the following command:
+        <code>Ngw</code> Comes has a npm package so you can start installing <code>Ngw</code> by running following command :
+    </p>
+    <p padding="10px" radius="3px" border="1px solid #ccc">
+        <code>npm i ngw-core --save</code>
     </p>
     <p>
-        <code>npm i ngw-core --save</code>
+        The above command installs <code>Ngw</code> and adds it has a dependency to your application.
     </p>
 
     <h5>Use Ngw</h5>
     <p>
-        Let's display a slider component in your app and verify that everything works. You need to import the MatSliderModule that you want to display by adding the following lines to your <code>app.module.ts</code> file.
+        To start using ngw in your angular application, you need to import it to your <code>app.module.ts</code> as shown in below snippet
     </p>
-
-
     <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColor="white">
             {{codeSnippet}}
     </pre>
 
-    <p></p>
+    <p>
+        P.S - Optionally you can pass the config object to <code>ngw</code> import, which will help customize and theme <code>ngw</code>. Refer <a ngwBtn="link" padding="10px 0px 0px 0px" routerLink="/theme">theme</a> section for more information.
+    </p>
 
 
 

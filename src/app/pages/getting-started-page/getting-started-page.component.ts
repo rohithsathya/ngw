@@ -13,8 +13,7 @@ export class GettingStartedPageComponent implements OnInit {
     declarations: [...],
     imports: [
       ...
-      //pass the config obj json here
-      NgwCoreModule.configure({{"colors":{"default":{...}}..)
+      NgwCoreModule
     ],
     providers: [],
     bootstrap: [AppComponent]
