@@ -2,8 +2,8 @@
     <!-- Sidebar-->
     <div class="border-end bg-white ngw-sd-sidebar-wrapper">
         <div class="sidebar-heading border-bottom bg-light">NGW Core</div>
-        <div class="list-group list-group-flush">
-            <div class="list-group-item list-group-item-action list-group-item-light p-3" [ngClass]="{'sidebar-active':currentCompIndex == i}" style="cursor: pointer;" (click)="showDetails(c,i)" *ngFor="let c of coreComps;index as i;">{{c.name}}</div>
+        <div class="list-group list-group-flush" style="max-height: 100vh;overflow-y: auto;">
+            <div class="list-group-item list-group-item-action list-group-item-light p-3" [ngClass]="{'sidebar-active':currentCompIndex == i}" style="cursor: pointer;" (click)="showDetails(i)" *ngFor="let c of coreComps;index as i;">{{c.name}}</div>
         </div>
     </div>
     <!-- Page content wrapper-->
@@ -997,7 +997,202 @@
 
             </div>
 
+            <!--Algin  -->
+            <div *ngIf="currentCompIndex == 15">
+                <h3 class="mt-4"> <code>align</code> </h3>
+                <p>Aligns children elements in a specified way</p>
+                <!-- tabs -->
+                <div margin="auto" width="80%">
+                    <div class="tab">
+                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==0}" (click)="currentTabIndex=0">API</button>
+                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==1}" (click)="currentTabIndex=1">Preview & Code</button>
+                        <!-- <button class="tablinks" [ngClass]="{'active':currentTabIndex ==2}" (click)="currentTabIndex=2">Code</button> -->
+                    </div>
+                    <div class="tabcontent" [hidden]="currentTabIndex !=0">
+                        <table>
+                            <tr>
+                                <th>Directive</th>
+                                <th>Description</th>
+                                <th>Allowed Values</th>
+                            </tr>
+                            <tr>
+                                <td> <code>align</code> </td>
+                                <td> Aligns children elements in a specified way </td>
+                                <td> topleft,topcenter,topright,centerleft,centercenter,centerright,bottomleft,bottomcenter,bottomright</td>
+                            </tr>
+                            <tr>
+                                <td> <code>align.x</code> </td>
+                                <td>Align children elements on x (horizontal) axis.</td>
+                                <td> left,center,right</td>
+                            </tr>
+                            <tr>
+                                <td> <code>align.y</code> </td>
+                                <td>Align elements on Y (vertical) axis.</td>
+                                <td> left,center,right</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="tabcontent" [hidden]="currentTabIndex !=1">
+                        <!-- preview section -->
+                        <div row>
 
+                            <div col="33%">
+                                <code>align</code>
+                                <div height="120px" width="120px" border="1px solid" margin="30px" align="topcenter">
+                                    <div height="30px" width="30px" bgColor="pink">TC</div>
+                                </div>
+                                <div height="120px" width="120px" border="1px solid" margin="30px" align="centerright">
+                                    <div height="30px" width="30px" bgColor="pink">CR</div>
+                                </div>
+                                <div height="120px" width="120px" border="1px solid" margin="30px" align="bottomleft">
+                                    <div height="30px" width="30px" bgColor="pink">BL</div>
+                                </div>
+                            </div>
+
+                            <div col="33%">
+                                <code>align.x</code>
+                                <div height="120px" width="120px" border="1px solid" margin="30px" align.x="left">
+                                    <div height="30px" width="30px" bgColor="pink">L</div>
+                                </div>
+                                <div height="120px" width="120px" border="1px solid" margin="30px" align.x="center">
+                                    <div height="30px" width="30px" bgColor="pink">C</div>
+                                </div>
+                                <div height="120px" width="120px" border="1px solid" margin="30px" align.x="right">
+                                    <div height="30px" width="30px" bgColor="pink">R</div>
+                                </div>
+                            </div>
+
+                            <div col="fill">
+                                <code>align.x</code>
+                                <div height="120px" width="120px" border="1px solid" margin="30px" align.y="top">
+                                    <div height="30px" width="30px" bgColor="pink">T</div>
+                                </div>
+                                <div height="120px" width="120px" border="1px solid" margin="30px" align.y="center">
+                                    <div height="30px" width="30px" bgColor="pink">C</div>
+                                </div>
+                                <div height="120px" width="120px" border="1px solid" margin="30px" align.y="bottom">
+                                    <div height="30px" width="30px" bgColor="pink">B</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- code section -->
+                        <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
+                            {{codeSnippet[currentCompIndex]}}
+                        </pre>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Row -->
+            <div *ngIf="currentCompIndex == 16">
+                <h3 class="mt-4"> <code>row</code> </h3>
+                <p>Top Level layout element.Rows are horizontal components of the grid system and contain varying numbers of columns. They ensure the columns are positioned properly.</p>
+                <!-- tabs -->
+                <div margin="auto" width="80%">
+                    <div class="tab">
+                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==0}" (click)="currentTabIndex=0">API</button>
+                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==1}" (click)="currentTabIndex=1">Preview & Code</button>
+                        <!-- <button class="tablinks" [ngClass]="{'active':currentTabIndex ==2}" (click)="currentTabIndex=2">Code</button> -->
+                    </div>
+                    <div class="tabcontent" [hidden]="currentTabIndex !=0">
+                        <table>
+                            <tr>
+                                <th>Directive</th>
+                                <th>Description</th>
+                                <th>Allowed Values</th>
+                            </tr>
+                            <tr>
+                                <td> <code>row</code> </td>
+                                <td> Top Level layout element </td>
+                                <td> None, no value is required</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="tabcontent" [hidden]="currentTabIndex !=1">
+                        <!-- preview section -->
+                        <div>
+                            <code>row</code>
+                            <div height="120px" row border="1px solid" margin="30px">
+                                Row
+                            </div>
+                        </div>
+                        <!-- code section -->
+                        <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
+                            {{codeSnippet[currentCompIndex]}}
+                        </pre>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Col -->
+            <div *ngIf="currentCompIndex == 17">
+                <h3 class="mt-4"> <code>col</code>, <code>col.lg</code>,<code>col.md</code>,<code>col.sm</code> </h3>
+                <p>Columns are cellular components of the grid system and go inside of a row. They will expand to fill their row.</p>
+                <!-- tabs -->
+                <div margin="auto" width="80%">
+                    <div class="tab">
+                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==0}" (click)="currentTabIndex=0">API</button>
+                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==1}" (click)="currentTabIndex=1">Preview & Code</button>
+                        <!-- <button class="tablinks" [ngClass]="{'active':currentTabIndex ==2}" (click)="currentTabIndex=2">Code</button> -->
+                    </div>
+                    <div class="tabcontent" [hidden]="currentTabIndex !=0">
+                        <table>
+                            <tr>
+                                <th>Directive</th>
+                                <th>Description</th>
+                                <th>Allowed Values</th>
+                            </tr>
+                            <tr>
+                                <td> <code>col</code> </td>
+                                <td> Sets the width of the column, it will be overridden if specific viewport width is mentioned. </td>
+                                <td> % value between 0 and 100% and fill<br/><small class="text-muted">(e.g. 30%, 50%, 70%, fill)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>col.lg</code> </td>
+                                <td>sets the width of column in larger viewport (Laptop,desktop) </td>
+                                <td> % value between 0 and 100% and fill<br/><small class="text-muted">(e.g. 30%, 50%, 70%, fill)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>col.md</code> </td>
+                                <td>sets the width of column in Medium viewport (tablets) </td>
+                                <td> % value between 0 and 100% and fill<br/><small class="text-muted">(e.g. 30%, 50%, 70%, fill)</small></td>
+                            </tr>
+                            <tr>
+                                <td> <code>col.sm</code> </td>
+                                <td>sets the width of column in smaller viewport (mobile) </td>
+                                <td> % value between 0 and 100% and fill<br/><small class="text-muted">(e.g. 30%, 50%, 70%, fill)</small></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="tabcontent" [hidden]="currentTabIndex !=1">
+                        <!-- preview section -->
+                        <div>
+                            <code>col</code>
+                            <div height="120px" row border="1px solid" margin="30px" padding="5px">
+                                <div col.lg="33%" col.md="50%" col.sm="100%" bgColor="primary">
+                                    33-50-100
+                                </div>
+                                <div col.lg="33%" col.md="50%" col.sm="100%" bgColor="secondary">
+                                    33-50-100
+                                </div>
+                                <div col.lg="fill" col.md="50%" col.sm="100%" bgColor="warning">
+                                    fill-50-100
+                                </div>
+                            </div>
+                        </div>
+                        <!-- code section -->
+                        <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
+                            {{codeSnippet[currentCompIndex]}}
+                        </pre>
+
+                    </div>
+                </div>
+
+            </div>
 
 
         </div>

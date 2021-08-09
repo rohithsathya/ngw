@@ -1,17 +1,19 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewChecked, Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+declare var PR;
 
 @Component({
   selector: 'app-core-page',
   templateUrl: './core-page.component.html',
   styleUrls: ['./core-page.component.scss']
 })
-export class CorePageComponent implements OnInit {
+export class CorePageComponent implements OnInit,AfterViewChecked {
 
   currentTabIndex:number = 0;
   coreComps: any[] = [
-    { 'name': 'Bg Color', 'desc': 'ngForOf directive is generally used in the shorthand 1' },
-    { 'name': 'Border', 'desc': 'ngForOf directive is generally used in the shorthand 2' }, 
-    { 'name': 'Ellipsis', 'desc': 'ngForOf directive is generally used in the shorthand 3' },
+    {'name': 'Bg Color', 'desc': 'ngForOf directive is generally used in the shorthand 1' },
+    {'name': 'Border', 'desc': 'ngForOf directive is generally used in the shorthand 2' }, 
+    {'name': 'Ellipsis', 'desc': 'ngForOf directive is generally used in the shorthand 3' },
     {'name':'Fit','desc':'ngForOf directive is generally used in the shorthand 4'},
     {'name':'Font Size','desc':'ngForOf directive is generally used in the shorthand 5'},
     {'name':'Font Weight','desc':'ngForOf directive is generally used in the shorthand 6'},
@@ -23,7 +25,10 @@ export class CorePageComponent implements OnInit {
     {'name':'Radius','desc':''},
     {'name':'Shadow','desc':''},
     {'name':'Text Color','desc':''},
-    {'name':'Width','desc':''}
+    {'name':'Width','desc':''},
+    {'name':'Align','desc':'ngForOf directive is generally used in the shorthand 4'},
+    {'name':'Row','desc':'ngForOf directive is generally used in the shorthand 5'},
+    {'name':'Column','desc':'ngForOf directive is generally used in the shorthand 6'},
   ];
   currentCompIndex:number = 0;
   currentComp:any = this.coreComps[this.currentCompIndex];
@@ -119,27 +124,54 @@ export class CorePageComponent implements OnInit {
     <div height="120px" hover.width="200px" width="120px" border="1px solid" margin="30px">
       width = 120px hover = 200px
     </div>
+    `,
     `
-
-
-
-
+    <div height="120px" width="120px" border="1px solid" margin="30px" align="topcenter">
+      <div height="30px" width="30px" bgColor="pink">TC</div>
+    </div>
+    <div height="120px" width="120px" border="1px solid" margin="30px" align.x="center">
+      <div height="30px" width="30px" bgColor="pink">C</div>
+    </div>
+    <div height="120px" width="120px" border="1px solid" margin="30px" align.y="bottom">
+      <div height="30px" width="30px" bgColor="pink">B</div>
+    </div>
+    `,
+    `
+    <div row height="120px>
+      Row
+    </div>
+    `,
+    `
+    <div height="120px" row border="1px solid" margin="30px" padding="5px">
+      <div col.lg="33%" col.md="50%" col.sm="100%" bgColor="primary">
+          33-50-100
+      </div>
+      <div col.lg="33%" col.md="50%" col.sm="100%" bgColor="secondary">
+          33-50-100
+      </div>
+      <div col.lg="fill" col.md="50%" col.sm="100%" bgColor="warning">
+          fill-50-100
+      </div>
+    </div>
+    `
   ];
-
-  
-  constructor() { }
+  constructor( private route: ActivatedRoute,private router: Router) { }
+  ngAfterViewChecked(){
+    PR.prettyPrint();
+  }
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.currentCompIndex = params['index'] ? params['index'] : 0;
+      this.currentTabIndex = 0; //reset tab also
+    });
+
   }
   toggleSideBar() {
     document.body.classList.toggle('sb-sidenav-toggled');
   }
-  showDetails(comp,i){
-    console.log("PHmG123DG1233...!!!");
-    console.log(comp,i);
-    this.currentCompIndex = i;
-    this.currentComp = this.coreComps[i];
-
+  showDetails(i){
+    this.router.navigate(["/core"],{queryParams:{'index':i}});
   }
 
 }

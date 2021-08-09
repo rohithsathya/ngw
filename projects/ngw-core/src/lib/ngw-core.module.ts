@@ -393,6 +393,7 @@ export class NgwCoreModule {
           background-color: transparent;
           box-shadow: none;
           border-color: transparent;
+          vertical-align: baseline;
       }
 
       .ngw-btn-link:hover {
