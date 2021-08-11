@@ -1,8 +1,8 @@
-<div class="d-flex ngw-sd-wrapper">
+<div class="d-flex ngw-sd-wrapper" style="height: calc(100vh - 106px);">
     <!-- Sidebar-->
-    <div class="border-end bg-white ngw-sd-sidebar-wrapper">
+    <div class="border-end bg-white ngw-sd-sidebar-wrapper" style="min-height: calc(100vh - 240px);">
         <div class="sidebar-heading border-bottom bg-light">NGW Core</div>
-        <div class="list-group list-group-flush" style="max-height: 100vh;overflow-y: auto;">
+        <div class="list-group list-group-flush" style="height: calc(100vh - 165px);    overflow: auto;">
             <div class="list-group-item list-group-item-action list-group-item-light p-3" [ngClass]="{'sidebar-active':currentCompIndex == i}" style="cursor: pointer;" (click)="showDetails(i)" *ngFor="let c of coreComps;index as i;">{{c.name}}</div>
         </div>
     </div>
@@ -11,11 +11,16 @@
         <!-- Top navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
             <div class="container-fluid">
-                <button class="btn btn-default" id="sidebarToggle" (click)="toggleSideBar()"><span class="navbar-toggler-icon"></span></button>
+                <div>
+                    <button class="btn btn-default" id="sidebarToggle" (click)="toggleSideBar()"><span class="navbar-toggler-icon"></span></button>
+                    <h6 style="display: inline-block;" margin="0px"> {{coreComps[currentCompIndex]?.name}} </h6>
+                </div>
+
+
             </div>
         </nav>
         <!-- Page content-->
-        <div class="container-fluid">
+        <div class="container-fluid" style="max-height: calc(100vh - 165px);overflow: auto;">
 
             <!-- bg-color -->
             <div *ngIf="currentCompIndex == 0">
@@ -23,12 +28,8 @@
                 <p>Directive used for applying background color for a given element</p>
                 <!-- tabs -->
                 <div margin="auto" width="80%">
-                    <div class="tab">
-                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==0}" (click)="currentTabIndex=0">API</button>
-                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==1}" (click)="currentTabIndex=1">Preview & Code</button>
-                        <!-- <button class="tablinks" [ngClass]="{'active':currentTabIndex ==2}" (click)="currentTabIndex=2">Code</button> -->
-                    </div>
-                    <div class="tabcontent" [hidden]="currentTabIndex !=0">
+
+                    <div class="tabcontent">
                         <table>
                             <tr>
                                 <th>Directive</th>
@@ -47,7 +48,7 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="tabcontent" [hidden]="currentTabIndex !=1">
+                    <div class="tabcontent">
                         <!-- preview section -->
                         <div row>
                             <div col="50%">
@@ -71,16 +72,12 @@
 
             <!-- Border-color -->
             <div *ngIf="currentCompIndex == 1">
-                <h3 class="mt-4"> <code>border</code>, <code>hover.border</code> </h3>
+                <h3> <code>border</code>, <code>hover.border</code> </h3>
                 <p>Directive used for applying border for a given element</p>
                 <!-- tabs -->
                 <div margin="auto" width="80%">
-                    <div class="tab">
-                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==0}" (click)="currentTabIndex=0">API</button>
-                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==1}" (click)="currentTabIndex=1">Preview & Code</button>
-                        <!-- <button class="tablinks" [ngClass]="{'active':currentTabIndex ==2}" (click)="currentTabIndex=2">Code</button> -->
-                    </div>
-                    <div class="tabcontent" [hidden]="currentTabIndex !=0">
+
+                    <div class="tabcontent">
                         <table>
                             <tr>
                                 <th>Directive</th>
@@ -130,7 +127,7 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="tabcontent" [hidden]="currentTabIndex !=1">
+                    <div class="tabcontent">
                         <!-- preview section -->
                         <div row>
                             <div col="50%">
@@ -154,16 +151,12 @@
 
             <!-- ellipsis -->
             <div *ngIf="currentCompIndex == 2">
-                <h3 class="mt-4"> <code>ellipsis</code></h3>
+                <h3> <code>ellipsis</code></h3>
                 <p>To add ellipsis(...) behavior to text</p>
                 <!-- tabs -->
                 <div margin="auto" width="80%">
-                    <div class="tab">
-                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==0}" (click)="currentTabIndex=0">API</button>
-                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==1}" (click)="currentTabIndex=1">Preview & Code</button>
-                        <!-- <button class="tablinks" [ngClass]="{'active':currentTabIndex ==2}" (click)="currentTabIndex=2">Code</button> -->
-                    </div>
-                    <div class="tabcontent" [hidden]="currentTabIndex !=0">
+
+                    <div class="tabcontent">
                         <table>
                             <tr>
                                 <th>Directive</th>
@@ -177,7 +170,7 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="tabcontent" [hidden]="currentTabIndex !=1">
+                    <div class="tabcontent">
                         <!-- preview section -->
                         <div row>
                             <div col="100%">
@@ -204,11 +197,8 @@
                 <p>used to specify how an <code>img</code> should be resized to fit its container.</p>
                 <!-- tabs -->
                 <div margin="auto" width="80%">
-                    <div class="tab">
-                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==0}" (click)="currentTabIndex=0">API</button>
-                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==1}" (click)="currentTabIndex=1">Preview & Code</button>
-                    </div>
-                    <div class="tabcontent" [hidden]="currentTabIndex !=0">
+
+                    <div class="tabcontent">
                         <table>
                             <tr>
                                 <th>Directive</th>
@@ -222,7 +212,7 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="tabcontent" [hidden]="currentTabIndex !=1">
+                    <div class="tabcontent">
                         <!-- preview section -->
                         <div><code>fit</code></div>
                         <div row margin.y="10px">
@@ -246,12 +236,8 @@
                 <p>used for setting the size of a font.</p>
                 <!-- tabs -->
                 <div margin="auto" width="80%">
-                    <div class="tab">
-                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==0}" (click)="currentTabIndex=0">API</button>
-                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==1}" (click)="currentTabIndex=1">Preview & Code</button>
-                        <!-- <button class="tablinks" [ngClass]="{'active':currentTabIndex ==2}" (click)="currentTabIndex=2">Code</button> -->
-                    </div>
-                    <div class="tabcontent" [hidden]="currentTabIndex !=0">
+
+                    <div class="tabcontent">
                         <table>
                             <tr>
                                 <th>Directive</th>
@@ -270,7 +256,7 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="tabcontent" [hidden]="currentTabIndex !=1">
+                    <div class="tabcontent">
                         <!-- preview section -->
                         <div row>
                             <div col="50%">
@@ -298,12 +284,7 @@
                 <p>sets how thick or thin characters in text should be displayed.</p>
                 <!-- tabs -->
                 <div margin="auto" width="80%">
-                    <div class="tab">
-                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==0}" (click)="currentTabIndex=0">API</button>
-                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==1}" (click)="currentTabIndex=1">Preview & Code</button>
-                        <!-- <button class="tablinks" [ngClass]="{'active':currentTabIndex ==2}" (click)="currentTabIndex=2">Code</button> -->
-                    </div>
-                    <div class="tabcontent" [hidden]="currentTabIndex !=0">
+                    <div class="tabcontent">
                         <table>
                             <tr>
                                 <th>Directive</th>
@@ -322,7 +303,7 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="tabcontent" [hidden]="currentTabIndex !=1">
+                    <div class="tabcontent">
                         <!-- preview section -->
                         <div row>
                             <div col="50%">
@@ -350,12 +331,8 @@
                 <p>To add Gradient Background color to elements</p>
                 <!-- tabs -->
                 <div margin="auto" width="80%">
-                    <div class="tab">
-                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==0}" (click)="currentTabIndex=0">API</button>
-                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==1}" (click)="currentTabIndex=1">Preview & Code</button>
-                        <!-- <button class="tablinks" [ngClass]="{'active':currentTabIndex ==2}" (click)="currentTabIndex=2">Code</button> -->
-                    </div>
-                    <div class="tabcontent" [hidden]="currentTabIndex !=0">
+
+                    <div class="tabcontent">
                         <table>
                             <tr>
                                 <th>Directive</th>
@@ -369,7 +346,7 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="tabcontent" [hidden]="currentTabIndex !=1">
+                    <div class="tabcontent">
                         <!-- preview section -->
                         <div row>
                             <div col="100%">
@@ -393,12 +370,7 @@
                 <p>sets the height of an element.</p>
                 <!-- tabs -->
                 <div margin="auto" width="80%">
-                    <div class="tab">
-                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==0}" (click)="currentTabIndex=0">API</button>
-                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==1}" (click)="currentTabIndex=1">Preview & Code</button>
-                        <!-- <button class="tablinks" [ngClass]="{'active':currentTabIndex ==2}" (click)="currentTabIndex=2">Code</button> -->
-                    </div>
-                    <div class="tabcontent" [hidden]="currentTabIndex !=0">
+                    <div class="tabcontent">
                         <table>
                             <tr>
                                 <th>Directive</th>
@@ -417,7 +389,7 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="tabcontent" [hidden]="currentTabIndex !=1">
+                    <div class="tabcontent">
                         <!-- preview section -->
                         <div row>
 
@@ -451,12 +423,7 @@
                 <p>sets margin i.e. to create space around elements, outside of any defined borders.</p>
                 <!-- tabs -->
                 <div margin="auto" width="80%">
-                    <div class="tab">
-                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==0}" (click)="currentTabIndex=0">API</button>
-                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==1}" (click)="currentTabIndex=1">Preview & Code</button>
-                        <!-- <button class="tablinks" [ngClass]="{'active':currentTabIndex ==2}" (click)="currentTabIndex=2">Code</button> -->
-                    </div>
-                    <div class="tabcontent" [hidden]="currentTabIndex !=0">
+                    <div class="tabcontent">
                         <table>
                             <tr>
                                 <th>Directive</th>
@@ -537,7 +504,7 @@
 
                         </table>
                     </div>
-                    <div class="tabcontent" [hidden]="currentTabIndex !=1">
+                    <div class="tabcontent">
                         <!-- preview section -->
                         <div row>
 
@@ -577,12 +544,7 @@
                 <p>sets padding i.e. to create space around elements, outside of any defined borders.</p>
                 <!-- tabs -->
                 <div margin="auto" width="80%">
-                    <div class="tab">
-                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==0}" (click)="currentTabIndex=0">API</button>
-                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==1}" (click)="currentTabIndex=1">Preview & Code</button>
-                        <!-- <button class="tablinks" [ngClass]="{'active':currentTabIndex ==2}" (click)="currentTabIndex=2">Code</button> -->
-                    </div>
-                    <div class="tabcontent" [hidden]="currentTabIndex !=0">
+                    <div class="tabcontent">
                         <table>
                             <tr>
                                 <th>Directive</th>
@@ -663,7 +625,7 @@
 
                         </table>
                     </div>
-                    <div class="tabcontent" [hidden]="currentTabIndex !=1">
+                    <div class="tabcontent">
                         <!-- preview section -->
                         <div row>
 
@@ -701,11 +663,7 @@
                 <p>specifies the type of positioning method used for an element.</p>
                 <!-- tabs -->
                 <div margin="auto" width="80%">
-                    <div class="tab">
-                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==0}" (click)="currentTabIndex=0">API</button>
-                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==1}" (click)="currentTabIndex=1">Preview & Code</button>
-                    </div>
-                    <div class="tabcontent" [hidden]="currentTabIndex !=0">
+                    <div class="tabcontent">
                         <table>
                             <tr>
                                 <th>Directive</th>
@@ -719,7 +677,7 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="tabcontent" [hidden]="currentTabIndex !=1">
+                    <div class="tabcontent">
                         <!-- preview section -->
                         <div><code>position</code></div>
                         <div row margin.y="10px" position="relative" height="200px" border="1px solid">
@@ -743,12 +701,7 @@
                 <p>defines the radius of the element's corners.</p>
                 <!-- tabs -->
                 <div margin="auto" width="80%">
-                    <div class="tab">
-                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==0}" (click)="currentTabIndex=0">API</button>
-                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==1}" (click)="currentTabIndex=1">Preview & Code</button>
-                        <!-- <button class="tablinks" [ngClass]="{'active':currentTabIndex ==2}" (click)="currentTabIndex=2">Code</button> -->
-                    </div>
-                    <div class="tabcontent" [hidden]="currentTabIndex !=0">
+                    <div class="tabcontent">
                         <table>
                             <tr>
                                 <th>Directive</th>
@@ -808,7 +761,7 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="tabcontent" [hidden]="currentTabIndex !=1">
+                    <div class="tabcontent">
                         <!-- preview section -->
                         <div row>
                             <div col="50%">
@@ -841,12 +794,7 @@
                 <p>Attaches one or more shadows to an element.</p>
                 <!-- tabs -->
                 <div margin="auto" width="80%">
-                    <div class="tab">
-                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==0}" (click)="currentTabIndex=0">API</button>
-                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==1}" (click)="currentTabIndex=1">Preview & Code</button>
-                        <!-- <button class="tablinks" [ngClass]="{'active':currentTabIndex ==2}" (click)="currentTabIndex=2">Code</button> -->
-                    </div>
-                    <div class="tabcontent" [hidden]="currentTabIndex !=0">
+                    <div class="tabcontent">
                         <table>
                             <tr>
                                 <th>Directive</th>
@@ -865,7 +813,7 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="tabcontent" [hidden]="currentTabIndex !=1">
+                    <div class="tabcontent">
                         <!-- preview section -->
                         <div row>
                             <div col="50%">
@@ -893,12 +841,7 @@
                 <p>used for setting the color of text.</p>
                 <!-- tabs -->
                 <div margin="auto" width="80%">
-                    <div class="tab">
-                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==0}" (click)="currentTabIndex=0">API</button>
-                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==1}" (click)="currentTabIndex=1">Preview & Code</button>
-                        <!-- <button class="tablinks" [ngClass]="{'active':currentTabIndex ==2}" (click)="currentTabIndex=2">Code</button> -->
-                    </div>
-                    <div class="tabcontent" [hidden]="currentTabIndex !=0">
+                    <div class="tabcontent">
                         <table>
                             <tr>
                                 <th>Directive</th>
@@ -917,7 +860,7 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="tabcontent" [hidden]="currentTabIndex !=1">
+                    <div class="tabcontent">
                         <!-- preview section -->
                         <div row>
                             <div col="50%">
@@ -945,12 +888,7 @@
                 <p>sets the width of an element.</p>
                 <!-- tabs -->
                 <div margin="auto" width="80%">
-                    <div class="tab">
-                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==0}" (click)="currentTabIndex=0">API</button>
-                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==1}" (click)="currentTabIndex=1">Preview & Code</button>
-                        <!-- <button class="tablinks" [ngClass]="{'active':currentTabIndex ==2}" (click)="currentTabIndex=2">Code</button> -->
-                    </div>
-                    <div class="tabcontent" [hidden]="currentTabIndex !=0">
+                    <div class="tabcontent">
                         <table>
                             <tr>
                                 <th>Directive</th>
@@ -969,7 +907,7 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="tabcontent" [hidden]="currentTabIndex !=1">
+                    <div class="tabcontent">
                         <!-- preview section -->
                         <div row>
 
@@ -1003,12 +941,7 @@
                 <p>Aligns children elements in a specified way</p>
                 <!-- tabs -->
                 <div margin="auto" width="80%">
-                    <div class="tab">
-                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==0}" (click)="currentTabIndex=0">API</button>
-                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==1}" (click)="currentTabIndex=1">Preview & Code</button>
-                        <!-- <button class="tablinks" [ngClass]="{'active':currentTabIndex ==2}" (click)="currentTabIndex=2">Code</button> -->
-                    </div>
-                    <div class="tabcontent" [hidden]="currentTabIndex !=0">
+                    <div class="tabcontent">
                         <table>
                             <tr>
                                 <th>Directive</th>
@@ -1032,7 +965,7 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="tabcontent" [hidden]="currentTabIndex !=1">
+                    <div class="tabcontent">
                         <!-- preview section -->
                         <div row>
 
@@ -1091,12 +1024,7 @@
                 <p>Top Level layout element.Rows are horizontal components of the grid system and contain varying numbers of columns. They ensure the columns are positioned properly.</p>
                 <!-- tabs -->
                 <div margin="auto" width="80%">
-                    <div class="tab">
-                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==0}" (click)="currentTabIndex=0">API</button>
-                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==1}" (click)="currentTabIndex=1">Preview & Code</button>
-                        <!-- <button class="tablinks" [ngClass]="{'active':currentTabIndex ==2}" (click)="currentTabIndex=2">Code</button> -->
-                    </div>
-                    <div class="tabcontent" [hidden]="currentTabIndex !=0">
+                    <div class="tabcontent">
                         <table>
                             <tr>
                                 <th>Directive</th>
@@ -1110,7 +1038,7 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="tabcontent" [hidden]="currentTabIndex !=1">
+                    <div class="tabcontent">
                         <!-- preview section -->
                         <div>
                             <code>row</code>
@@ -1134,12 +1062,7 @@
                 <p>Columns are cellular components of the grid system and go inside of a row. They will expand to fill their row.</p>
                 <!-- tabs -->
                 <div margin="auto" width="80%">
-                    <div class="tab">
-                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==0}" (click)="currentTabIndex=0">API</button>
-                        <button class="tablinks" [ngClass]="{'active':currentTabIndex ==1}" (click)="currentTabIndex=1">Preview & Code</button>
-                        <!-- <button class="tablinks" [ngClass]="{'active':currentTabIndex ==2}" (click)="currentTabIndex=2">Code</button> -->
-                    </div>
-                    <div class="tabcontent" [hidden]="currentTabIndex !=0">
+                    <div class="tabcontent">
                         <table>
                             <tr>
                                 <th>Directive</th>
@@ -1168,7 +1091,7 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="tabcontent" [hidden]="currentTabIndex !=1">
+                    <div class="tabcontent">
                         <!-- preview section -->
                         <div>
                             <code>col</code>

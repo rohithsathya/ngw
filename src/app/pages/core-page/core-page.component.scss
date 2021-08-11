@@ -49,3 +49,17 @@ th {
 tr:nth-child(even) {
     // background-color: #ddd;
 }
+
+.sec2 {
+    height: calc(100vh - 140px);
+    min-height: calc(100vh - 140px);
+    max-height: calc(100vh - 140px);
+    overflow: auto;
+}
+
+.sec3 {
+    height: calc(100vh - 240px);
+    min-height: calc(100vh - 240px);
+    max-height: calc(100vh - 240px);
+    overflow: auto;
+}

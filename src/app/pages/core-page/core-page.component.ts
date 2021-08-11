@@ -8,8 +8,6 @@ declare var PR;
   styleUrls: ['./core-page.component.scss']
 })
 export class CorePageComponent implements OnInit,AfterViewChecked {
-
-  currentTabIndex:number = 0;
   coreComps: any[] = [
     {'name': 'Bg Color', 'desc': 'ngForOf directive is generally used in the shorthand 1' },
     {'name': 'Border', 'desc': 'ngForOf directive is generally used in the shorthand 2' }, 
@@ -163,7 +161,6 @@ export class CorePageComponent implements OnInit,AfterViewChecked {
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.currentCompIndex = params['index'] ? params['index'] : 0;
-      this.currentTabIndex = 0; //reset tab also
     });
 
   }
