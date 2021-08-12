@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewChecked, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import * as Chroma from 'chroma-js';
 import { PreviewService } from 'src/app/services/preview.service';
-
+declare var PR;
 @Component({
   selector: 'app-theme-page',
   templateUrl: './theme-page.component.html',
   styleUrls: ['./theme-page.component.scss']
 })
-export class ThemePageComponent implements OnInit {
+export class ThemePageComponent implements OnInit,AfterViewChecked {
 
   colors = {
     "default" :{
@@ -143,12 +144,17 @@ export class ThemePageComponent implements OnInit {
   })
   export class AppModule { }
   `;
-
-
-  constructor(private previewService:PreviewService) { }
-
+  @ViewChild('pageContainer') pageContainer:ElementRef;
+  currentIndex:number = 0;
+  constructor(private previewService:PreviewService,private route: ActivatedRoute,private router: Router) { }
+  ngAfterViewChecked(){
+    PR.prettyPrint();
+  }
   ngOnInit(): void {
     this.generateColors(); 
+    this.route.queryParams.subscribe(params => {
+      this.currentIndex = params['index'] ? params['index'] : 0;
+    });
   }
   mainColorChange(){
     this.generateColors();
@@ -244,6 +250,11 @@ export class ThemePageComponent implements OnInit {
     return darker > 0.1 ? Chroma(hue,saturation,darker,'hsl').hex('rgb') : false;
   }
 
+  showTabDetails(i){
+    // this.pageContainer.nativeElement.scrollTop = 0;
+    this.currentIndex = i;
+    this.router.navigate(["/theme"],{queryParams:{'index':i}});
+  }
 
  
 

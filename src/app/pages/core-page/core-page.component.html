@@ -2,7 +2,7 @@
     <!-- Sidebar-->
     <div class="border-end bg-white ngw-sd-sidebar-wrapper" style="min-height: calc(100vh - 240px);">
         <div class="sidebar-heading border-bottom bg-light">NGW Core</div>
-        <div class="list-group list-group-flush" style="height: calc(100vh - 165px);    overflow: auto;">
+        <div class="list-group list-group-flush" style="height: calc(100vh - 170px);overflow: auto;">
             <div class="list-group-item list-group-item-action list-group-item-light p-3" [ngClass]="{'sidebar-active':currentCompIndex == i}" style="cursor: pointer;" (click)="showDetails(i)" *ngFor="let c of coreComps;index as i;">{{c.name}}</div>
         </div>
     </div>
@@ -20,16 +20,16 @@
             </div>
         </nav>
         <!-- Page content-->
-        <div class="container-fluid" style="max-height: calc(100vh - 165px);overflow: auto;">
+        <div class="container-fluid" #pageContainer style="max-height: calc(100vh - 170px);overflow: auto;">
 
             <!-- bg-color -->
             <div *ngIf="currentCompIndex == 0">
                 <h3 class="mt-4"> <code>bgColor</code>, <code>hover.bgColor</code> </h3>
                 <p>Directive used for applying background color for a given element</p>
                 <!-- tabs -->
-                <div margin="auto" width="80%">
+                <div margin="auto" width="80%" style="overflow: auto;">
 
-                    <div class="tabcontent">
+                    <div>
                         <table>
                             <tr>
                                 <th>Directive</th>
@@ -48,7 +48,9 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="tabcontent">
+
+                    <div>
+                        <h5 padding.y="12px">Preview</h5>
                         <!-- preview section -->
                         <div row>
                             <div col="50%">
@@ -60,6 +62,7 @@
                                 <div height="120px" width="120px" bgColor="secondary-400" hover.bgColor="green" margin="30px"></div>
                             </div>
                         </div>
+                        <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
                         <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
                             {{codeSnippet[0]}}
@@ -75,9 +78,9 @@
                 <h3> <code>border</code>, <code>hover.border</code> </h3>
                 <p>Directive used for applying border for a given element</p>
                 <!-- tabs -->
-                <div margin="auto" width="80%">
+                <div margin="auto" width="80%" style="overflow: auto;">
 
-                    <div class="tabcontent">
+                    <div>
                         <table>
                             <tr>
                                 <th>Directive</th>
@@ -127,7 +130,8 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="tabcontent">
+                    <div>
+                        <h5 padding.y="12px">Preview</h5>
                         <!-- preview section -->
                         <div row>
                             <div col="50%">
@@ -139,6 +143,7 @@
                                 <div height="120px" width="120px" border="2px solid black" hover.border.color="primary" margin="30px"></div>
                             </div>
                         </div>
+                        <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
                         <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
                             {{codeSnippet[1]}}
@@ -154,9 +159,9 @@
                 <h3> <code>ellipsis</code></h3>
                 <p>To add ellipsis(...) behavior to text</p>
                 <!-- tabs -->
-                <div margin="auto" width="80%">
+                <div margin="auto" width="80%" style="overflow: auto;">
 
-                    <div class="tabcontent">
+                    <div>
                         <table>
                             <tr>
                                 <th>Directive</th>
@@ -170,7 +175,8 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="tabcontent">
+                    <div>
+                        <h5 padding.y="12px">Preview</h5>
                         <!-- preview section -->
                         <div row>
                             <div col="100%">
@@ -181,6 +187,7 @@
                                 </p>
                             </div>
                         </div>
+                        <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
                         <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
                             {{codeSnippet[2]}}
@@ -196,9 +203,9 @@
                 <h3 class="mt-4"> <code>fit</code></h3>
                 <p>used to specify how an <code>img</code> should be resized to fit its container.</p>
                 <!-- tabs -->
-                <div margin="auto" width="80%">
+                <div margin="auto" width="80%" style="overflow: auto;">
 
-                    <div class="tabcontent">
+                    <div>
                         <table>
                             <tr>
                                 <th>Directive</th>
@@ -212,7 +219,8 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="tabcontent">
+                    <div>
+                        <h5 padding.y="12px">Preview</h5>
                         <!-- preview section -->
                         <div><code>fit</code></div>
                         <div row margin.y="10px">
@@ -220,6 +228,7 @@
                                 <img src="https://www.w3schools.com/css/paris.jpg" fit="cover" height="150px" width="150px" />
                             </div>
                         </div>
+                        <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
                         <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
                             {{codeSnippet[3]}}
@@ -235,9 +244,9 @@
                 <h3 class="mt-4"> <code>fontSize</code>, <code>hover.fontSize</code> </h3>
                 <p>used for setting the size of a font.</p>
                 <!-- tabs -->
-                <div margin="auto" width="80%">
+                <div margin="auto" width="80%" style="overflow: auto;">
 
-                    <div class="tabcontent">
+                    <div>
                         <table>
                             <tr>
                                 <th>Directive</th>
@@ -256,7 +265,8 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="tabcontent">
+                    <div>
+                        <h5 padding.y="12px">Preview</h5>
                         <!-- preview section -->
                         <div row>
                             <div col="50%">
@@ -268,6 +278,7 @@
                                 <p fontSize="20px" hover.fontSize="30px">This text has size of 20px and will change to 30px on hover</p>
                             </div>
                         </div>
+                        <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
                         <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
                             {{codeSnippet[4]}}
@@ -283,8 +294,8 @@
                 <h3 class="mt-4"> <code>fontWeight</code>, <code>hover.fontWeight</code> </h3>
                 <p>sets how thick or thin characters in text should be displayed.</p>
                 <!-- tabs -->
-                <div margin="auto" width="80%">
-                    <div class="tabcontent">
+                <div margin="auto" width="80%" style="overflow: auto;">
+                    <div>
                         <table>
                             <tr>
                                 <th>Directive</th>
@@ -303,7 +314,8 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="tabcontent">
+                    <div>
+                        <h5 padding.y="12px">Preview</h5>
                         <!-- preview section -->
                         <div row>
                             <div col="50%">
@@ -315,6 +327,7 @@
                                 <p fontWeight="400" hover.fontWeight="900">This text has weight of 400 and will change to 900 on hover</p>
                             </div>
                         </div>
+                        <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
                         <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
                             {{codeSnippet[5]}}
@@ -330,9 +343,9 @@
                 <h3 class="mt-4"> <code>gradientBgColor</code></h3>
                 <p>To add Gradient Background color to elements</p>
                 <!-- tabs -->
-                <div margin="auto" width="80%">
+                <div margin="auto" width="80%" style="overflow: auto;">
 
-                    <div class="tabcontent">
+                    <div>
                         <table>
                             <tr>
                                 <th>Directive</th>
@@ -346,7 +359,8 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="tabcontent">
+                    <div>
+                        <h5 padding.y="12px">Preview</h5>
                         <!-- preview section -->
                         <div row>
                             <div col="100%">
@@ -354,6 +368,7 @@
                                 <div height="120px" width="120px" gradientBgColor="primary" margin="30px"></div>
                             </div>
                         </div>
+                        <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
                         <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
                             {{codeSnippet[6]}}
@@ -369,8 +384,8 @@
                 <h3 class="mt-4"> <code>height</code>, <code>hover.height</code> </h3>
                 <p>sets the height of an element.</p>
                 <!-- tabs -->
-                <div margin="auto" width="80%">
-                    <div class="tabcontent">
+                <div margin="auto" width="80%" style="overflow: auto;">
+                    <div>
                         <table>
                             <tr>
                                 <th>Directive</th>
@@ -389,7 +404,8 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="tabcontent">
+                    <div>
+                        <h5 padding.y="12px">Preview</h5>
                         <!-- preview section -->
                         <div row>
 
@@ -407,6 +423,7 @@
                                 </div>
                             </div>
                         </div>
+                        <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
                         <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
                             {{codeSnippet[7]}}
@@ -422,8 +439,8 @@
                 <h3 class="mt-4"> <code>margin</code>, <code>hover.margin</code> </h3>
                 <p>sets margin i.e. to create space around elements, outside of any defined borders.</p>
                 <!-- tabs -->
-                <div margin="auto" width="80%">
-                    <div class="tabcontent">
+                <div margin="auto" width="80%" style="overflow: auto;">
+                    <div>
                         <table>
                             <tr>
                                 <th>Directive</th>
@@ -504,7 +521,8 @@
 
                         </table>
                     </div>
-                    <div class="tabcontent">
+                    <div>
+                        <h5 padding.y="12px">Preview</h5>
                         <!-- preview section -->
                         <div row>
 
@@ -528,6 +546,7 @@
                                 </div>
                             </div>
                         </div>
+                        <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
                         <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
                             {{codeSnippet[currentCompIndex]}}
@@ -543,8 +562,8 @@
                 <h3 class="mt-4"> <code>padding</code>, <code>hover.padding</code> </h3>
                 <p>sets padding i.e. to create space around elements, outside of any defined borders.</p>
                 <!-- tabs -->
-                <div margin="auto" width="80%">
-                    <div class="tabcontent">
+                <div margin="auto" width="80%" style="overflow: auto;">
+                    <div>
                         <table>
                             <tr>
                                 <th>Directive</th>
@@ -625,7 +644,8 @@
 
                         </table>
                     </div>
-                    <div class="tabcontent">
+                    <div>
+                        <h5 padding.y="12px">Preview</h5>
                         <!-- preview section -->
                         <div row>
 
@@ -647,6 +667,7 @@
                                 </div>
                             </div>
                         </div>
+                        <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
                         <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
                             {{codeSnippet[currentCompIndex]}}
@@ -662,8 +683,8 @@
                 <h3 class="mt-4"> <code>position</code></h3>
                 <p>specifies the type of positioning method used for an element.</p>
                 <!-- tabs -->
-                <div margin="auto" width="80%">
-                    <div class="tabcontent">
+                <div margin="auto" width="80%" style="overflow: auto;">
+                    <div>
                         <table>
                             <tr>
                                 <th>Directive</th>
@@ -677,7 +698,8 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="tabcontent">
+                    <div>
+                        <h5 padding.y="12px">Preview</h5>
                         <!-- preview section -->
                         <div><code>position</code></div>
                         <div row margin.y="10px" position="relative" height="200px" border="1px solid">
@@ -685,6 +707,7 @@
                                 absolutely positioned <br/> bottom 50px
                             </div>
                         </div>
+                        <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
                         <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
                             {{codeSnippet[currentCompIndex]}}
@@ -700,8 +723,8 @@
                 <h3 class="mt-4"> <code>radius</code>, <code>hover.radius</code> </h3>
                 <p>defines the radius of the element's corners.</p>
                 <!-- tabs -->
-                <div margin="auto" width="80%">
-                    <div class="tabcontent">
+                <div margin="auto" width="80%" style="overflow: auto;">
+                    <div>
                         <table>
                             <tr>
                                 <th>Directive</th>
@@ -761,7 +784,8 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="tabcontent">
+                    <div>
+                        <h5 padding.y="12px">Preview</h5>
                         <!-- preview section -->
                         <div row>
                             <div col="50%">
@@ -778,6 +802,7 @@
                                 </div>
                             </div>
                         </div>
+                        <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
                         <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
                             {{codeSnippet[currentCompIndex]}}
@@ -793,8 +818,8 @@
                 <h3 class="mt-4"> <code>shadow</code>, <code>hover.shadow</code> </h3>
                 <p>Attaches one or more shadows to an element.</p>
                 <!-- tabs -->
-                <div margin="auto" width="80%">
-                    <div class="tabcontent">
+                <div margin="auto" width="80%" style="overflow: auto;">
+                    <div>
                         <table>
                             <tr>
                                 <th>Directive</th>
@@ -813,7 +838,8 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="tabcontent">
+                    <div>
+                        <h5 padding.y="12px">Preview</h5>
                         <!-- preview section -->
                         <div row>
                             <div col="50%">
@@ -825,6 +851,7 @@
                                 <div height="120px" width="120px" bgColor="white" margin="30px" shadow="2" hover.shadow="5" padding="5px">shadow=2 hover=5</div>
                             </div>
                         </div>
+                        <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
                         <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
                             {{codeSnippet[currentCompIndex]}}
@@ -840,8 +867,8 @@
                 <h3 class="mt-4"> <code>textColor</code>, <code>hover.textColor</code> </h3>
                 <p>used for setting the color of text.</p>
                 <!-- tabs -->
-                <div margin="auto" width="80%">
-                    <div class="tabcontent">
+                <div margin="auto" width="80%" style="overflow: auto;">
+                    <div>
                         <table>
                             <tr>
                                 <th>Directive</th>
@@ -860,7 +887,8 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="tabcontent">
+                    <div>
+                        <h5 padding.y="12px">Preview</h5>
                         <!-- preview section -->
                         <div row>
                             <div col="50%">
@@ -872,6 +900,7 @@
                                 <p fontSize="20px" textColor="secondary" hover.textColor="teal">Secondary Color Text and will change to teal on hover</p>
                             </div>
                         </div>
+                        <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
                         <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
                             {{codeSnippet[currentCompIndex]}}
@@ -887,8 +916,8 @@
                 <h3 class="mt-4"> <code>width</code>, <code>hover.width</code> </h3>
                 <p>sets the width of an element.</p>
                 <!-- tabs -->
-                <div margin="auto" width="80%">
-                    <div class="tabcontent">
+                <div margin="auto" width="80%" style="overflow: auto;">
+                    <div>
                         <table>
                             <tr>
                                 <th>Directive</th>
@@ -907,7 +936,8 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="tabcontent">
+                    <div>
+                        <h5 padding.y="12px">Preview</h5>
                         <!-- preview section -->
                         <div row>
 
@@ -925,6 +955,7 @@
                                 </div>
                             </div>
                         </div>
+                        <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
                         <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
                             {{codeSnippet[currentCompIndex]}}
@@ -940,8 +971,8 @@
                 <h3 class="mt-4"> <code>align</code> </h3>
                 <p>Aligns children elements in a specified way</p>
                 <!-- tabs -->
-                <div margin="auto" width="80%">
-                    <div class="tabcontent">
+                <div margin="auto" width="80%" style="overflow: auto;">
+                    <div>
                         <table>
                             <tr>
                                 <th>Directive</th>
@@ -965,7 +996,8 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="tabcontent">
+                    <div>
+                        <h5 padding.y="12px">Preview</h5>
                         <!-- preview section -->
                         <div row>
 
@@ -1008,6 +1040,7 @@
                                 </div>
                             </div>
                         </div>
+                        <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
                         <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
                             {{codeSnippet[currentCompIndex]}}
@@ -1023,8 +1056,8 @@
                 <h3 class="mt-4"> <code>row</code> </h3>
                 <p>Top Level layout element.Rows are horizontal components of the grid system and contain varying numbers of columns. They ensure the columns are positioned properly.</p>
                 <!-- tabs -->
-                <div margin="auto" width="80%">
-                    <div class="tabcontent">
+                <div margin="auto" width="80%" style="overflow: auto;">
+                    <div>
                         <table>
                             <tr>
                                 <th>Directive</th>
@@ -1038,7 +1071,8 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="tabcontent">
+                    <div>
+                        <h5 padding.y="12px">Preview</h5>
                         <!-- preview section -->
                         <div>
                             <code>row</code>
@@ -1046,6 +1080,7 @@
                                 Row
                             </div>
                         </div>
+                        <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
                         <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
                             {{codeSnippet[currentCompIndex]}}
@@ -1061,8 +1096,8 @@
                 <h3 class="mt-4"> <code>col</code>, <code>col.lg</code>,<code>col.md</code>,<code>col.sm</code> </h3>
                 <p>Columns are cellular components of the grid system and go inside of a row. They will expand to fill their row.</p>
                 <!-- tabs -->
-                <div margin="auto" width="80%">
-                    <div class="tabcontent">
+                <div margin="auto" width="80%" style="overflow: auto;">
+                    <div>
                         <table>
                             <tr>
                                 <th>Directive</th>
@@ -1091,7 +1126,8 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="tabcontent">
+                    <div>
+                        <h5 padding.y="12px">Preview</h5>
                         <!-- preview section -->
                         <div>
                             <code>col</code>
@@ -1107,6 +1143,7 @@
                                 </div>
                             </div>
                         </div>
+                        <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
                         <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
                             {{codeSnippet[currentCompIndex]}}

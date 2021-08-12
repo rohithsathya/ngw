@@ -1,4 +1,4 @@
-import { AfterViewChecked, Component, OnInit } from '@angular/core';
+import { AfterViewChecked, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 declare var PR;
 
@@ -425,6 +425,8 @@ export class ComponentsPageComponent implements OnInit,AfterViewChecked {
   ];
   currentCompIndex:number = 0;
   currentComp:any = this.coreComps[this.currentCompIndex];
+  @ViewChild('pageContainer') pageContainer:ElementRef;
+
   constructor(private route: ActivatedRoute,private router: Router) { }
   ngAfterViewChecked(){
     PR.prettyPrint();
@@ -441,6 +443,7 @@ export class ComponentsPageComponent implements OnInit,AfterViewChecked {
   }
 
   showDetails(i){
+    this.pageContainer.nativeElement.scrollTop = 0;
     this.router.navigate(["/components"],{queryParams:{'index':i}});
   }
 

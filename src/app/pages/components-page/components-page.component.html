@@ -1,8 +1,8 @@
-<div class="d-flex ngw-sd-wrapper">
+<div class="d-flex ngw-sd-wrapper" style="height: calc(100vh - 106px);">
     <!-- Sidebar-->
-    <div class="border-end bg-white ngw-sd-sidebar-wrapper">
+    <div class="border-end bg-white ngw-sd-sidebar-wrapper" style="min-height: calc(100vh - 240px);">
         <div class="sidebar-heading border-bottom bg-light">Widgets</div>
-        <div class="list-group list-group-flush" style="max-height: 100vh;overflow-y: auto;">
+        <div class="list-group list-group-flush" style="height: calc(100vh - 170px);overflow: auto;">
             <div class="list-group-item list-group-item-action list-group-item-light p-3" [ngClass]="{'sidebar-active':currentCompIndex == i}" style="cursor: pointer;" (click)="showDetails(i)" *ngFor="let c of coreComps;index as i;">{{c.name}}</div>
         </div>
     </div>
@@ -15,7 +15,7 @@
             </div>
         </nav>
         <!-- Page content-->
-        <div class="container-fluid">
+        <div class="container-fluid" #pageContainer style="max-height: calc(100vh - 170px);overflow: auto;">
 
             <!-- ngw-button -->
             <div padding="24px" *ngIf="currentCompIndex == 0">

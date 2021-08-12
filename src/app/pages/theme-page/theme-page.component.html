@@ -1,34 +1,50 @@
-<p ngwTypo="title" align.x="center" padding="20px 0px 0px 0px">NGW Theme Generator</p>
-
-
-<div row>
-    <div col="50%" padding="12px">
-        <p ngwTypo="title">Color Palette</p>
-        <p ngwTypo="body-1">
-            <span textColor="red">*</span> Click on Any color to start changing the theme. Color shade move from light to dark (50 lightest, 900 darkest), Contrast - text color used on colored background. Colors 50 to 900 will be auto generated based
-            on the main color, update then if you wish to change.
-        </p>
-
-        <div row>
-            <div col="100%">
-                <div row>
-                    <div *ngFor="let mc of allColors" col.lg="100%" col.md="100%" col.sm="100%" margin.top="20px">
-                        <div row>
-                            <div width="100px" row>
-                                <div col="100%" align="centercenter">
-                                    <input height="30px" width="30px" type="color" style="cursor: pointer;" [(ngModel)]="colors[mc]['500']" (change)="mainColorChange()">
-                                </div>
-                                <div col="100%" align="centercenter" ngwTypo="subheading-2" style="text-transform: capitalize;">
-                                    {{mc}}
-                                </div>
-                            </div>
-                            <div col="fill">
-                                <div *ngFor="let lcl of allColorVariations" style="display: inline-block;margin-left: 20px;">
+<div class="container">
+    <p ngwTypo="title" align.x="center" padding="20px 0px 0px 0px">NGW Theme Generator</p>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link" style="cursor: pointer;" textColor="primary" [ngClass]="{'active' : currentIndex==0}" aria-current="page" (click)="showTabDetails(0)">Configure</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" style="cursor: pointer;" textColor="primary" [ngClass]="{'active' : currentIndex==1}" (click)="showTabDetails(1)">Preview</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" style="cursor: pointer;" textColor="primary" [ngClass]="{'active' : currentIndex==2}" (click)="showTabDetails(2)">Apply Theme</a>
+        </li>
+    </ul>
+    <div *ngIf="currentIndex==0">
+        <div class="container" padding="12px" style="border-left:1px solid #eee" bgColor="white" padding="24px">
+            <p ngwTypo="title">Color Palette</p>
+            <p ngwTypo="body-1">
+                <span textColor="red">*</span> Click on Any color to start changing the theme. Color shade move from light to dark (50 lightest, 900 darkest), Contrast - text color used on colored background. Colors 50 to 900 will be auto generated based
+                on the main color, update then if you wish to change.
+            </p>
+            <label>Prebuilt Themes</label> <br/>
+            <select ngwFormControl width="200px" margin.bottom="20px">
+                <option>G1</option>
+                <option>G2</option>
+                <option>G3</option>
+            </select>
+            <div row>
+                <div col="100%">
+                    <div row>
+                        <div *ngFor="let mc of allColors" col.lg="50%" col.md="100%" col.sm="100%" margin.top="20px">
+                            <div row radius="10px" style="border-left: 1px solid #eee;margin-left: 3px;">
+                                <div width="100px" row>
                                     <div col="100%" align="centercenter">
-                                        <input height="20px" width="20px" type="color" style="cursor: pointer;" [(ngModel)]="colors[mc][lcl]">
+                                        <input height="30px" width="30px" type="color" style="cursor: pointer;" [(ngModel)]="colors[mc]['500']" (change)="mainColorChange()">
                                     </div>
                                     <div col="100%" align="centercenter" ngwTypo="subheading-2" style="text-transform: capitalize;">
-                                        {{lcl}}
+                                        {{mc}}
+                                    </div>
+                                </div>
+                                <div col="fill">
+                                    <div *ngFor="let lcl of allColorVariations" style="display: inline-block;margin-left: 20px;">
+                                        <div col="100%" align="centercenter">
+                                            <input height="20px" width="20px" type="color" style="cursor: pointer;" [(ngModel)]="colors[mc][lcl]">
+                                        </div>
+                                        <div col="100%" align="centercenter" ngwTypo="subheading-2" fontSize="12px" style="text-transform: capitalize;">
+                                            {{lcl}}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -38,9 +54,10 @@
             </div>
         </div>
     </div>
-    <div col="50%" padding="12px">
+
+    <div *ngIf="currentIndex==1">
         <!-- preview section -->
-        <div>
+        <div style="border-left:1px solid #eee" bgColor="white" padding="24px">
             <p ngwTypo="title">Theme Preview</p>
             <p ngwTypo="subheading-2">Buttons</p>
             <div>
@@ -75,35 +92,44 @@
                 </div>
             </div>
         </div>
-        <!-- Usage Section -->
-        <div padding.y="24px">
-            <p ngwTypo="title">Applying Theme</p>
-            <div>
-                <div margin.left="20px">
-                    <!-- <h3 ngwTypo="subheading-2" align.x="center">Adding Theme</h3> -->
-                    <p ngwTypo="body-1">
-                        Pass the below config json while importing <strong>NgwCoreModule</strong> module in <strong>app.module.ts</strong> file.
-                    </p>
-                    <div margin.y="5px">
-                        <button ngwBtn="" color="primary" (click)="copyConfigToClipBoard()">
+    </div>
+    <div *ngIf="currentIndex==2">
+
+        <div row style="border-left:1px solid #eee" bgColor="white" padding="24px">
+
+            <!-- Usage Section -->
+            <div col.lg="50%" col.md="100%" col.sm="100%" padding.y="24px">
+                <p ngwTypo="title">Applying Theme</p>
+                <div>
+                    <div margin.left="20px">
+                        <!-- <h3 ngwTypo="subheading-2" align.x="center">Adding Theme</h3> -->
+                        <p ngwTypo="body-1">
+                            Pass the below config json while importing <strong>NgwCoreModule</strong> module in <strong>app.module.ts</strong> file.
+                        </p>
+                        <div margin.y="5px">
+                            <button ngwBtn="" color="primary" (click)="copyConfigToClipBoard()">
                             <span class="material-icons">content_copy</span> &nbsp; Copy Config JSON
                         </button>
-                    </div>
-                    <pre class="prettyprint" style="max-width: 500px;overflow: auto;" margin="auto" bgColor="white">
+                        </div>
+                        <pre class="prettyprint" style="max-width: 500px;overflow: auto;" margin="auto" bgColor="white">
                         {{codeSnippet}}
                     </pre>
+                    </div>
                 </div>
             </div>
+
+            <!-- config json section -->
+            <div col.lg="50%" col.md="100%" col.sm="100%" padding.y="24px">
+                <p ngwTypo="title">Config JSON</p>
+                <p ngwTypo="body-1">
+                    ConfigJSON for the selected theme colors
+                </p>
+                <div [ngwJsonEditor]="configObj" height="350px" width="100%"></div>
+            </div>
+
         </div>
 
-        <!-- config json section -->
-        <div padding.y="24px">
-            <p ngwTypo="title">Config JSON</p>
-            <p ngwTypo="body-1">
-                ConfigJSON for the selected theme colors
-            </p>
-            <div [ngwJsonEditor]="configObj" heigth="400px" width="100%"></div>
-        </div>
 
     </div>
+
 </div>

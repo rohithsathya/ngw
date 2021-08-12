@@ -1,4 +1,4 @@
-import { AfterViewChecked, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewChecked, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 declare var PR;
 
@@ -153,6 +153,7 @@ export class CorePageComponent implements OnInit,AfterViewChecked {
     </div>
     `
   ];
+  @ViewChild('pageContainer') pageContainer:ElementRef;
   constructor( private route: ActivatedRoute,private router: Router) { }
   ngAfterViewChecked(){
     PR.prettyPrint();
@@ -168,6 +169,7 @@ export class CorePageComponent implements OnInit,AfterViewChecked {
     document.body.classList.toggle('sb-sidenav-toggled');
   }
   showDetails(i){
+    this.pageContainer.nativeElement.scrollTop = 0;
     this.router.navigate(["/core"],{queryParams:{'index':i}});
   }
 
