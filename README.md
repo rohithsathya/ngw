@@ -4,6 +4,14 @@ https://angular.io/guide/creating-libraries#use-typescript-path-mapping-for-peer
 > link to documents :
 https://rohithsathya.github.io/ngw/
 
+>reference : 
+https://daisyui.com/components/badge
+
+ToDO:
+-display
+-cursor (call it clickable)
+-current colour (css property)
+-add size(sm,md xl..predefined padding,margin..etc) and color to *ngIf
 
 >git add .
 >git status

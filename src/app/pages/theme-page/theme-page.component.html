@@ -2,31 +2,225 @@
     <p ngwTypo="title" align.x="center" padding="20px 0px 0px 0px">NGW Theme Generator</p>
     <ul class="nav nav-tabs">
         <li class="nav-item">
-            <a class="nav-link" style="cursor: pointer;" textColor="primary" [ngClass]="{'active' : currentIndex==0}" aria-current="page" (click)="showTabDetails(0)">Configure</a>
+            <a class="nav-link ngw-text-baseContent ngw-text-hover-baseContent" style="cursor: pointer;" [ngClass]="{'active' : currentIndex==0}" aria-current="page" (click)="showTabDetails(0)">Configure</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" style="cursor: pointer;" textColor="primary" [ngClass]="{'active' : currentIndex==1}" (click)="showTabDetails(1)">Preview</a>
+            <a class="nav-link ngw-text-baseContent ngw-text-hover-baseContent" style="cursor: pointer;" [ngClass]="{'active' : currentIndex==1}" (click)="showTabDetails(1)">Preview</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" style="cursor: pointer;" textColor="primary" [ngClass]="{'active' : currentIndex==2}" (click)="showTabDetails(2)">Apply Theme</a>
+            <a class="nav-link ngw-text-baseContent ngw-text-hover-baseContent" style="cursor: pointer;" [ngClass]="{'active' : currentIndex==2}" (click)="showTabDetails(2)">Apply Theme</a>
         </li>
     </ul>
     <div *ngIf="currentIndex==0">
-        <div class="container" padding="12px" style="border-left:1px solid #eee" bgColor="white" padding="24px">
+        <div class="container ngw-bg-baseFocus" padding="12px" padding="24px">
             <p ngwTypo="title">Color Palette</p>
             <p ngwTypo="body-1">
                 <span textColor="red">*</span> Click on Any color to start changing the theme. Color shade move from light to dark (50 lightest, 900 darkest), Contrast - text color used on colored background. Colors 50 to 900 will be auto generated based
                 on the main color, update then if you wish to change.
             </p>
-            <label>Prebuilt Themes</label> <br/>
-            <select ngwFormControl width="200px" margin.bottom="20px">
-                <option>G1</option>
-                <option>G2</option>
-                <option>G3</option>
-            </select>
+            <div row>
+                <div>
+                    <label>Prebuilt Themes</label> <br/>
+                    <select ngwFormControl width="200px" margin.bottom="20px" [(ngModel)]="selectedThemeIndex" (change)="themeChangeEvent($event)">
+                        <option value="0">light</option>
+                        <option  value="1">dark</option>
+                        <option  value="2">G3</option>
+                    </select>
+                </div>
+                <div col.lg="fill" col.md="100%" col.sm="100%" align.y="center" align.x="right" padding.x="20px">
+
+                    <button ngwBtn="" color="error" margin.right="20px" (click)="resetColors()">Reset Colors</button>
+                    <button ngwBtn="flat" color="primary" (click)="applyAndPreview()">Apply and Preview Theme</button>
+                </div>
+            </div>
+
+
             <div row>
                 <div col="100%">
+
+                    <!-- base -->
+                    <div ngwTypo="title">Base Colors</div>
                     <div row>
+                        <div col.lg="33.3%" col.md="100%" col.sm="100%" padding="20px">
+                            <!-- base -->
+                            <div row padding="5px">
+                                <input height="30px" width="30px" type="color" ngwClickable="true" [(ngModel)]="currentTheme.colors.base">
+                                <div col="fill" align.y="center" ngwTypo="subheading-2" margin.bottom="0px" margin.left="10px">
+                                    Base
+                                </div>
+                            </div>
+                            <div row padding="5px">
+                                <input height="30px" width="30px" type="color" ngwClickable="true" [(ngModel)]="currentTheme.colors.baseFocus">
+                                <div col="fill" align.y="center" ngwTypo="subheading-2" margin.bottom="0px" margin.left="10px">
+                                    Base Focus
+                                </div>
+                            </div>
+                            <div row padding="5px">
+                                <input height="30px" width="30px" type="color" ngwClickable="true" [(ngModel)]="currentTheme.colors.baseContent">
+                                <div col="fill" align.y="center" ngwTypo="subheading-2" margin.bottom="0px" margin.left="10px">
+                                    Base Content
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- default,primary,secondary -->
+                    <div ngwTypo="title">Main Colors</div>
+                    <div row>
+                        <!-- default -->
+                        <div col.lg="33.3%" col.md="100%" col.sm="100%" padding="20px">
+                            <div row padding="5px">
+                                <input height="30px" width="30px" type="color" ngwClickable="true" [(ngModel)]="currentTheme.colors.default">
+                                <div col="fill" align.y="center" ngwTypo="subheading-2" margin.bottom="0px" margin.left="10px">
+                                    Default
+                                </div>
+                            </div>
+
+                            <div row padding="5px">
+                                <input height="30px" width="30px" type="color" ngwClickable="true" [(ngModel)]="currentTheme.colors.defaultFocus">
+                                <div col="fill" align.y="center" ngwTypo="subheading-2" margin.bottom="0px" margin.left="10px">
+                                    Default Focus
+                                </div>
+                            </div>
+
+                            <div row padding="5px">
+                                <input height="30px" width="30px" type="color" ngwClickable="true" [(ngModel)]="currentTheme.colors.defaultContent">
+                                <div col="fill" align.y="center" ngwTypo="subheading-2" margin.bottom="0px" margin.left="10px">
+                                    Default Content
+                                </div>
+                            </div>
+                        </div>
+                        <!-- primary -->
+                        <div col.lg="33.3%" col.md="100%" col.sm="100%" padding="20px">
+                            <div row padding="5px">
+                                <input height="30px" width="30px" type="color" ngwClickable="true" [(ngModel)]="currentTheme.colors.primary">
+                                <div col="fill" align.y="center" ngwTypo="subheading-2" margin.bottom="0px" margin.left="10px">
+                                    Primary
+                                </div>
+                            </div>
+                            <div row padding="5px">
+                                <input height="30px" width="30px" type="color" ngwClickable="true" [(ngModel)]="currentTheme.colors.primaryFocus">
+                                <div col="fill" align.y="center" ngwTypo="subheading-2" margin.bottom="0px" margin.left="10px">
+                                    Primary Focus
+                                </div>
+                            </div>
+
+                            <div row padding="5px">
+                                <input height="30px" width="30px" type="color" ngwClickable="true" [(ngModel)]="currentTheme.colors.primaryContent">
+                                <div col="fill" align.y="center" ngwTypo="subheading-2" margin.bottom="0px" margin.left="10px">
+                                    Primary Content
+                                </div>
+                            </div>
+                        </div>
+                        <!-- secondary -->
+                        <div col.lg="fill" col.md="100%" col.sm="100%" padding="20px">
+                            <div row padding="5px">
+                                <input height="30px" width="30px" type="color" ngwClickable="true" [(ngModel)]="currentTheme.colors.secondary">
+                                <div col="fill" align.y="center" ngwTypo="subheading-2" margin.bottom="0px" margin.left="10px">
+                                    Secondary
+                                </div>
+                            </div>
+                            <div row padding="5px">
+                                <input height="30px" width="30px" type="color" ngwClickable="true" [(ngModel)]="currentTheme.colors.secondaryFocus">
+                                <div col="fill" align.y="center" ngwTypo="subheading-2" margin.bottom="0px" margin.left="10px">
+                                    Secondary Focus
+                                </div>
+                            </div>
+                            <div row padding="5px">
+                                <input height="30px" width="30px" type="color" ngwClickable="true" [(ngModel)]="currentTheme.colors.secondaryContent">
+                                <div col="fill" align.y="center" ngwTypo="subheading-2" margin.bottom="0px" margin.left="10px">
+                                    Secondary Content
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- state colors success.warning,error -->
+                    <div ngwTypo="title">State Colors</div>
+                    <div row>
+                        <!-- success -->
+                        <div col.lg="33.3%" col.md="100%" col.sm="100%" padding="20px">
+                            <div row padding="5px">
+                                <input height="30px" width="30px" type="color" ngwClickable="true" [(ngModel)]="currentTheme.colors.success">
+                                <div col="fill" align.y="center" ngwTypo="subheading-2" margin.bottom="0px" margin.left="10px">
+                                    Success
+                                </div>
+                            </div>
+                            <div row padding="5px">
+                                <input height="30px" width="30px" type="color" ngwClickable="true" [(ngModel)]="currentTheme.colors.successFocus">
+                                <div col="fill" align.y="center" ngwTypo="subheading-2" margin.bottom="0px" margin.left="10px">
+                                    Success Focus
+                                </div>
+                            </div>
+
+                            <div row padding="5px">
+                                <input height="30px" width="30px" type="color" ngwClickable="true" [(ngModel)]="currentTheme.colors.successContent">
+                                <div col="fill" align.y="center" ngwTypo="subheading-2" margin.bottom="0px" margin.left="10px">
+                                    Success Content
+                                </div>
+                            </div>
+                        </div>
+                        <!-- warning -->
+                        <div col.lg="33.3%" col.md="100%" col.sm="100%" padding="20px">
+                            <div row padding="5px">
+                                <input height="30px" width="30px" type="color" ngwClickable="true" [(ngModel)]="currentTheme.colors.warning">
+                                <div col="fill" align.y="center" ngwTypo="subheading-2" margin.bottom="0px" margin.left="10px">
+                                    Warning
+                                </div>
+                            </div>
+                            <div row padding="5px">
+                                <input height="30px" width="30px" type="color" ngwClickable="true" [(ngModel)]="currentTheme.colors.warningFocus">
+                                <div col="fill" align.y="center" ngwTypo="subheading-2" margin.bottom="0px" margin.left="10px">
+                                    Warning Content
+                                </div>
+                            </div>
+
+                            <div row padding="5px">
+                                <input height="30px" width="30px" type="color" ngwClickable="true" [(ngModel)]="currentTheme.colors.warningContent">
+                                <div col="fill" align.y="center" ngwTypo="subheading-2" margin.bottom="0px" margin.left="10px">
+                                    Warning Content
+                                </div>
+                            </div>
+                        </div>
+                        <!-- error -->
+                        <div col.lg="fill" col.md="100%" col.sm="100%" padding="20px">
+                            <div row padding="5px">
+                                <input height="30px" width="30px" type="color" ngwClickable="true" [(ngModel)]="currentTheme.colors.error">
+                                <div col="fill" align.y="center" ngwTypo="subheading-2" margin.bottom="0px" margin.left="10px">
+                                    Error
+                                </div>
+                            </div>
+                            <div row padding="5px">
+                                <input height="30px" width="30px" type="color" ngwClickable="true" [(ngModel)]="currentTheme.colors.errorFocus">
+                                <div col="fill" align.y="center" ngwTypo="subheading-2" margin.bottom="0px" margin.left="10px">
+                                    Error Focus
+                                </div>
+                            </div>
+
+                            <div row padding="5px">
+                                <input height="30px" width="30px" type="color" ngwClickable="true" [(ngModel)]="currentTheme.colors.errorContent">
+                                <div col="fill" align.y="center" ngwTypo="subheading-2" margin.bottom="0px" margin.left="10px">
+                                    Error Content
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <!-- <div row>
                         <div *ngFor="let mc of allColors" col.lg="50%" col.md="100%" col.sm="100%" margin.top="20px">
                             <div row radius="10px" style="border-left: 1px solid #eee;margin-left: 3px;">
                                 <div width="100px" row>
@@ -49,7 +243,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -57,8 +251,11 @@
 
     <div *ngIf="currentIndex==1">
         <!-- preview section -->
-        <div style="border-left:1px solid #eee" bgColor="white" padding="24px">
+        <div class="ngw-bg-baseFocus" padding="24px">
             <p ngwTypo="title">Theme Preview</p>
+            <p ngwTypo="body">Looks good show me how to apply this Theme to my angular apps <button margin.left="10px" ngwBtn="flat" color="primary" (click)="showTabDetails(2)">Apply Theme</button>
+                <br/>Did not like it much <button margin.left="10px" ngwBtn="" color="error" (click)="showTabDetails(0)">Go back to Configuration</button>
+            </p>
             <p ngwTypo="subheading-2">Buttons</p>
             <div>
                 <button ngwBtn="raised" margin="10px">Default Button</button>
@@ -95,7 +292,7 @@
     </div>
     <div *ngIf="currentIndex==2">
 
-        <div row style="border-left:1px solid #eee" bgColor="white" padding="24px">
+        <div row class="ngw-bg-baseFocus" padding="24px">
 
             <!-- Usage Section -->
             <div col.lg="50%" col.md="100%" col.sm="100%" padding.y="24px">
@@ -106,12 +303,7 @@
                         <p ngwTypo="body-1">
                             Pass the below config json while importing <strong>NgwCoreModule</strong> module in <strong>app.module.ts</strong> file.
                         </p>
-                        <div margin.y="5px">
-                            <button ngwBtn="" color="primary" (click)="copyConfigToClipBoard()">
-                            <span class="material-icons">content_copy</span> &nbsp; Copy Config JSON
-                        </button>
-                        </div>
-                        <pre class="prettyprint" style="max-width: 500px;overflow: auto;" margin="auto" bgColor="white">
+                        <pre class="prettyprint" style="max-width: 98%;overflow: auto;" margin.top="30px" margin="auto" bgColor="white">
                         {{codeSnippet}}
                     </pre>
                     </div>
@@ -123,8 +315,11 @@
                 <p ngwTypo="title">Config JSON</p>
                 <p ngwTypo="body-1">
                     ConfigJSON for the selected theme colors
+                    <button ngwBtn="" color="primary" (click)="copyConfigToClipBoard()">
+                        <span class="material-icons">content_copy</span> &nbsp; Copy Config JSON
+                    </button>
                 </p>
-                <div [ngwJsonEditor]="configObj" height="350px" width="100%"></div>
+                <div [ngwJsonEditor]="currentTheme" height="500px" width="90%" margin="auto"></div>
             </div>
 
         </div>

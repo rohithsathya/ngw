@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-
+import { AfterViewChecked, Component, OnInit } from '@angular/core';
+declare var PR;
 @Component({
   selector: 'app-getting-started-page',
   templateUrl: './getting-started-page.component.html',
   styleUrls: ['./getting-started-page.component.scss']
 })
-export class GettingStartedPageComponent implements OnInit {
+export class GettingStartedPageComponent implements OnInit,AfterViewChecked {
 
   codeSnippet = `
   //app.module.ts
@@ -24,4 +24,7 @@ export class GettingStartedPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  ngAfterViewChecked(){
+    PR.prettyPrint();
+  }
 }

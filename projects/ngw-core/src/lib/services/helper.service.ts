@@ -5,7 +5,7 @@ import { ElementRef, Injectable } from '@angular/core';
 // })
 @Injectable()
 export class HelperService {
-  themeColors = ['default','primary','secondary','success','error','warning'];
+  themeColors = ['default','primary','secondary','success','error','warning','base'];
   defaultColor = this.themeColors[0];
   constructor() { }
 
@@ -27,7 +27,8 @@ export class HelperService {
     let themeColor = this.themeColors.find((tc)=>{
       return colorLC.indexOf(tc) >=0;
     });
-    return themeColor ? `var(--ngw-${colorLC})` : colorLC;
+    //return themeColor ? `var(--ngw-${colorLC})` : colorLC;
+    return themeColor ? `var(--ngw-theme-${color})` : color;
   }
    /**
    * Apply the given style poperty to given element. 

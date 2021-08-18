@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 body {
-    background-color: #fafafa;
+    background-color: var(--ngw-theme-base); //#fafafa;
     margin: 0px;
 }
 
@@ -43,4 +43,61 @@ body.sb-sidenav-toggled .ngw-sd-wrapper .ngw-sd-sidebar-wrapper {
     body.sb-sidenav-toggled .ngw-sd-wrapper .ngw-sd-sidebar-wrapper {
         margin-left: -15rem;
     }
+}
+
+.list-group-item {
+    color: var(--ngw-theme-baseContent); //#636464;
+    background-color: var(--ngw-theme-base); //#fff;
+}
+
+.list-group-item-light.list-group-item-action:focus,
+.list-group-item-light.list-group-item-action:hover {
+    color: var(--ngw-theme-baseContent);
+    background-color: var(--ngw-theme-baseFocus); //#e5e5e5;
+}
+
+.list-group-item-action:focus,
+.list-group-item-action:hover {
+    color: var(--ngw-theme-baseContent);
+    background-color: var(--ngw-theme-baseFocus); //#e5e5e5;
+}
+
+.ngw-sd-sidebar-wrapper {
+    border-right-color: var(--ngw-theme-baseFocus) !important;
+}
+
+.ngw-sd-sidebar-wrapper .sidebar-heading {
+    border-bottom-color: var(--ngw-theme-base) !important;
+}
+
+.ngw-sd-sidebar-wrapper .list-group {
+    background-color: var(--ngw-theme-base);
+}
+
+.sidebar-active {
+    color: var(--ngw-theme-baseContent);
+    background-color: var(--ngw-theme-baseFocus);
+}
+
+.navbar {
+    background-color: var(--ngw-theme-base);
+    border-bottom-color: var(--ngw-theme-baseFocus) !important;
+}
+
+//Table style
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border-radius: 8px;
+}
+
+td,
+th {
+    border: 1px solid var(--ngw-theme-baseFocus);
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: var(--ngw-theme-baseFocus);
 }

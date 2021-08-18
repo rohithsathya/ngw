@@ -1,7 +1,7 @@
 <div class="d-flex ngw-sd-wrapper" style="height: calc(100vh - 106px);">
     <!-- Sidebar-->
-    <div class="border-end bg-white ngw-sd-sidebar-wrapper" style="min-height: calc(100vh - 240px);">
-        <div class="sidebar-heading border-bottom bg-light">NGW Core</div>
+    <div class="border-end ngw-sd-sidebar-wrapper" style="min-height: calc(100vh - 240px);">
+        <div class="sidebar-heading border-bottom">NGW Core</div>
         <div class="list-group list-group-flush" style="height: calc(100vh - 170px);overflow: auto;">
             <div class="list-group-item list-group-item-action list-group-item-light p-3" [ngClass]="{'sidebar-active':currentCompIndex == i}" style="cursor: pointer;" (click)="showDetails(i)" *ngFor="let c of coreComps;index as i;">{{c.name}}</div>
         </div>
@@ -9,10 +9,13 @@
     <!-- Page content wrapper-->
     <div id="page-content-wrapper">
         <!-- Top navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <nav class="navbar navbar-expand-lg border-bottom">
             <div class="container-fluid">
                 <div>
-                    <button class="btn btn-default" id="sidebarToggle" (click)="toggleSideBar()"><span class="navbar-toggler-icon"></span></button>
+                    <!-- <button class="btn btn-default" id="sidebarToggle" (click)="toggleSideBar()"><span class="navbar-toggler-icon"></span></button> -->
+                    <button class="btn btn-default ngw-text-defaultContent ngw-text-hover-defaultContent" id="sidebarToggle" (click)="toggleSideBar()">
+                        <i class="material-icons">menu</i>
+                    </button>
                     <h6 style="display: inline-block;" margin="0px"> {{coreComps[currentCompIndex]?.name}} </h6>
                 </div>
 
@@ -64,7 +67,7 @@
                         </div>
                         <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
-                        <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
+                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
                             {{codeSnippet[0]}}
                         </pre>
 
@@ -145,7 +148,7 @@
                         </div>
                         <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
-                        <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
+                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
                             {{codeSnippet[1]}}
                         </pre>
 
@@ -189,7 +192,7 @@
                         </div>
                         <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
-                        <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
+                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
                             {{codeSnippet[2]}}
                         </pre>
 
@@ -230,7 +233,7 @@
                         </div>
                         <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
-                        <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
+                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
                             {{codeSnippet[3]}}
                         </pre>
 
@@ -280,7 +283,7 @@
                         </div>
                         <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
-                        <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
+                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
                             {{codeSnippet[4]}}
                         </pre>
 
@@ -329,7 +332,7 @@
                         </div>
                         <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
-                        <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
+                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
                             {{codeSnippet[5]}}
                         </pre>
 
@@ -370,7 +373,7 @@
                         </div>
                         <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
-                        <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
+                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
                             {{codeSnippet[6]}}
                         </pre>
 
@@ -425,7 +428,7 @@
                         </div>
                         <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
-                        <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
+                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
                             {{codeSnippet[7]}}
                         </pre>
 
@@ -548,7 +551,7 @@
                         </div>
                         <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
-                        <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
+                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
                             {{codeSnippet[currentCompIndex]}}
                         </pre>
 
@@ -669,7 +672,7 @@
                         </div>
                         <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
-                        <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
+                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
                             {{codeSnippet[currentCompIndex]}}
                         </pre>
 
@@ -709,7 +712,7 @@
                         </div>
                         <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
-                        <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
+                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
                             {{codeSnippet[currentCompIndex]}}
                         </pre>
 
@@ -804,7 +807,7 @@
                         </div>
                         <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
-                        <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
+                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
                             {{codeSnippet[currentCompIndex]}}
                         </pre>
 
@@ -853,7 +856,7 @@
                         </div>
                         <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
-                        <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
+                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
                             {{codeSnippet[currentCompIndex]}}
                         </pre>
 
@@ -902,7 +905,7 @@
                         </div>
                         <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
-                        <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
+                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
                             {{codeSnippet[currentCompIndex]}}
                         </pre>
 
@@ -957,7 +960,7 @@
                         </div>
                         <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
-                        <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
+                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
                             {{codeSnippet[currentCompIndex]}}
                         </pre>
 
@@ -1042,7 +1045,7 @@
                         </div>
                         <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
-                        <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
+                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
                             {{codeSnippet[currentCompIndex]}}
                         </pre>
 
@@ -1082,7 +1085,7 @@
                         </div>
                         <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
-                        <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
+                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
                             {{codeSnippet[currentCompIndex]}}
                         </pre>
 
@@ -1145,7 +1148,7 @@
                         </div>
                         <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
-                        <pre class="prettyprint" style="overflow: auto;" margin="auto" bgColo="white">
+                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
                             {{codeSnippet[currentCompIndex]}}
                         </pre>
 

@@ -32,6 +32,11 @@ import { NgwBtnDirective } from './elements/ngw-btn.directive';
 import { NgwFormControlDirective } from './elements/ngw-form-control.directive';
 import { NgwTypoDirective } from './elements/ngw-typo.directive';
 import { HelperService } from './services/helper.service';
+import { NgwBadgeDirective } from './elements/ngw-badge.directive';
+import { NgwClickableDirective } from './directive/regular/clickable.directive';
+import { NgwGlassDirective } from './directive/regular/glassBg.directive';
+import { NgwThemeConfig } from './models/NgwThemeConfig';
+import { NgwThemeService } from './services/theme.service';
 
 
 let componentsList = [
@@ -66,102 +71,146 @@ let componentsList = [
   AlignDirective,
   NgwBtnDirective,
   NgwFormControlDirective,
-  NgwTypoDirective
+  NgwTypoDirective,
+  NgwBadgeDirective,
+  NgwClickableDirective,
+  NgwGlassDirective
 ];
 
 @NgModule({
   declarations: componentsList,
   imports: [],
   providers:[
-    HelperService
+    HelperService,
+    NgwThemeService
   ],
   exports:componentsList
 })
 export class NgwCoreModule { 
 
-  private static configObj = {
-    "darkMode":false,
-    "colors":{
-      "default" :{
-        "50":"#f0f0f0",
-        "100":"#fafafa",
-        "200":"#f5f5f5",
-        "300":"#f0f0f0",
-        "400":"#dedede",
-        "500":"#ffffff",
-        "600":"#979797",
-        "700":"#818181",
-        "800":"#606060",
-        "900":"#3c3c3c",
-        "contrast":"#3c3c3c"
-      },
-      "primary" :{
-        "50":"#efe5fd",
-        "100":"#d4bff9",
-        "200":"#b794f6",
-        "300":"#9965f4",
-        "400":"#7e3ff2",
-        "500":"#6002ee",
-        "600":"#5300e8",
-        "700":"#3d00e0",
-        "800":"#1d00db",
-        "900":"#0000d6",
-        "contrast":"#fff"
-      },
-      "secondary" :{
-        "50":"#ffe5ed",
-        "100":"#ffbdd3",
-        "200":"#ff92b6",
-        "300":"#ff6598",
-        "400":"#ff4080",
-        "500":"#ff1869",
-        "600":"#ed1466",
-        "700":"#d70f61",
-        "800":"#c2075e",
-        "900":"#9d0058",
-        "contrast":"#fff"
-      },
-      "success" :{
-        "50":"#e7f5e7",
-        "100":"#c5e5c4",
-        "200":"#a0d49f",
-        "300":"#7ac478",
-        "400":"#5cb85c",
-        "500":"#3eab3e",
-        "600":"#359c35",
-        "700":"#298a2b",
-        "800":"#1c7a20",
-        "900":"#005b0b",
-        "contrast":"#fff"
-      },
-      "warning" :{
-        "50":"#fdf2e0",
-        "100":"#fadfb2",
-        "200":"#f6ca81",
-        "300":"#f3b44f",
-        "400":"#f1a42b",
-        "500":"#ef950f",
-        "600":"#eb8a0c",
-        "700":"#e57b08",
-        "800":"#df6c06",
-        "900":"#d55404",
-        "contrast":"#fff"
-      },
-      "error" :{
-        "50":"#ffebee",
-        "100":"#ffcdd2",
-        "200":"#ef9a9a",
-        "300":"#e57373",
-        "400":"#ef5350",
-        "500":"#f44336",
-        "600":"#e53935",
-        "700":"#d32f2f",
-        "800":"#c62828",
-        "900":"#b71b1c",
-        "contrast":"#fff"
-      }
+  /*
+  // private static configObj = {
+  //   "darkMode":false,
+  //   "colors":{
+  //     "default" :{
+  //       "50":"#f0f0f0",
+  //       "100":"#fafafa",
+  //       "200":"#f5f5f5",
+  //       "300":"#f0f0f0",
+  //       "400":"#dedede",
+  //       "500":"#ffffff",
+  //       "600":"#979797",
+  //       "700":"#818181",
+  //       "800":"#606060",
+  //       "900":"#3c3c3c",
+  //       "contrast":"#3c3c3c"
+  //     },
+  //     "primary" :{
+  //       "50":"#efe5fd",
+  //       "100":"#d4bff9",
+  //       "200":"#b794f6",
+  //       "300":"#9965f4",
+  //       "400":"#7e3ff2",
+  //       "500":"#6002ee",
+  //       "600":"#5300e8",
+  //       "700":"#3d00e0",
+  //       "800":"#1d00db",
+  //       "900":"#0000d6",
+  //       "contrast":"#fff"
+  //     },
+  //     "secondary" :{
+  //       "50":"#ffe5ed",
+  //       "100":"#ffbdd3",
+  //       "200":"#ff92b6",
+  //       "300":"#ff6598",
+  //       "400":"#ff4080",
+  //       "500":"#ff1869",
+  //       "600":"#ed1466",
+  //       "700":"#d70f61",
+  //       "800":"#c2075e",
+  //       "900":"#9d0058",
+  //       "contrast":"#fff"
+  //     },
+  //     "success" :{
+  //       "50":"#e7f5e7",
+  //       "100":"#c5e5c4",
+  //       "200":"#a0d49f",
+  //       "300":"#7ac478",
+  //       "400":"#5cb85c",
+  //       "500":"#3eab3e",
+  //       "600":"#359c35",
+  //       "700":"#298a2b",
+  //       "800":"#1c7a20",
+  //       "900":"#005b0b",
+  //       "contrast":"#fff"
+  //     },
+  //     "warning" :{
+  //       "50":"#fdf2e0",
+  //       "100":"#fadfb2",
+  //       "200":"#f6ca81",
+  //       "300":"#f3b44f",
+  //       "400":"#f1a42b",
+  //       "500":"#ef950f",
+  //       "600":"#eb8a0c",
+  //       "700":"#e57b08",
+  //       "800":"#df6c06",
+  //       "900":"#d55404",
+  //       "contrast":"#fff"
+  //     },
+  //     "error" :{
+  //       "50":"#ffebee",
+  //       "100":"#ffcdd2",
+  //       "200":"#ef9a9a",
+  //       "300":"#e57373",
+  //       "400":"#ef5350",
+  //       "500":"#f44336",
+  //       "600":"#e53935",
+  //       "700":"#d32f2f",
+  //       "800":"#c62828",
+  //       "900":"#b71b1c",
+  //       "contrast":"#fff"
+  //     }
+  //   }
+  // }
+*/
+  //dark by default
+  private static newThemeObj:NgwThemeConfig = {
+    colors:{
+      "primary":"#793ef9",
+      "primaryFocus":"#570df8",
+      "primaryContent":"#ffffff",
+
+      "secondary":"#f000b8",
+      "secondaryFocus":"#bd0091",
+      "secondaryContent":"#ffffff",
+
+      // "default":"#2a2e37",
+      // "defaultFocus":"#16181d",
+      // "defaultContent":"#ffffff",
+
+      "default":"#2a2e37",
+      "defaultFocus":"#16181d",
+      "defaultContent":"#ffffff",
+
+      "base":"#3d4451",
+      "baseFocus":"#2a2e37",
+      "baseContent":"#ebecf0",
+
+      "success":"#87d039",
+      "successFocus":"#68a527",
+      "successContent":"#ffffff",
+
+      "warning":"#e2d562",
+      "warningFocus":"#e6e62b",
+      "warningContent":"#ffffff",
+
+      "error":"#ff6f6f",
+      "errorFocus":"#ff3c3c",
+      "errorContent":"#ffffff"
     }
   }
+
+  private static themeService:NgwThemeService = new NgwThemeService();
 
   constructor(){
     NgwCoreModule.setupNgw();
@@ -169,13 +218,14 @@ export class NgwCoreModule {
 
   private static setupNgw(){
     let css = `
-
       h1,h2,h3,h4,h5,h6,p,div{
-        color :var(--ngw-default-contrast);
+        //color :var(--ngw-default-contrast);
+        color :var(--ngw-theme-baseContent); //this needs to be removed
       }
 
       .ngw-text-muted{
         color:var(--ngw-default-900);
+        opacity: 0.5;
       }
 
       .ngw-ellipsis{
@@ -185,6 +235,10 @@ export class NgwCoreModule {
       }
 
       /* Typography*/
+      .ngw-text{
+        font-family: 'Roboto', sans-serif;
+        color: var(--ngw-theme-baseContent);
+      }
 
       .ngw-text-headline {
           font-family: 'Roboto', sans-serif;
@@ -298,20 +352,23 @@ export class NgwCoreModule {
       .ngw-form-control {
           box-sizing: border-box;
           width: 100%;
-          padding: 6px 12px;
+          padding: 12px;
           font-size: 14px;
           line-height: 1.42857143;
           border-style: solid;
           border-width: 1px;
-          border-color: var(--ngw-default-400);
+          border-color: var(--ngw-theme-baseFocus);
           border-radius: 4px;
-          transition: all ease-in-out 0.15s, ;
+          transition: all ease-in-out 0.15s;
+
+          background-color: var(--ngw-theme-base);
+          color: var(--ngw-theme-baseContent);
       }
 
       .ngw-form-control:focus {
-          border-color: var(--ngw-primary-200);
+          //border-color: var(--ngw-primary-200);
           outline: 0;
-          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px var(--ngw-primary-200);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px var(--ngw-theme-baseFocus);
       }
 
       .ngw-form-control[disabled],
@@ -353,7 +410,9 @@ export class NgwCoreModule {
           filter: alpha(opacity=65);
           opacity: 0.65;
           box-shadow: none;
-      }
+          color: var(--ngw-theme-baseContent) !important;
+          background-color: var(--ngw-theme-baseFocus) !important;
+        }
 
       .ngw-btn-outline {
           border-width: 1px;
@@ -400,62 +459,44 @@ export class NgwCoreModule {
           text-decoration: underline;
       }
 
+      .ngw-badge {
+        display: inline-block;
+        margin: 8px;
+        border-radius: 9999px;
+        padding: 2px 12px;
+        font-size: inherit;
+
+        font-family: 'Roboto', sans-serif;
+        letter-spacing: normal;
+
+        transition: opacity 200ms cubic-bezier(0.35, 0, 0.25, 1), background-color 200ms cubic-bezier(0.35, 0, 0.25, 1);
+      }
+      .ngw-badge {
+        border :1pz solid;
+      }
+
+      .glassBg {
+        backdrop-filter: blur(40px);
+        background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0)), linear-gradient(100deg, rgba(255, 255, 255, 0.1) 25%, rgba(0, 0, 0, 0) 0px);
+    }
+
 
     `;
     let head = document.head || document.getElementsByTagName('head')[0];
     let style = document.createElement("style");
     head.appendChild(style);
     style.appendChild(document.createTextNode(css));
+     NgwCoreModule.themeService.applyTheme(NgwCoreModule.newThemeObj);
+  }
 
-    let colors = NgwCoreModule.configObj.colors;
-    let colorClassCss = '';
-    //for each key value pair, 500 is actual color, create css variable
-    for(let color in colors){
-      for(let colorCode in colors[color]){
-        document?.documentElement?.style.setProperty(`--ngw-${color}-${colorCode}`,colors[color][colorCode]);
-        colorClassCss += NgwCoreModule.getColorCss(color,colorCode);
+  static configure(config:NgwThemeConfig):ModuleWithProviders<NgwCoreModule>{
+    //update colors by merging
+    for (let color in config.colors){
+      if (config.colors.hasOwnProperty(color)) {
+        NgwCoreModule.newThemeObj.colors[color] = config.colors[color] ?  config.colors[color] : NgwCoreModule.newThemeObj.colors[color];
       }
-      //add 500 as defualt color
-      document?.documentElement?.style.setProperty(`--ngw-${color}`,colors[color]["500"]);
-      colorClassCss += NgwCoreModule.getColorCss(color,"");
     }
-
-    style = document.createElement("style");
-    head.appendChild(style);
-    style.appendChild(document.createTextNode(colorClassCss));
-  
+    NgwCoreModule.themeService.applyTheme(NgwCoreModule.newThemeObj);
+    return {ngModule:NgwCoreModule}
   }
-
-  static configure(config:any):ModuleWithProviders<NgwCoreModule>{
-    //check if config object is valid
-    let isValidConfigObj = config && config.colors && config.colors.default && config.colors.primary ? true : false;
-    NgwCoreModule.configObj = isValidConfigObj ? config : NgwCoreModule.configObj;
-    NgwCoreModule.setupNgw();
-    return {
-      ngModule:NgwCoreModule
-    }
-
-
-  }
-
-  private static getColorCss(color,colorCode){
-    let cssVarName = colorCode ? `--ngw-${color}-${colorCode}` : `--ngw-${color}`;
-    let className = colorCode ? `${color}-${colorCode}` : `${color}`;
-
-    return `
-        .ngw-text-color-${className},.ngw-text-hover-color-${className}:hover{
-          color:var(${cssVarName});
-        }
-        .ngw-bg-color-${className},.ngw-bg-hover-color-${className}:hover{
-          background-color:var(${cssVarName});
-        }
-        .ngw-border-color-${className},.ngw-border-hover-color-${className}:hover{
-          border-color:var(${cssVarName});
-        }
-    `;
-  }
-
-
-
-
 }

@@ -20,10 +20,12 @@ export class NgwFormControlDirective implements OnChanges {
 
   apply(){
     this.helper.themeColors.map((c)=>{
-      this.el.nativeElement.classList.remove(`ngw-border-color-${c}-600`); //remove any theme class that might have been added
+      //this.el.nativeElement.classList.remove(`ngw-border-color-${c}-600`); //remove any theme class that might have been added
+      this.el.nativeElement.classList.remove(`ngw-border-${c}`); //remove any theme class that might have been added
     });
     let sanitizedColor  = this.helper.sanitizeThemeColor(this.color);
-    this.el.nativeElement.classList.add(`ngw-border-color-${sanitizedColor}-600`);
+    //this.el.nativeElement.classList.add(`ngw-border-color-${sanitizedColor}-600`);
+    this.el.nativeElement.classList.add(`ngw-border-${sanitizedColor}`);
 
   }
 

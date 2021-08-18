@@ -425,6 +425,7 @@ export class ComponentsPageComponent implements OnInit,AfterViewChecked {
   ];
   currentCompIndex:number = 0;
   currentComp:any = this.coreComps[this.currentCompIndex];
+  profiles = ['1','2','3','4','5','6'];
   @ViewChild('pageContainer') pageContainer:ElementRef;
 
   constructor(private route: ActivatedRoute,private router: Router) { }

@@ -1,6 +1,7 @@
 import { AfterViewChecked, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as Chroma from 'chroma-js';
+import { NgwThemeConfig, NgwThemeService } from 'ngw-core';
 import { PreviewService } from 'src/app/services/preview.service';
 declare var PR;
 @Component({
@@ -102,7 +103,10 @@ export class ThemePageComponent implements OnInit,AfterViewChecked {
     'default'
   ];
 
-  mainColors = ['primary',
+  mainColors = [
+  'base',
+  'default',
+  'primary',
   'secondary',
   'success',
   'warning',
@@ -130,14 +134,24 @@ export class ThemePageComponent implements OnInit,AfterViewChecked {
   contrastColorLevels = ['contrast'];
   whiteColorHex = '#ffffff';
   blackColorHex = '#000000';
+
   codeSnippet = `
   //app.module.ts
+  //create a variable to hold theme json
+  //copy the generated json and paste it here
+  let myTheme:NgwThemeConfig = {
+    colors:{
+      "base":"#3d4451",
+      "baseFocus":"#2a2e37",
+      ...
+    }
+  }
   @NgModule({
     declarations: [...],
     imports: [
       ...
-      //pass the config obj json here
-      NgwCoreModule.configure({{"colors":{"default":{...}}..)
+      //pass the config json here
+      NgwCoreModule.configure(myTheme)
     ],
     providers: [],
     bootstrap: [AppComponent]
@@ -146,23 +160,121 @@ export class ThemePageComponent implements OnInit,AfterViewChecked {
   `;
   @ViewChild('pageContainer') pageContainer:ElementRef;
   currentIndex:number = 0;
-  constructor(private previewService:PreviewService,private route: ActivatedRoute,private router: Router) { }
+  //light
+ lightTheme:NgwThemeConfig= {
+  colors:{
+    "primary":"#570df8",
+    "primaryFocus":"#4406cb",
+    "primaryContent":"#ffffff",
+
+    "secondary":"#f000b8",
+    "secondaryFocus":"#bd0091",
+    "secondaryContent":"#ffffff",
+
+    "default":"#3d4451",
+    "defaultFocus":"#2a2e37",
+    "defaultContent":"#ffffff",
+
+    //"b1":"#ffffff", //base
+    //"b2":"#f9fafb",//baseFocus
+    //"b3":"#d1d5db", //no match yet
+    //"bc":"#1f2937",//baseContent
+
+    "base":"#ffffff",
+    "baseFocus":"#f9fafb",
+    "baseContent":"#1f2937",
+
+    "success":"#87d039",
+    "successFocus":"#68a527",
+    "successContent":"#ffffff",
+
+    "warning":"#e2d562",
+    "warningFocus":"#e6e62b",
+    "warningContent":"#ffffff",
+
+    "error":"#ff6f6f",
+    "errorFocus":"#ff3c3c",
+    "errorContent":"#ffffff"
+  }
+}
+
+darkTheme:NgwThemeConfig = {
+  colors:{
+    "primary":"#793ef9",
+    "primaryFocus":"#570df8",
+    "primaryContent":"#ffffff",
+
+    "secondary":"#f000b8",
+    "secondaryFocus":"#bd0091",
+    "secondaryContent":"#ffffff",
+
+    // "default":"#2a2e37",
+    // "defaultFocus":"#16181d",
+    // "defaultContent":"#ffffff",
+
+    "default":"#2a2e37",
+    "defaultFocus":"#16181d",
+    "defaultContent":"#ffffff",
+
+    "base":"#3d4451",
+    "baseFocus":"#2a2e37",
+    "baseContent":"#ebecf0",
+
+    "success":"#87d039",
+    "successFocus":"#68a527",
+    "successContent":"#ffffff",
+
+    "warning":"#e2d562",
+    "warningFocus":"#e6e62b",
+    "warningContent":"#ffffff",
+
+    "error":"#ff6f6f",
+    "errorFocus":"#ff3c3c",
+    "errorContent":"#ffffff"
+  }
+}
+selectedThemeIndex:number =0;
+themes:NgwThemeConfig[] = [this.lightTheme,this.darkTheme];
+currentTheme:NgwThemeConfig;
+
+//private previewService:PreviewService,private route: ActivatedRoute,
+  constructor(private router: Router,private themeService:NgwThemeService) { }
   ngAfterViewChecked(){
     PR.prettyPrint();
   }
   ngOnInit(): void {
-    this.generateColors(); 
-    this.route.queryParams.subscribe(params => {
-      this.currentIndex = params['index'] ? params['index'] : 0;
-    });
+    this.currentTheme = JSON.parse(JSON.stringify(this.themes[this.selectedThemeIndex]));;
+    
+    // this.generateColors(); 
+    // this.route.queryParams.subscribe(params => {
+    //   this.currentIndex = params['index'] ? params['index'] : 0;
+    // });
   }
+  themeChangeEvent(){
+    debugger;
+    if(this.themes[this.selectedThemeIndex]){
+      this.currentTheme = JSON.parse(JSON.stringify(this.themes[this.selectedThemeIndex]));;
+    }else{
+      this.currentTheme = JSON.parse(JSON.stringify(this.themes[0]));;
+    }
+    this.themeService.applyTheme(this.currentTheme);
+  }
+  resetColors(){
+    this.themeChangeEvent();
+  }
+  applyAndPreview(){
+    this.themeService.applyTheme(this.currentTheme);
+    this.showTabDetails(1);
+  }
+
+
   mainColorChange(){
-    this.generateColors();
-    this.previewService.setupNgw(this.configObj);
+    // this.generateColors();
+    // this.previewService.setupNgw(this.configObj);
   }
   copyConfigToClipBoard(){
     let textArea = document.createElement("textarea");
-    textArea.textContent = JSON.stringify(this.configObj,null,2);
+    textArea.textContent = JSON.stringify(this.currentTheme,null,2);
     textArea.style.position = "fixed";
     document.body.appendChild(textArea);
     textArea.select();
@@ -177,6 +289,8 @@ export class ThemePageComponent implements OnInit,AfterViewChecked {
       document.body.removeChild(textArea);
     }
   }
+
+  /*
   generateColors(){
     let percentage = 9;
     for(let i=0;i<this.mainColors.length;i++){
@@ -249,12 +363,13 @@ export class ThemePageComponent implements OnInit,AfterViewChecked {
     let darker = luminance - (percentage/100)*(i+1);
     return darker > 0.1 ? Chroma(hue,saturation,darker,'hsl').hex('rgb') : false;
   }
-
+*/
   showTabDetails(i){
     // this.pageContainer.nativeElement.scrollTop = 0;
     this.currentIndex = i;
     this.router.navigate(["/theme"],{queryParams:{'index':i}});
   }
+  
 
  
 

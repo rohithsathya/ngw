@@ -24,7 +24,7 @@ export class NgwTypoDirective implements OnChanges {
     }else{
       this.el.nativeElement.classList.remove(`ngw-text-muted`);
     }
-
+    this.el.nativeElement.classList.add('ngw-text');
     this.el.nativeElement.classList.add(`ngw-text-${this.type.toLowerCase()}`);
   }
 

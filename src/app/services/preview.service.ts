@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class PreviewService {
 
+  currentRouteIndex:number = 0;
   constructor() { }
   
   //for preview
