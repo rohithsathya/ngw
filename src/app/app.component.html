@@ -1,42 +1,42 @@
-<nav class="navbar navbar-expand-lg navbar-light ngw-bg-primaryFocus">
-    <div class="container-fluid">
-        <!-- <a class="navbar-brand" href="#">Navbar</a> -->
-        <div width="100px" align.y="center" fontSize="24px" textColor="primaryContent" style="font-style: italic;cursor: pointer;" routerLink="/">NGW</div>
+<div bgColor="base">
+    <nav class="navbar navbar-expand-lg navbar-light ngw-bg-primaryFocus">
+        <div class="container-fluid">
+            <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+            <div width="100px" align.y="center" fontSize="24px" textColor="primaryContent" style="font-style: italic;cursor: pointer;" routerLink="/">NGW</div>
 
-        <button textColor="white" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button textColor="white" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="material-icons">menu</i>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <button ngwBtn="flat" margin.right="10px" color="primary" routerLink="/start" [ngClass]="{'ngw-bg-primary':routeIndex == 0}">Get Started</button>
-                </li>
-                <li class="nav-item">
-                    <button ngwBtn="flat" margin.right="10px" color="primary" routerLink="/core" [ngClass]="{'ngw-bg-primary':routeIndex == 1}">Core</button>
-                </li>
-                <li class="nav-item">
-                    <button ngwBtn="flat" margin.right="10px" color="primary" routerLink="/components" [ngClass]="{'ngw-bg-primary':routeIndex == 2}">Widgets</button>
-                </li>
-                <li class="nav-item">
-                    <button ngwBtn="flat" margin.right="10px" color="primary" routerLink="/theme" [ngClass]="{'ngw-bg-primary':routeIndex == 3}">Theme</button>
-                </li>
-            </ul>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <button ngwBtn="flat" margin.right="10px" color="primary" routerLink="/start" [ngClass]="{'ngw-bg-primary':routeIndex == 0}">Get Started</button>
+                    </li>
+                    <li class="nav-item">
+                        <button ngwBtn="flat" margin.right="10px" color="primary" routerLink="/core" [ngClass]="{'ngw-bg-primary':routeIndex == 1}">Core</button>
+                    </li>
+                    <li class="nav-item">
+                        <button ngwBtn="flat" margin.right="10px" color="primary" routerLink="/components" [ngClass]="{'ngw-bg-primary':routeIndex == 2}">Widgets</button>
+                    </li>
+                    <li class="nav-item">
+                        <button ngwBtn="flat" margin.right="10px" color="primary" routerLink="/theme" [ngClass]="{'ngw-bg-primary':routeIndex == 3}">Theme</button>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
-
-
-<div>
-
-
+    </nav>
     <div>
-        <!-- margin.top="60px" -->
-        <router-outlet></router-outlet>
-    </div>
-    <!-- footer -->
-    <div row style="border-top:1px solid var(--ngw-theme-baseFocus);">
-        <div col="100%" align.x="right" padding.top="18px" padding.right="18px">
-            <h6 style="opacity: 0.7;">Made with <i class="material-icons" textColor="red" fontSize="inherit">favorite</i> By GGG</h6>
+
+
+        <div>
+            <!-- margin.top="60px" -->
+            <router-outlet></router-outlet>
+        </div>
+        <!-- footer -->
+        <div row style="border-top:1px solid var(--ngw-theme-baseFocus);">
+            <div col="100%" align.x="right" padding.top="18px" padding.right="18px">
+                <h6 style="opacity: 0.7;">Made with <i class="material-icons" textColor="red" fontSize="inherit">favorite</i> By GGG</h6>
+            </div>
         </div>
     </div>
 </div>

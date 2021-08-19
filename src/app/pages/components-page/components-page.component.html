@@ -21,7 +21,7 @@
         <div class="container-fluid" #pageContainer style="max-height: calc(100vh - 170px);overflow: auto;">
 
             <!-- ngw-button -->
-            <div padding="24px" *ngIf="currentCompIndex == 0">
+            <div padding="24px" *ngIf="currentComponent.id == 'button'">
                 <h3>Ngw Buttons</h3>
                 <p>Buttons provide a clickable element, which can be used in forms, or anywhere that needs simple, standard button functionality. They may display text, icons, or both. Buttons can be styled with several attributes to look a specific way.
                 </p>
@@ -171,9 +171,8 @@
 
 
             </div>
-
             <!-- Form Control -->
-            <div padding="24px" *ngIf="currentCompIndex == 1">
+            <div padding="24px" *ngIf="currentComponent.id == 'form'">
                 <h3>Ngw Form Controls</h3>
                 <p>Element used to accept data from the user </p>
                 <h5>API</h5>
@@ -223,9 +222,8 @@
                 </pre>
 
             </div>
-
             <!-- Typography -->
-            <div padding="24px" *ngIf="currentCompIndex == 2">
+            <div padding="24px" *ngIf="currentComponent.id == 'typo'">
                 <h3>Ngw Typography</h3>
                 <p>The text component is a simple component that can be used to style the text color of any element. </p>
                 <h5>API</h5>
@@ -268,275 +266,10 @@
                 </pre>
 
             </div>
-
             <!-- Alerts -->
-            <div padding="24px" *ngIf="currentCompIndex == 3">
+            <div padding="24px" *ngIf="currentComponent.id == 'alert'">
                 <h3>Alerts</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-
-                <h5 margin.y="12px">Cards</h5>
-
-                <div wrapper margin="20px">
-
-                    <div row radius="16px" shadow="2" bgColor="baseFocus">
-                        <div col="33.3%" style="border-right: 1px solid var(--ngw-theme-base);" padding="20px">
-                            <div row padding="12px">
-                                <div col="fill">
-                                    <p ngwTypo="body" muted="true" margin="0px">Total Page Views</p>
-                                    <h1 margin="0px" textColor="primary">89,400</h1>
-                                    <p ngwTypo="body" muted="true">21% more than last month</p>
-                                </div>
-                                <div align="centercenter">
-                                    <i class="material-icons" textColor="secondary" fontSize="40px">bolt</i>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div col="33.3%" style="border-right: 1px solid var(--ngw-theme-base);" padding="20px">
-                            <div row padding="12px">
-                                <div col="fill">
-                                    <p ngwTypo="body" muted="true" margin="0px">Total Page Views</p>
-                                    <h1 margin="0px" textColor="primary">89,400</h1>
-                                    <p ngwTypo="body" muted="true">21% more than last month</p>
-                                </div>
-                                <div align="centercenter">
-                                    <i class="material-icons" textColor="secondary" fontSize="40px">payments</i>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div col="fill" padding="20px">
-                            <div row padding="12px">
-                                <div col="fill">
-                                    <p ngwTypo="body" muted="true" margin="0px">Total Page Views</p>
-                                    <h1 margin="0px" textColor="primary">89,400</h1>
-                                    <p ngwTypo="body" muted="true">21% more than last month</p>
-                                </div>
-                                <div align="centercenter">
-                                    <i class="material-icons" textColor="secondary" fontSize="40px">campaign</i>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-
-                <div width="350px" wrapper>
-                    <div row margin="20px" bgColor="baseFocus" padding="12px" shadow="2" radius="16px">
-                        <div col="fill">
-                            <h1 margin="0px" fontWeight="bold">86%</h1>
-                            <p ngwTypo="body" muted="true" margin="0px">Tasks Completed</p>
-                            <button ngwBtn="link">31 Tasks Remaining</button>
-                        </div>
-                        <div align="centercenter">
-                            <img *ngFor="let size of ['56px']" height="{{size}}" width="{{size}}" radius="8px" src="http://daisyui.com/tailwind-css-component-profile-1@94w.png">
-                        </div>
-
-                    </div>
-                </div>
-
-
-                <div width="350px" wrapper>
-                    <div row margin="20px" bgColor="baseFocus" padding="12px" shadow="2" radius="16px" *ngFor="let theme of ['primary','secondary','success','warning','error']">
-                        <div col="fill">
-                            <p ngwTypo="body" muted="true" margin="0px">Total Page Views</p>
-                            <h1 margin="0px" [textColor]="theme">89,400</h1>
-                            <p ngwTypo="body" muted="true">21% more than last month</p>
-                        </div>
-                        <div align="centercenter">
-                            <i class="material-icons" [textColor]="theme" fontSize="30px">bolt</i>
-                        </div>
-
-                    </div>
-                </div>
-
-
-                <div width="250px" wrapper>
-                    <div margin="20px" bgColor="baseFocus" padding="12px" shadow="2" radius="16px" *ngFor="let theme of ['primary','secondary','success','warning','error']">
-                        <p ngwTypo="body" muted="true" margin="0px">Total Page Views</p>
-                        <h1 margin="0px" [textColor]="theme">89,400</h1>
-                        <p ngwTypo="body" muted="true">21% more than last month</p>
-                    </div>
-                </div>
-
-
-
-
-
-
-
-                <div radius="16px" bgColor="baseFocus" width="300px" style="overflow: hidden;" margin="20px" shadow="1">
-                    <img src="https://picsum.photos/id/1005/400/250" height="auto" width="100%" />
-                    <div padding="24px">
-                        <h4 ellipsis>Karolann Collins</h4>
-                        <p ngwTypo="body-2" muted="true">Direct Interactions Liaison</p>
-                    </div>
-                </div>
-
-
-
-                <div align="centercenter" radius="16px" padding="40px 16px" fit="cover" style="background-image:url(https://picsum.photos/id/314/1000/300);background-size: cover;">
-                    <div ngwGlassBg="true" height="auto" width="70%" row padding="24px" radius="12px" shadow="1">
-                        <div col="35%">
-                            <img src="https://picsum.photos/id/1005/400/250" height="100%" width="100%" radius="8px" />
-                        </div>
-                        <div col="65%" padding="24px" align.x="left">
-                            <div>
-                                <h2 textColor="primary-contrast">Glass</h2>
-                                <p textColor="primary-contrast">
-                                    Rerum reiciendis beatae tenetur excepturi aut pariatur est eos. Sit sit necessitatibus veritatis sed molestiae voluptates incidunt iure sapiente.
-                                </p>
-                                <button ngwGlassBg="true" ngwBtn="" color="" textColor="primaryContent">Get Started</button>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div *ngFor="let theme of ['primary','secondary','success','warning','error']" padding="32px" [bgColor]="theme" radius="16px" shadow="3" width="300px" margin="20px">
-                    <p textColor="{{theme}}Content"> Rerum reiciendis beatae tenetur excepturi aut pariatur est eos.</p>
-                    <div align.x="right">
-                        <button ngwBtn="flat" [color]="theme">More Info <i class="material-icons">east</i> </button>
-                    </div>
-
-                </div>
-
-                <div *ngFor="let theme of ['primary','secondary','success','warning','error']" padding="32px" [bgColor]="theme" radius="16px" shadow="3" width="300px" margin="20px">
-                    <p align.x="center" textColor="{{theme}}Content"> Rerum reiciendis beatae tenetur excepturi aut pariatur est eos.</p>
-                    <div align.x="center">
-                        <button ngwBtn="flat" [color]="theme" margin.right="5px">Agree </button>
-                        <button ngwBtn="flat" [color]="theme">Cancel</button>
-                    </div>
-
-                </div>
-
-
-
-
-
-                <div border="1px solid" bgColor="base" border.color="baseFocus" radius="16px" width="400px" style="overflow: hidden;" margin="20px">
-                    <img src="https://picsum.photos/id/1005/400/250" height="auto" width="100%" />
-                    <div padding="24px">
-                        <h6 ellipsis>PHmG123DG1233..!!!
-                            <div ngwBadge="" color="secondary">New</div>
-                        </h6>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
-                        <div align.x="right">
-                            <button ngwBtn="flat" color="secondary">More Info</button>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div border="1px solid" bgColor="base" border.color="baseFocus" radius="16px" width="400px" style="overflow: hidden;" margin="20px">
-
-                    <div padding="24px">
-                        <h6 ellipsis>Image Bottom</h6>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
-                        <div align.x="left">
-                            <button ngwBtn="flat" color="primary" margin.right="10px">Login</button>
-                            <button ngwBtn="">Register</button>
-                        </div>
-                    </div>
-                    <img src="https://picsum.photos/id/1005/400/250" height="auto" width="100%" />
-                </div>
-
-                <div shadow="2" bgColor="base" radius="16px" width="400px" style="overflow: hidden;" padding="32px" margin="20px">
-                    <img src="https://picsum.photos/id/1005/400/250" height="auto" width="100%" radius="16px" />
-                    <div padding.top="24px">
-                        <h4 align.x="center" ellipsis>PHmG123DG1233..!!!</h4>
-                        <p align.x="center">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
-                        <div align.x="center">
-                            <button ngwBtn="outline" color="secondary">More Info</button>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div row radius="16px" border="1px solid" bgColor="base" border.color="baseFocus" style="overflow: hidden;">
-                    <div col="30%">
-                        <img src="https://picsum.photos/id/1005/400/250" height="100%" width="100%" />
-                    </div>
-                    <div col="70%" align.y="center" padding="32px">
-                        <div>
-                            <h2>Horizontal
-                                <div ngwBadge="" color="secondary" fontSize="60%">New</div>
-                            </h2>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            </p>
-                            <div align.x="left">
-                                <button ngwBtn="flat" color="primary" margin.right="10px">Get Started</button>
-                                <button ngwBtn="">More Info</button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-
-                <h5 margin.y="12px">Badges</h5>
-                <div margin.bottom="20px">
-                    <div *ngFor="let theme of ['primary','secondary','success','default']" ngwBadge="" [color]="theme">NEW</div>
-                </div>
-
-                <div margin.bottom="20px">
-                    <div *ngFor="let theme of ['primary','secondary','success','default']" ngwBadge="" [color]="theme">
-                        PHmG123 <i class="material-icons" fontSize="inherit" ngwClickable="true">close</i>
-                    </div>
-                </div>
-
-                <div margin.bottom="20px">
-                    <div *ngFor="let theme of ['primary','secondary','success','default']" ngwBadge="outline" [color]="theme">NEW</div>
-                </div>
-
-                <div margin.bottom="20px">
-                    <div *ngFor="let theme of ['primary','secondary','success','default']" ngwBadge="outline" [color]="theme">
-                        <i class="material-icons" fontSize="inherit" ngwClickable>close</i> NEW
-                    </div>
-                </div>
-
-                <h1>
-                    This is heading 1
-                    <div ngwBadge="outline" color="primary">NEW</div>
-                </h1>
-                <h2>
-                    This is heading 2
-                    <div ngwBadge="outline" color="primary">NEW</div>
-                </h2>
-                <h3>
-                    This is heading 3
-                    <div ngwBadge="outline" color="primary">NEW</div>
-                </h3>
-
-                <h4>
-                    This is heading 4
-                    <div ngwBadge="outline" color="primary">NEW</div>
-                </h4>
-
-                <h5>
-                    This is heading 5
-                    <div ngwBadge="outline" color="primary">NEW</div>
-                </h5>
-
-                <h6>
-                    This is heading 6
-                    <div ngwBadge="outline" color="primary">NEW</div>
-                </h6>
-
-
 
 
                 <h5 margin.y="12px">Simple Alert</h5>
@@ -555,6 +288,7 @@
                     </div>
                 </div>
 
+                <h5 margin.y="12px">Confirm Alert</h5>
                 <div margin="24px">
                     <div row bgColor="baseFocus" padding="8px" width="500px" align.y="center" radius="8px">
                         <div col="fill" margin.y="8px">
@@ -569,6 +303,7 @@
                     </div>
                 </div>
 
+                <h5 margin.y="12px">Confirm Alert Multiline</h5>
                 <div margin="24px" *ngFor="let theme of ['base']">
                     <div row bgColor="baseFocus" padding="8px" width="500px" align.y="center" radius="8px">
                         <div col="fill" margin.y="8px">
@@ -583,7 +318,7 @@
                     </div>
                 </div>
 
-
+                <h5 margin.y="12px">Single Line With Button</h5>
                 <div margin="24px" *ngFor="let theme of ['base']">
                     <div row bgColor="baseFocus" padding="8px" width="700px" align.y="center" radius="8px">
                         <div margin="8px">
@@ -601,6 +336,7 @@
                     </div>
                 </div>
 
+                <h5 margin.y="12px">Multiline Alert</h5>
                 <div margin="24px" *ngFor="let theme of ['base']">
                     <div row bgColor="baseFocus" padding="8px" width="700px" radius="8px">
                         <div margin="8px" align.y="top">
@@ -617,62 +353,6 @@
                         </div>
                     </div>
                 </div>
-
-                <h3>Avatars</h3>
-
-                <div margin.bottom="20px">
-                    <img *ngFor="let size of ['94px','56px','40px']" height="{{size}}" width="{{size}}" radius="8px" margin.right="30px" src="http://daisyui.com/tailwind-css-component-profile-1@94w.png">
-                </div>
-
-                <div margin.bottom="20px">
-                    <img *ngFor="let size of ['94px','56px','40px']" height="{{size}}" width="{{size}}" radius="50%" margin.right="30px" src="http://daisyui.com/tailwind-css-component-profile-1@94w.png">
-                </div>
-
-                <div margin.bottom="20px">
-                    <img src="http://daisyui.com/tailwind-css-component-profile-1@94w.png" *ngFor="let size of ['94px','56px','40px']" height="{{size}}" width="{{size}}" radius="8px" margin.right="30px" padding="1px" border.style="solid" border.width="3px" border.color="primary">
-                </div>
-
-                <div margin.bottom="20px">
-                    <img src="http://daisyui.com/tailwind-css-component-profile-1@94w.png" *ngFor="let size of ['94px','56px','40px']" height="{{size}}" width="{{size}}" radius="50%" margin.right="30px" padding="1px" border.style="solid" border.width="3px" border.color="primary">
-                </div>
-
-                <div margin.bottom="20px">
-                    <div margin.right="30px" *ngFor="let size of ['94px','56px','40px']" style="display: inline-block;">
-                        <div align="centercenter" height="{{size}}" width="{{size}}" radius="50%" bgColor="baseFocus">
-                            <span fontSize="24px">KJO</span>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div margin.bottom="20px">
-                    <!-- *ngIf="profiles as users" to use from ts -->
-                    <!--  -->
-                    <div *ngIf="['1','2','3','4','5','6'] as users">
-                        <div>
-                            <img *ngFor="let user of users.slice(0, 5)" radius="50%" height="40px" width="40px" border="3px solid" border.color="baseFocus" margin.left="-15px" src="http://daisyui.com/tailwind-css-component-profile-{{user}}@56w.png">
-                            <div *ngIf="users.length > 5" style="display: inline-block;">
-                                <div align="centercenter" bgColor="base" radius="50%" height="40px" width="40px" border="3px solid" border.color="baseFocus" margin.left="-15px">
-                                    +{{users.length - 5}}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="avatar">
-                        <div>
-
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-                <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
-                    {{codeSnippet[10]}}
-                </pre>
-
-
 
                 <h5 margin.y="12px">Primary Alerts</h5>
                 <div margin="24px" *ngFor="let theme of ['primary','secondary','success','warning','error']">
@@ -692,82 +372,11 @@
                     {{codeSnippet[10]}}
                 </pre>
 
-                <h5 margin.y="12px">Secondary Alerts</h5>
-                <div margin="24px">
-                    <div row bgColor="secondary-100" padding="8px" width="500px" align.y="center" radius="4px">
-                        <div margin="8px">
-                            <div height="40px" width="40px" bgColor="secondary-300" textColor="secondary-contrast" radius="50%" align="centercenter">
-                                <i class="material-icons">done</i>
-                            </div>
-                        </div>
-                        <div col="fill" padding="8px 8px 0px 0px">
-                            <p ngwTypo="subheading-2" textColor="secondary-700" margin.bottom="8px">Secondary !</p>
-                            <p ngwTypo="body" textColor="secondary-700" margin.bottom="8px"> User added successfully. </p>
-                        </div>
-                    </div>
-                </div>
-                <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
-                    {{codeSnippet[11]}}
-                </pre>
 
-                <h5 margin.y="12px">Success Alerts</h5>
-                <div margin="24px">
-                    <div row bgColor="success-100" padding="8px" width="500px" align.y="center" radius="4px">
-                        <div margin="8px">
-                            <div height="40px" width="40px" bgColor="success-300" textColor="success-contrast" radius="50%" align="centercenter">
-                                <i class="material-icons">done</i>
-                            </div>
-                        </div>
-                        <div col="fill" padding="8px 8px 0px 0px">
-                            <p ngwTypo="subheading-2" textColor="success-700" margin.bottom="8px">Success !</p>
-                            <p ngwTypo="body" textColor="success-700" margin.bottom="8px"> User added successfully. </p>
-                        </div>
-                    </div>
-                </div>
-                <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
-                    {{codeSnippet[12]}}
-                </pre>
-
-                <h5 margin.y="12px">Warning Alerts</h5>
-                <div margin="24px">
-                    <div row bgColor="warning-100" padding="8px" width="500px" align.y="center" radius="4px">
-                        <div margin="8px">
-                            <div height="40px" width="40px" bgColor="warning-300" textColor="warning-contrast" radius="50%" align="centercenter">
-                                <i class="material-icons">done</i>
-                            </div>
-                        </div>
-                        <div col="fill" padding="8px 8px 0px 0px">
-                            <p ngwTypo="subheading-2" textColor="warning-700" margin.bottom="8px">Warning !</p>
-                            <p ngwTypo="body" textColor="warning-700" margin.bottom="8px"> User added successfully. </p>
-                        </div>
-                    </div>
-                </div>
-                <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
-                    {{codeSnippet[13]}}
-                </pre>
-
-                <h5 margin.y="12px">Error Alerts</h5>
-                <div margin="24px">
-                    <div row bgColor="error-100" padding="8px" width="500px" align.y="center" radius="4px">
-                        <div margin="8px">
-                            <div height="40px" width="40px" bgColor="error-300" textColor="error-contrast" radius="50%" align="centercenter">
-                                <i class="material-icons">done</i>
-                            </div>
-                        </div>
-                        <div col="fill" padding="8px 8px 0px 0px">
-                            <p ngwTypo="subheading-2" textColor="error-700" margin.bottom="8px">Error !</p>
-                            <p ngwTypo="body" textColor="error-700" margin.bottom="8px"> User added successfully. </p>
-                        </div>
-                    </div>
-                </div>
-                <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
-                    {{codeSnippet[14]}}
-                </pre>
 
             </div>
-
             <!-- Cards -->
-            <div padding="24px" *ngIf="currentCompIndex == 4">
+            <div padding="24px" *ngIf="currentComponent.id == 'card'">
                 <h3>Cards</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
 
@@ -786,22 +395,6 @@
                 </div>
                 <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
                     {{codeSnippet[15]}}
-                </pre>
-
-                <!-- Dashboard Card -->
-                <h5 margin.y="12px">Dashboard Stat Card</h5>
-                <div margin="24px">
-                    <div radius="4px" shadow="2" padding="24px" width="200px" bgColor="baseFocus">
-                        <p ngwTypo="subheading-2" margin.bottom="12px">Revenue</p>
-                        <p ngwTypo="headline">$56,734</p>
-                        <p ngwTypo="body" align.y="center" textColor="success">
-                            <i class="material-icons">arrow_drop_up</i> 5.77%
-                        </p>
-                        <p ngwTypo="caption" muted="true">Since last month</p>
-                    </div>
-                </div>
-                <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
-                    {{codeSnippet[16]}}
                 </pre>
 
                 <!-- Thank you Card -->
@@ -891,32 +484,8 @@
                       {{codeSnippet[19]}}
                  </pre>
 
-                <!-- Img Card -->
-                <h5 margin.y="12px">Image Card</h5>
-                <div margin="24px">
-                    <div row padding="12px" shadow="2" radius="4px" bgColor="baseFocus">
-                        <div col="100%">
-                            <img radius="4px" fit="cover" height="128px" width="100%" src="https://www.shutterstock.com/blog/wp-content/uploads/sites/5/2017/08/nature-design.jpg" />
-                        </div>
-                        <div col="100%" margin.top="24px">
-                            <p ngwTypo="subheading-2">Title</p>
-                            <p ngwTypo="body">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                                in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            </p>
-                        </div>
-                        <div col="100%" align.x="right" margin.top="24px">
-                            <button ngwBtn="flat" color="warning" margin.right="8px">Cancel</button>
-                            <button ngwBtn="flat" color="primary">Default</button>
-                        </div>
-                    </div>
-                </div>
-                <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
-                       {{codeSnippet[20]}}
-                </pre>
-
                 <!-- Info Card -->
-                <h5 margin.y="12px">Info Card</h5>
+                <h5 margin.y="12px">Details Card</h5>
                 <div margin="24px auto" style="max-width: 500px;">
                     <div padding="12px" shadow="1" radius="4px" bgColor="baseFocus">
                         <div align="centercenter">
@@ -938,7 +507,7 @@
                 </pre>
 
                 <!-- Info Card 2 -->
-                <h5 margin.y="12px">Info Card 2</h5>
+                <h5 margin.y="12px">Details Card 2</h5>
                 <div margin="24px auto" style="max-width: 500px;">
                     <div width="400px" shadow="2" radius="8px" bgColor="baseFocus" padding="64px">
                         <img height="300px" width="100%" src="https://image.freepik.com/free-vector/mysterious-mafia-man-smoking-cigarette_52683-34828.jpg" />
@@ -997,14 +566,127 @@
 
 
             </div>
+            <!-- stat Card -->
+            <div padding="24px" *ngIf="currentComponent.id == 'stat'">
+                <h3>Stat Cards</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
 
+                <!-- Single Stat -->
+                <h5 margin.y="12px">Single Stat</h5>
+                <div width="250px" wrapper *ngFor="let theme of ['primary','secondary','success','error']" style="display: inline-block;">
+                    <div margin="20px" bgColor="baseFocus" padding="12px" shadow="2" radius="16px">
+                        <p ngwTypo="body" muted="true" margin="0px">Total Page Views</p>
+                        <h1 margin="0px" [textColor]="theme">89,400</h1>
+                        <p ngwTypo="body" muted="true">21% more than last month</p>
+                    </div>
+                </div>
+
+                <!-- stat with icons -->
+                <h5 margin.y="12px">Stat with icon</h5>
+                <div width="350px" wrapper *ngFor="let theme of ['primary','success','error']" style="display: inline-block;">
+                    <div row margin="20px" bgColor="baseFocus" padding="12px" shadow="2" radius="16px">
+                        <div col="fill">
+                            <p ngwTypo="body" muted="true" margin="0px">Total Page Views</p>
+                            <h1 margin="0px" [textColor]="theme">89,400</h1>
+                            <p ngwTypo="body" muted="true">21% more than last month</p>
+                        </div>
+                        <div align="centercenter">
+                            <i class="material-icons" [textColor]="theme" fontSize="30px">bolt</i>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- stat with Avatar -->
+                <h5 margin.y="12px">Stat with icon</h5>
+                <div width="350px" wrapper *ngFor="let theme of ['primary','success','error']" style="display: inline-block;">
+                    <div row margin="20px" bgColor="baseFocus" padding="12px" shadow="2" radius="16px">
+                        <div col="fill">
+                            <h1 margin="0px" fontWeight="bold" [textColor]="theme">86%</h1>
+                            <p ngwTypo="body" muted="true" margin="0px">Tasks Completed</p>
+                            <button ngwBtn="link">31 Tasks Remaining</button>
+                        </div>
+                        <div align="centercenter">
+                            <img *ngFor="let size of ['56px']" height="{{size}}" width="{{size}}" radius="8px" src="http://daisyui.com/tailwind-css-component-profile-1@94w.png">
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- stat row -->
+                <h5 margin.y="12px">Stat Row</h5>
+                <div wrapper margin="20px">
+
+                    <div row radius="16px" shadow="2" bgColor="baseFocus">
+                        <div col="33.3%" style="border-right: 1px solid var(--ngw-theme-base);" padding="20px">
+                            <div row padding="12px">
+                                <div col="fill">
+                                    <p ngwTypo="body" muted="true" margin="0px">Total Page Views</p>
+                                    <h1 margin="0px" textColor="primary">89,400</h1>
+                                    <p ngwTypo="body" muted="true">21% more than last month</p>
+                                </div>
+                                <div align="centercenter">
+                                    <i class="material-icons" textColor="secondary" fontSize="40px">bolt</i>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div col="33.3%" style="border-right: 1px solid var(--ngw-theme-base);" padding="20px">
+                            <div row padding="12px">
+                                <div col="fill">
+                                    <p ngwTypo="body" muted="true" margin="0px">Total Page Views</p>
+                                    <h1 margin="0px" textColor="primary">89,400</h1>
+                                    <p ngwTypo="body" muted="true">21% more than last month</p>
+                                </div>
+                                <div align="centercenter">
+                                    <i class="material-icons" textColor="secondary" fontSize="40px">payments</i>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div col="fill" padding="20px">
+                            <div row padding="12px">
+                                <div col="fill">
+                                    <p ngwTypo="body" muted="true" margin="0px">Total Page Views</p>
+                                    <h1 margin="0px" textColor="primary">89,400</h1>
+                                    <p ngwTypo="body" muted="true">21% more than last month</p>
+                                </div>
+                                <div align="centercenter">
+                                    <i class="material-icons" textColor="secondary" fontSize="40px">campaign</i>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Dashboard Card -->
+                <h5 margin.y="12px">Dashboard Stat Card</h5>
+                <div margin="24px">
+                    <div radius="4px" shadow="2" padding="24px" width="200px" bgColor="baseFocus">
+                        <p ngwTypo="subheading-2" margin.bottom="12px">Revenue</p>
+                        <p ngwTypo="headline">$56,734</p>
+                        <p ngwTypo="body" align.y="center" textColor="success">
+                            <i class="material-icons">arrow_drop_up</i> 5.77%
+                        </p>
+                        <p ngwTypo="caption" muted="true">Since last month</p>
+                    </div>
+                </div>
+                <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
+                     {{codeSnippet[16]}}
+                 </pre>
+
+
+            </div>
             <!-- Gradient Cards -->
-            <div padding="24px" *ngIf="currentCompIndex == 5">
+            <div padding="24px" *ngIf="currentComponent.id == 'gc'">
                 <h3>Gradient Cards</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
                 <!-- Gradient Stat Card -->
                 <h5 margin.y="12px">Gradient Stat Card Primary</h5>
-                <div margin="24px auto" style="max-width: 300px;" *ngFor="let theme of ['primary','secondary','success','warning','error']">
+                <div margin="24px auto" padding="10px" style="max-width: 300px;display: inline-block;" *ngFor="let theme of ['primary','secondary','success','warning','error']">
                     <div [gradientBgColor]="theme" align="centercenter" padding="24px" border.style="solid" border.color="{{theme}}" border.width="2px" radius="8px">
                         <div>
                             <div textColor="{{theme}}Content" fontSize="18px">Downloads</div>
@@ -1021,81 +703,289 @@
                     {{codeSnippet[24]}}
                 </pre>
 
-                <!-- Gradient Stat Card -->
-                <h5 margin.y="12px">Gradient Stat Card Secondary</h5>
-                <div margin="24px auto" style="max-width: 300px;">
-                    <div gradientBgColor="secondary" align="centercenter" padding="24px" border.style="solid" border.color="secondary" border.width="2px" radius="8px">
-                        <div>
-                            <div textColor="secondary-contrast" fontSize="18px">Downloads</div>
-                            <div textColor="secondary-contrast" fontSize="36px">622k</div>
+            </div>
+            <!-- Image Card -->
+            <div padding="24px" *ngIf="currentComponent.id == 'imageCard'">
+                <h3>Image Cards</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+
+                <!-- profile -->
+                <h5 margin.y="12px">Profile With Image</h5>
+                <div radius="16px" bgColor="baseFocus" width="300px" style="overflow: hidden;" margin="20px" shadow="1">
+                    <img src="https://picsum.photos/id/1005/400/250" height="auto" width="100%" />
+                    <div padding="24px">
+                        <h4 ellipsis>Karolann Collins</h4>
+                        <p ngwTypo="body-2" muted="true">Direct Interactions Liaison</p>
+                    </div>
+                </div>
+
+                <h5 margin.y="12px">Top Image</h5>
+                <div border="1px solid" bgColor="base" border.color="baseFocus" radius="16px" width="400px" style="overflow: hidden;" margin="20px">
+                    <img src="https://picsum.photos/id/1005/400/250" height="auto" width="100%" />
+                    <div padding="24px">
+                        <h6 ellipsis>PHmG123DG1233..!!!
+                            <div ngwBadge="" color="secondary">New</div>
+                        </h6>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                        <div align.x="right">
+                            <button ngwBtn="flat" color="secondary">More Info</button>
                         </div>
-                        <div gradientBgColor="secondary" radius="9999px" margin.left="32px" padding="16px" textColor="secondary-contrast">
-                            <svg height="48px" width="48px" xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" viewBox="0 0 20 20" fill="currentColor">
-                                <path d="M5.5 16a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 16h-8z" />
-                              </svg>
+                    </div>
+                </div>
+
+                <h5 margin.y="12px">Image Bottom</h5>
+
+                <div border="1px solid" bgColor="base" border.color="baseFocus" radius="16px" width="400px" style="overflow: hidden;" margin="20px">
+
+                    <div padding="24px">
+                        <h6 ellipsis>Image Bottom</h6>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                        <div align.x="left">
+                            <button ngwBtn="flat" color="primary" margin.right="10px">Login</button>
+                            <button ngwBtn="">Register</button>
+                        </div>
+                    </div>
+                    <img src="https://picsum.photos/id/1005/400/250" height="auto" width="100%" />
+                </div>
+
+                <h5 margin.y="12px">Center Shadow</h5>
+                <div shadow="2" bgColor="base" radius="16px" width="400px" style="overflow: hidden;" padding="32px" margin="20px">
+                    <img src="https://picsum.photos/id/1005/400/250" height="auto" width="100%" radius="16px" />
+                    <div padding.top="24px">
+                        <h4 align.x="center" ellipsis>PHmG123DG1233..!!!</h4>
+                        <p align.x="center">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                        <div align.x="center">
+                            <button ngwBtn="outline" color="secondary">More Info</button>
+                        </div>
+                    </div>
+                </div>
+
+                <h5 margin.y="12px">Horizontal Image</h5>
+                <div row radius="16px" border="1px solid" bgColor="base" border.color="baseFocus" style="overflow: hidden;">
+                    <div col="30%">
+                        <img src="https://picsum.photos/id/1005/400/250" height="100%" width="100%" />
+                    </div>
+                    <div col="70%" align.y="center" padding="32px">
+                        <div>
+                            <h2>Horizontal
+                                <div ngwBadge="" color="secondary" fontSize="60%">New</div>
+                            </h2>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            </p>
+                            <div align.x="left">
+                                <button ngwBtn="flat" color="primary" margin.right="10px">Get Started</button>
+                                <button ngwBtn="">More Info</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <h5 margin.y="12px">Glass Image Card</h5>
+                <div align="centercenter" radius="16px" padding="40px 16px" fit="cover" style="background-image:url(https://picsum.photos/id/314/1000/300);background-size: cover;">
+                    <div ngwGlassBg="true" height="auto" width="70%" row padding="24px" radius="12px" shadow="1">
+                        <div col="35%">
+                            <img src="https://picsum.photos/id/1005/400/250" height="100%" width="100%" radius="8px" />
+                        </div>
+                        <div col="65%" padding="24px" align.x="left">
+                            <div>
+                                <h2 textColor="primary-contrast">Glass</h2>
+                                <p textColor="primary-contrast">
+                                    Rerum reiciendis beatae tenetur excepturi aut pariatur est eos. Sit sit necessitatibus veritatis sed molestiae voluptates incidunt iure sapiente.
+                                </p>
+                                <button ngwGlassBg="true" ngwBtn="" color="" textColor="primaryContent">Get Started</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Img Card -->
+                <h5 margin.y="12px">Image Card</h5>
+                <div margin="24px">
+                    <div row padding="12px" shadow="2" radius="4px" bgColor="baseFocus">
+                        <div col="100%">
+                            <img radius="4px" fit="cover" height="128px" width="100%" src="https://www.shutterstock.com/blog/wp-content/uploads/sites/5/2017/08/nature-design.jpg" />
+                        </div>
+                        <div col="100%" margin.top="24px">
+                            <p ngwTypo="subheading-2">Title</p>
+                            <p ngwTypo="body">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                                in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </p>
+                        </div>
+                        <div col="100%" align.x="right" margin.top="24px">
+                            <button ngwBtn="flat" color="warning" margin.right="8px">Cancel</button>
+                            <button ngwBtn="flat" color="primary">Default</button>
                         </div>
                     </div>
                 </div>
                 <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
-                    {{codeSnippet[25]}}
+                       {{codeSnippet[20]}}
                 </pre>
 
-                <!-- Gradient Stat Card Success-->
-                <h5 margin.y="12px">Gradient Stat Card Success</h5>
-                <div margin="24px auto" style="max-width: 300px;">
-                    <div gradientBgColor="success" align="centercenter" padding="24px" border.style="solid" border.color="success" border.width="2px" radius="8px">
-                        <div>
-                            <div textColor="success-contrast" fontSize="18px">Downloads</div>
-                            <div textColor="success-contrast" fontSize="36px">622k</div>
-                        </div>
-                        <div gradientBgColor="success" radius="9999px" margin.left="32px" padding="16px" textColor="success-contrast">
-                            <svg height="48px" width="48px" xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" viewBox="0 0 20 20" fill="currentColor">
-                                 <path d="M5.5 16a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 16h-8z" />
-                               </svg>
-                        </div>
-                    </div>
-                </div>
-                <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
-                     {{codeSnippet[26]}}
-                 </pre>
 
-                <!-- Gradient Stat Card Warning-->
-                <h5 margin.y="12px">Gradient Stat Card Warning</h5>
-                <div margin="24px auto" style="max-width: 300px;">
-                    <div gradientBgColor="warning" align="centercenter" padding="24px" border.style="solid" border.color="warning" border.width="2px" radius="8px">
-                        <div>
-                            <div textColor="warning-contrast" fontSize="18px">Downloads</div>
-                            <div textColor="warning-contrast" fontSize="36px">622k</div>
-                        </div>
-                        <div gradientBgColor="warning" radius="9999px" margin.left="32px" padding="16px" textColor="warning-contrast">
-                            <svg height="48px" width="48px" xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" viewBox="0 0 20 20" fill="currentColor">
-                                 <path d="M5.5 16a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 16h-8z" />
-                               </svg>
-                        </div>
-                    </div>
-                </div>
-                <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
-                     {{codeSnippet[27]}}
-                 </pre>
 
-                <!-- Gradient Stat Card Error-->
-                <h5 margin.y="12px">Gradient Stat Card Error</h5>
-                <div margin="24px auto" style="max-width: 300px;">
-                    <div gradientBgColor="error" align="centercenter" padding="24px" border.style="solid" border.color="error" border.width="2px" radius="8px">
-                        <div>
-                            <div textColor="error-contrast" fontSize="18px">Downloads</div>
-                            <div textColor="error-contrast" fontSize="36px">622k</div>
+
+
+            </div>
+            <!-- Info Card -->
+            <div padding="24px" *ngIf="currentComponent.id == 'infoCard'">
+                <h3>Info Cards</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                <!-- Info 1 -->
+                <h5 margin.y="12px">Info Card 1</h5>
+                <div *ngFor="let theme of ['primary','secondary','success']" style="display: inline-block;" padding="32px" [bgColor]="theme" radius="16px" shadow="3" width="300px" margin="20px">
+                    <p textColor="{{theme}}Content"> Rerum reiciendis beatae tenetur excepturi aut pariatur est eos.</p>
+                    <div align.x="right">
+                        <button ngwBtn="flat" [color]="theme">More Info <i class="material-icons">east</i> </button>
+                    </div>
+
+                </div>
+
+                <!-- Info 2 -->
+                <h5 margin.y="12px">Info Card 2</h5>
+                <div *ngFor="let theme of ['primary','secondary','error']" style="display: inline-block;" padding="32px" [bgColor]="theme" radius="16px" shadow="3" width="300px" margin="20px">
+                    <p align.x="center" textColor="{{theme}}Content"> Rerum reiciendis beatae tenetur excepturi aut pariatur est eos.</p>
+                    <div align.x="center">
+                        <button ngwBtn="flat" [color]="theme" margin.right="5px">Agree </button>
+                        <button ngwBtn="flat" [color]="theme">Cancel</button>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- Badges -->
+            <div padding="24px" *ngIf="currentComponent.id == 'badge'">
+                <h3>Badges</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                <!-- Simple Filled -->
+                <h5 margin.y="12px">Simple Filled</h5>
+                <div margin.bottom="20px">
+                    <div *ngFor="let theme of ['primary','secondary','success','default']" ngwBadge="" [color]="theme">Simple Badge</div>
+                </div>
+
+                <!-- Badge With Icon -->
+                <h5 margin.y="12px">Badge With Icon</h5>
+                <div margin.bottom="20px">
+                    <div *ngFor="let theme of ['primary','secondary','success','default']" ngwBadge="" [color]="theme">
+                        PHmG123 <i class="material-icons" fontSize="inherit" ngwClickable="true">close</i>
+                    </div>
+                </div>
+
+                <!--outline Badge -->
+                <h5 margin.y="12px">Outline Badge</h5>
+                <div margin.bottom="20px">
+                    <div *ngFor="let theme of ['primary','secondary','success','default']" ngwBadge="outline" [color]="theme">NEW</div>
+                </div>
+
+
+                <!--outline Badge With Icon -->
+                <h5 margin.y="12px">Outline Badge With Icon</h5>
+                <div margin.bottom="20px">
+                    <div *ngFor="let theme of ['primary','secondary','success','default']" ngwBadge="outline" [color]="theme">
+                        <i class="material-icons" fontSize="inherit" ngwClickable>close</i> NEW
+                    </div>
+                </div>
+
+                <!--outline Badge With Icon -->
+                <h5 margin.y="12px">Badge With Text</h5>
+
+                <h1>
+                    This is heading 1
+                    <div ngwBadge="outline" color="primary">NEW</div>
+                </h1>
+                <h2>
+                    This is heading 2
+                    <div ngwBadge="outline" color="primary">NEW</div>
+                </h2>
+                <h3>
+                    This is heading 3
+                    <div ngwBadge="outline" color="primary">NEW</div>
+                </h3>
+
+                <h4>
+                    This is heading 4
+                    <div ngwBadge="outline" color="primary">NEW</div>
+                </h4>
+
+                <h5>
+                    This is heading 5
+                    <div ngwBadge="outline" color="primary">NEW</div>
+                </h5>
+
+                <h6>
+                    This is heading 6
+                    <div ngwBadge="outline" color="primary">NEW</div>
+                </h6>
+            </div>
+            <!-- Avatars-->
+            <div padding="24px" *ngIf="currentComponent.id == 'avatar'">
+                <h3>Avatar</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                <!-- Simple Filled -->
+                <h5 margin.y="12px">Simple Avatar</h5>
+
+                <div margin.bottom="20px">
+                    <img *ngFor="let size of ['94px','56px','40px']" height="{{size}}" width="{{size}}" radius="8px" margin.right="30px" src="http://daisyui.com/tailwind-css-component-profile-1@94w.png">
+                </div>
+
+                <h5 margin.y="12px">Rounded Avatar</h5>
+
+                <div margin.bottom="20px">
+                    <img *ngFor="let size of ['94px','56px','40px']" height="{{size}}" width="{{size}}" radius="50%" margin.right="30px" src="http://daisyui.com/tailwind-css-component-profile-1@94w.png">
+                </div>
+
+                <h5 margin.y="12px">Bordered Avatar</h5>
+                <div margin.bottom="20px">
+                    <img src="http://daisyui.com/tailwind-css-component-profile-1@94w.png" *ngFor="let size of ['94px','56px','40px']" height="{{size}}" width="{{size}}" radius="8px" margin.right="30px" padding="1px" border.style="solid" border.width="3px" border.color="primary">
+                </div>
+
+                <h5 margin.y="12px">Bordered Rounded Avatar</h5>
+
+                <div margin.bottom="20px">
+                    <img src="http://daisyui.com/tailwind-css-component-profile-1@94w.png" *ngFor="let size of ['94px','56px','40px']" height="{{size}}" width="{{size}}" radius="50%" margin.right="30px" padding="1px" border.style="solid" border.width="3px" border.color="primary">
+                </div>
+
+                <h5 margin.y="12px">Initials Avatar</h5>
+                <div margin.bottom="20px">
+                    <div margin.right="30px" *ngFor="let size of ['94px','56px','40px']" style="display: inline-block;">
+                        <div align="centercenter" height="{{size}}" width="{{size}}" radius="50%" bgColor="baseFocus">
+                            <span fontSize="24px">KJO</span>
                         </div>
-                        <div gradientBgColor="error" radius="9999px" margin.left="32px" padding="16px" textColor="error-contrast">
-                            <svg height="48px" width="48px" xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" viewBox="0 0 20 20" fill="currentColor">
-                                 <path d="M5.5 16a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 16h-8z" />
-                               </svg>
+
+                    </div>
+                </div>
+
+                <h5 margin.y="12px">AvatarGroup</h5>
+
+                <div margin.bottom="20px">
+                    <!-- *ngIf="profiles as users" to use from ts -->
+                    <!--  -->
+                    <div *ngIf="['1','2','3','4','5','6'] as users">
+                        <div>
+                            <img *ngFor="let user of users.slice(0, 5)" radius="50%" height="40px" width="40px" border="3px solid" border.color="baseFocus" margin.left="-15px" src="http://daisyui.com/tailwind-css-component-profile-{{user}}@56w.png">
+                            <div *ngIf="users.length > 5" style="display: inline-block;">
+                                <div align="centercenter" bgColor="base" radius="50%" height="40px" width="40px" border="3px solid" border.color="baseFocus" margin.left="-15px">
+                                    +{{users.length - 5}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="avatar">
+                        <div>
+
                         </div>
                     </div>
                 </div>
-                <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
-                     {{codeSnippet[28]}}
-                 </pre>
+
 
             </div>
         </div>

@@ -84,7 +84,7 @@ export class NgwBtnDirective implements OnChanges {
 
     }else if(this.type == 'link'){
       classList.add('ngw-btn-link');
-      classList.add('ngw-text-color-primary');
+      classList.add('ngw-text-primary');
 
     }else{
       classList.add('ngw-text-button');

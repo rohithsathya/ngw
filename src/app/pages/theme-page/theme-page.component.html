@@ -22,9 +22,9 @@
                 <div>
                     <label>Prebuilt Themes</label> <br/>
                     <select ngwFormControl width="200px" margin.bottom="20px" [(ngModel)]="selectedThemeIndex" (change)="themeChangeEvent($event)">
-                        <option value="0">light</option>
-                        <option  value="1">dark</option>
-                        <option  value="2">G3</option>
+                        <option value="{{i}}" *ngFor="let item of allThemeNames; index as i">{{item}}</option>
+                        <!-- <option  value="1">dark</option>
+                        <option  value="2">G3</option> -->
                     </select>
                 </div>
                 <div col.lg="fill" col.md="100%" col.sm="100%" align.y="center" align.x="right" padding.x="20px">

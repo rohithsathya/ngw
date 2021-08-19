@@ -10,6 +10,7 @@ import { PreviewService } from './services/preview.service';
 export class AppComponent implements OnInit {
   title = 'ngw';
   routeIndex = -1;
+  
   constructor(public ps:PreviewService,private route: ActivatedRoute,private router: Router){}
   ngOnInit(){
     this.router.events.subscribe((event: any) => {
@@ -30,7 +31,7 @@ export class AppComponent implements OnInit {
           }
 
       }
-  });
+    });
   }
 
 }

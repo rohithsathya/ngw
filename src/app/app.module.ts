@@ -11,80 +11,9 @@ import { IntroPageComponent } from './pages/intro-page/intro-page.component';
 import { JsonEditorDirective } from './directive/json-editor.directive';
 import { FormsModule } from '@angular/forms';
 import { GettingStartedPageComponent } from './pages/getting-started-page/getting-started-page.component';
+import { ThemeData } from './data/theme.data';
 
-//light
-let lightTheme:NgwThemeConfig= {
-  colors:{
-    "primary":"#570df8",
-    "primaryFocus":"#4406cb",
-    "primaryContent":"#ffffff",
-
-    "secondary":"#f000b8",
-    "secondaryFocus":"#bd0091",
-    "secondaryContent":"#ffffff",
-
-    "default":"#3d4451",
-    "defaultFocus":"#2a2e37",
-    "defaultContent":"#ffffff",
-
-    //"b1":"#ffffff", //base
-    //"b2":"#f9fafb",//baseFocus
-    //"b3":"#d1d5db", //no match yet
-    //"bc":"#1f2937",//baseContent
-
-    "base":"#ffffff",
-    "baseFocus":"#f9fafb",
-    "baseContent":"#1f2937",
-
-    "success":"#87d039",
-    "successFocus":"#68a527",
-    "successContent":"#ffffff",
-
-    "warning":"#e2d562",
-    "warningFocus":"#e6e62b",
-    "warningContent":"#ffffff",
-
-    "error":"#ff6f6f",
-    "errorFocus":"#ff3c3c",
-    "errorContent":"#ffffff"
-  }
-}
-
-let darkTheme:NgwThemeConfig = {
-  colors:{
-    "primary":"#793ef9",
-    "primaryFocus":"#570df8",
-    "primaryContent":"#ffffff",
-
-    "secondary":"#f000b8",
-    "secondaryFocus":"#bd0091",
-    "secondaryContent":"#ffffff",
-
-    // "default":"#2a2e37",
-    // "defaultFocus":"#16181d",
-    // "defaultContent":"#ffffff",
-
-    "default":"#2a2e37",
-    "defaultFocus":"#16181d",
-    "defaultContent":"#ffffff",
-
-    "base":"#3d4451",
-    "baseFocus":"#2a2e37",
-    "baseContent":"#ebecf0",
-
-    "success":"#87d039",
-    "successFocus":"#68a527",
-    "successContent":"#ffffff",
-
-    "warning":"#e2d562",
-    "warningFocus":"#e6e62b",
-    "warningContent":"#ffffff",
-
-    "error":"#ff6f6f",
-    "errorFocus":"#ff3c3c",
-    "errorContent":"#ffffff"
-  }
-}
+let currentTheme = ThemeData.getCurrentThemeObj();
 
 @NgModule({
   declarations: [
@@ -100,7 +29,7 @@ let darkTheme:NgwThemeConfig = {
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    NgwCoreModule.configure(lightTheme)
+    NgwCoreModule.configure(currentTheme)
   ],
   providers: [],
   bootstrap: [AppComponent]

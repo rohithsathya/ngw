@@ -2,9 +2,9 @@
 <div row style="min-height: 50vh;" bgColor="primary">
     <div col="100%" align.y="center" align.x="center" padding="30px">
         <div row>
-            <div col="100%" fontSize="56px" textColor="primary-contrast" fontWeight="500">Angular Widgets</div>
-            <div col="100%" fontSize="30px" margin="15px 0px 5px" textColor="primary-contrast">Rapidly build UI screens without ever leaving your HTML.</div>
-            <div col="100%" fontSize="20px" margin="5px 0px 35px" textColor="primary-contrast">No CSS, No Typescript just copy paste widget HTML</div>
+            <div col="100%" fontSize="56px" textColor="primaryContent" fontWeight="500">Angular Widgets</div>
+            <div col="100%" fontSize="30px" margin="15px 0px 5px" textColor="primaryContent">Rapidly build UI screens without ever leaving your HTML.</div>
+            <div col="100%" fontSize="20px" margin="5px 0px 35px" textColor="primaryContent">No CSS, No Typescript just copy paste widget HTML</div>
             <div col="100%" margin.y="10px">
                 <button ngwBtn="raised" color="Secondary" routerLink="/start">Get Started</button>
             </div>
@@ -37,7 +37,7 @@
     <hr width="100%" margin="20px auto" style="border-bottom: 1px solid #eee;" />
     <p ngwTypo="title">Guides</p>
     <div width="100%" row>
-        <div col.lg="33%" col.md="100%" col.sm="100%" padding="8px">
+        <!-- <div col.lg="33%" col.md="100%" col.sm="100%" padding="8px">
             <div row bgColor="primary-100" margin="8px" align.y="center" radius="4px" style="cursor: pointer;" routerLink="/start">
                 <div margin="8px">
                     <div height="40px" width="40px" bgColor="primary-300" textColor="primary-contrast" radius="50%" align="centercenter">
@@ -53,25 +53,59 @@
                     </p>
                 </div>
             </div>
+        </div> -->
+        <div col.lg="33%" col.md="100%" col.sm="100%" padding="8px">
+            <div row bgColor="primary" hover.bgColor="primaryFocus" ngwClickable="true" margin="8px" align.y="center" radius="4px" routerLink="/start">
+                <div margin="8px">
+                    <div height="40px" width="40px" bgColor="primaryContent" textColor="primary" radius="50%" align="centercenter">
+                        <i class="material-icons">flag</i>
+                    </div>
+                </div>
+                <div col="fill" padding="8px 8px 0px 0px">
+                    <p ngwTypo="subheading-2" textColor="primaryContent" margin.bottom="8px">
+                        Get Started
+                    </p>
+                    <p ngwTypo="body" textColor="primaryContent" margin.bottom="8px">
+                        Know how to add and use ngw in your angular app.
+                    </p>
+                </div>
+            </div>
         </div>
         <div col.lg="33%" col.md="100%" col.sm="100%" padding="8px">
-            <div row bgColor="primary-100" margin="8px" align.y="center" radius="4px" style="cursor: pointer;" routerLink="/components">
+            <div row bgColor="primary" hover.bgColor="primaryFocus" ngwClickable="true" margin="8px" align.y="center" radius="4px" routerLink="/components">
                 <div margin="8px">
-                    <div height="40px" width="40px" bgColor="primary-300" textColor="primary-contrast" radius="50%" align="centercenter">
+                    <div height="40px" width="40px" bgColor="primaryContent" textColor="primary" radius="50%" align="centercenter">
                         <i class="material-icons">widgets</i>
                     </div>
                 </div>
                 <div col="fill" padding="8px 8px 0px 0px">
-                    <p ngwTypo="subheading-2" textColor="primary-700" margin.bottom="8px">
+                    <p ngwTypo="subheading-2" textColor="primaryContent" margin.bottom="8px">
                         Widgets
                     </p>
-                    <p ngwTypo="body" textColor="primary-700" margin.bottom="8px">
+                    <p ngwTypo="body" textColor="primaryContent" margin.bottom="8px">
                         Know about all the components NGW is offering.
                     </p>
                 </div>
             </div>
         </div>
         <div col.lg="fill" col.md="100%" col.sm="100%" padding="8px">
+            <div row bgColor="primary" hover.bgColor="primaryFocus" ngwClickable="true" margin="8px" align.y="center" radius="4px" routerLink="/theme">
+                <div margin="8px">
+                    <div height="40px" width="40px" bgColor="primaryContent" textColor="primary" radius="50%" align="centercenter">
+                        <i class="material-icons">palette</i>
+                    </div>
+                </div>
+                <div col="fill" padding="8px 8px 0px 0px">
+                    <p ngwTypo="subheading-2" textColor="primaryContent" margin.bottom="8px">
+                        Theme
+                    </p>
+                    <p ngwTypo="body" textColor="primaryContent" margin.bottom="8px">
+                        Know how to customize and theme NGW components.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- <div col.lg="fill" col.md="100%" col.sm="100%" padding="8px">
             <div row bgColor="primary-100" margin="8px" align.y="center" radius="4px" style="cursor: pointer;" routerLink="/theme">
                 <div margin="8px">
                     <div height="40px" width="40px" bgColor="primary-300" textColor="primary-contrast" radius="50%" align="centercenter">
@@ -87,7 +121,7 @@
                     </p>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 
 </div>
