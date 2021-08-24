@@ -1,0 +1,30 @@
+For library deployment and npm publish
+https://angular.io/guide/creating-libraries#use-typescript-path-mapping-for-peer-dependencies
+
+> link to documents :
+https://rohithsathya.github.io/ngw/
+
+>reference : 
+https://daisyui.com/components/badge
+
+ToDO:
+-display
+-cursor (call it clickable)
+-current colour (css property)
+-add size(sm,md xl..predefined padding,margin..etc) and color to *ngIf
+
+>git add .
+>git status
+>git commit -m "first Draft"
+>git push  (git push -u origin master)
+
+
+npm run build
+npm publish 
+npm uninstall defaeco-core --save;
+npm install  defaeco-core@latest --save;
+
+# to publish pages
+install angular-cli-ghpages
+> ng add angular-cli-ghpages
+>ng deploy --base-href=/ngw/
