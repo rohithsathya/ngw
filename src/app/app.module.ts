@@ -12,6 +12,17 @@ import { JsonEditorDirective } from './directive/json-editor.directive';
 import { FormsModule } from '@angular/forms';
 import { GettingStartedPageComponent } from './pages/getting-started-page/getting-started-page.component';
 import { ThemeData } from './data/theme.data';
+import { NgwAvatarComponent } from './components/ngw-avatar/ngw-avatar.component';
+import { NgwAlertsComponent } from './components/ngw-alerts/ngw-alerts.component';
+import { NgwButtonsComponent } from './components/ngw-buttons/ngw-buttons.component';
+import { NgwFormControlsComponent } from './components/ngw-form-controls/ngw-form-controls.component';
+import { NgwTypographyComponent } from './components/ngw-typography/ngw-typography.component';
+import { NgwCardsDemoComponent } from './components/ngw-cards-demo/ngw-cards-demo.component';
+import { NgwStatCardsDemoComponent } from './components/ngw-stat-cards-demo/ngw-stat-cards-demo.component';
+import { NgwGradientDemoComponent } from './components/ngw-gradient-demo/ngw-gradient-demo.component';
+import { NgwImgCardDemoComponent } from './components/ngw-img-card-demo/ngw-img-card-demo.component';
+import { NgwInfoCardDemoComponent } from './components/ngw-info-card-demo/ngw-info-card-demo.component';
+import { NgwBadgesDemoComponent } from './components/ngw-badges-demo/ngw-badges-demo.component';
 
 let currentTheme = ThemeData.getCurrentThemeObj();
 
@@ -23,7 +34,18 @@ let currentTheme = ThemeData.getCurrentThemeObj();
     ThemePageComponent,
     IntroPageComponent,
     JsonEditorDirective,
-    GettingStartedPageComponent
+    GettingStartedPageComponent,
+    NgwAvatarComponent,
+    NgwAlertsComponent,
+    NgwButtonsComponent,
+    NgwFormControlsComponent,
+    NgwTypographyComponent,
+    NgwCardsDemoComponent,
+    NgwStatCardsDemoComponent,
+    NgwGradientDemoComponent,
+    NgwImgCardDemoComponent,
+    NgwInfoCardDemoComponent,
+    NgwBadgesDemoComponent
   ],
   imports: [
     BrowserModule,

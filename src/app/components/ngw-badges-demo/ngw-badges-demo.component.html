@@ -1,0 +1,80 @@
+<div>
+    <h3>Badges</h3>
+    <p>Badges are inline block elements that usually appear near another element. Typically they contain a number or other characters. They can be used as a notification that there are additional items associated with an element and indicate how many items
+        there are. </p>
+    <!-- Simple Filled -->
+    <h5 margin.y="12px">Simple Filled</h5>
+    <div margin.bottom="20px">
+        <div *ngFor="let theme of ['primary','secondary','success','default']" ngwBadge="" [color]="theme">Simple Badge</div>
+    </div>
+    <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto">
+        {{codeSnaps.simpleFilled}}
+    </pre>
+
+    <!-- Badge With Icon -->
+    <h5 margin.y="12px">Badge With Icon</h5>
+    <div margin.bottom="20px">
+        <div *ngFor="let theme of ['primary','secondary','success','default']" ngwBadge="" [color]="theme">
+            PHmG123 <i class="material-icons" fontSize="inherit" ngwClickable="true">close</i>
+        </div>
+    </div>
+    <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto">
+        {{codeSnaps.badgeWithIcon}}
+    </pre>
+
+    <!--outline Badge -->
+    <h5 margin.y="12px">Outline Badge</h5>
+    <div margin.bottom="20px">
+        <div *ngFor="let theme of ['primary','secondary','success','default']" ngwBadge="outline" [color]="theme">NEW</div>
+    </div>
+
+    <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto">
+        {{codeSnaps.outlineBadge}}
+    </pre>
+
+
+    <!--outline Badge With Icon -->
+    <h5 margin.y="12px">Outline Badge With Icon</h5>
+    <div margin.bottom="20px">
+        <div *ngFor="let theme of ['primary','secondary','success','default']" ngwBadge="outline" [color]="theme">
+            <i class="material-icons" fontSize="inherit" ngwClickable>close</i> NEW
+        </div>
+    </div>
+    <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto">
+        {{codeSnaps.outlineBadgeWithICon}}
+    </pre>
+
+    <!--outline Badge With Icon -->
+    <h5 margin.y="12px">Badge With Text</h5>
+
+    <h1>
+        This is heading 1
+        <div ngwBadge="outline" color="primary">NEW</div>
+    </h1>
+    <h2>
+        This is heading 2
+        <div ngwBadge="outline" color="primary">NEW</div>
+    </h2>
+    <h3>
+        This is heading 3
+        <div ngwBadge="outline" color="primary">NEW</div>
+    </h3>
+
+    <h4>
+        This is heading 4
+        <div ngwBadge="outline" color="primary">NEW</div>
+    </h4>
+
+    <h5>
+        This is heading 5
+        <div ngwBadge="outline" color="primary">NEW</div>
+    </h5>
+
+    <h6>
+        This is heading 6
+        <div ngwBadge="outline" color="primary">NEW</div>
+    </h6>
+    <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto">
+        {{codeSnaps.badgeWithText}}
+    </pre>
+</div>

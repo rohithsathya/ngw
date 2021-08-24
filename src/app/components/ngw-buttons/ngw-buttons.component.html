@@ -1,0 +1,150 @@
+<div>
+    <h3>Ngw Buttons</h3>
+    <p>Buttons provide a clickable element, which can be used in forms, or anywhere that needs simple, standard button functionality. They may display text, icons, or both. Buttons can be styled with several attributes to look a specific way.
+    </p>
+    <h5>API</h5>
+    <table>
+        <tr>
+            <th>Directive</th>
+            <th>Description</th>
+            <th>Allowed Values</th>
+        </tr>
+        <tr>
+            <td> <code>ngwBtn</code> </td>
+            <td> Defines type of button</td>
+            <td>none,outline, flat, raised,icon</td>
+        </tr>
+        <tr>
+            <td> <code>color</code> </td>
+            <td> Defines button color </td>
+            <td> Any Valid ngw theme color<br/><small class="text-muted">(e.g. primary, success)</small></td>
+        </tr>
+    </table>
+
+
+    <h6 margin.y="16px">Default Buttons</h6>
+
+    <button ngwBtn="" margin="10px" color="">Default Button</button>
+    <button ngwBtn="" margin="10px" color="primary">Primary Button</button>
+    <button ngwBtn="" margin="10px" color="secondary">Secondary Button</button>
+    <button ngwBtn="" margin="10px" color="success">Success Button</button>
+    <button ngwBtn="" margin="10px" color="warning">Warning Button</button>
+    <button ngwBtn="" margin="10px" color="error">Error Button</button>
+
+    <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto">
+        {{codeSnaps.default}}
+    </pre>
+
+
+    <h6 margin.y="16px">Outline Buttons</h6>
+
+    <button ngwBtn="outline" margin="10px" color="">Outline Button</button>
+    <button ngwBtn="outline" margin="10px" color="primary">Primary Button</button>
+    <button ngwBtn="outline" margin="10px" color="secondary">Secondary Button</button>
+    <button ngwBtn="outline" margin="10px" color="success">Success Button</button>
+    <button ngwBtn="outline" margin="10px" color="warning">Warning Button</button>
+    <button ngwBtn="outline" margin="10px" color="error">Error Button</button>
+
+    <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto">
+        {{codeSnaps.outline}}
+    </pre>
+
+    <h6 margin.y="16px">Outline Rounded Buttons</h6>
+
+    <button ngwBtn="outline" margin="10px" color="" radius="9999px">Outline Rounded Button</button>
+    <button ngwBtn="outline" margin="10px" color="primary" radius="9999px">Primary Button</button>
+    <button ngwBtn="outline" margin="10px" color="secondary" radius="9999px">Secondary Button</button>
+    <button ngwBtn="outline" margin="10px" color="success" radius="9999px">Success Button</button>
+    <button ngwBtn="outline" margin="10px" color="warning" radius="9999px">Warning Button</button>
+    <button ngwBtn="outline" margin="10px" color="error" radius="9999px">Error Button</button>
+
+    <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto">
+        {{codeSnaps.outlineRounded}}
+    </pre>
+
+    <h6 margin.y="16px">Flat Buttons</h6>
+
+    <button ngwBtn="flat" margin="10px" color="">Flat Button</button>
+    <button ngwBtn="flat" margin="10px" color="primary">Primary Button</button>
+    <button ngwBtn="flat" margin="10px" color="secondary">Secondary Button</button>
+    <button ngwBtn="flat" margin="10px" color="success">Success Button</button>
+    <button ngwBtn="flat" margin="10px" color="warning">Warning Button</button>
+    <button ngwBtn="flat" margin="10px" color="error">Error Button</button>
+
+    <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto">
+        {{codeSnaps.flat}}
+    </pre>
+
+    <h6 margin.y="16px">Flat Rounded Buttons</h6>
+
+    <button ngwBtn="flat" margin="10px" radius="9999px" color="">Flat Rounded Button</button>
+    <button ngwBtn="flat" margin="10px" radius="9999px" color="primary">Primary Button</button>
+    <button ngwBtn="flat" margin="10px" radius="9999px" color="secondary">Secondary Button</button>
+    <button ngwBtn="flat" margin="10px" radius="9999px" color="success">Success Button</button>
+    <button ngwBtn="flat" margin="10px" radius="9999px" color="warning">Warning Button</button>
+    <button ngwBtn="flat" margin="10px" radius="9999px" color="error">Error Button</button>
+
+    <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto">
+        {{codeSnaps.flatRounded}}
+    </pre>
+
+    <h6 margin.y="16px">Raised Buttons</h6>
+
+    <button ngwBtn="raised" margin="10px" color="">Raised Button</button>
+    <button ngwBtn="raised" margin="10px" color="primary">Primary Button</button>
+    <button ngwBtn="raised" margin="10px" color="secondary">Secondary Button</button>
+    <button ngwBtn="raised" margin="10px" color="success">Success Button</button>
+    <button ngwBtn="raised" margin="10px" color="warning">Warning Button</button>
+    <button ngwBtn="raised" margin="10px" color="error">Error Button</button>
+
+    <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto">
+        {{codeSnaps.raised}}
+    </pre>
+
+    <h6 margin.y="16px">Icon Buttons</h6>
+
+    <button ngwBtn="icon" margin="10px" color="">
+        <i class="material-icons">work</i>
+    </button>
+    <button ngwBtn="icon" margin="10px" color="primary">
+        <i class="material-icons">logout</i>
+    </button>
+    <button ngwBtn="icon" margin="10px" color="secondary">
+        <i class="material-icons">pending_actions</i>
+    </button>
+    <button ngwBtn="icon" margin="10px" color="success">
+        <i class="material-icons">article</i>
+    </button>
+    <button ngwBtn="icon" margin="10px" color="warning">
+        <i class="material-icons">favorite_border</i>
+    </button>
+    <button ngwBtn="icon" margin="10px" color="error">
+        <i class="material-icons">bug_report</i>
+    </button>
+    <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto">
+        {{codeSnaps.icon}}
+    </pre>
+
+    <h6 margin.y="16px">Buttons With Icons</h6>
+
+    <button ngwBtn="flat" margin="10px" color=""><i class="material-icons">bug_report</i> Message</button>
+    <button ngwBtn="flat" margin="10px" radius="9999px" color="primary"><i class="material-icons">home</i> Home</button>
+    <button ngwBtn="outline" margin="10px" color="secondary"><i class="material-icons">favorite</i> Likes</button>
+    <button ngwBtn="outline" margin="10px" color="success" radius="9999px"><i class="material-icons">west</i> Back</button>
+    <button ngwBtn="" margin="10px" radius="9999px" color="warning">Proceed<i class="material-icons">east</i></button>
+    <button ngwBtn="flat" margin="10px" color="error"><i class="material-icons">edit_calendar</i> &nbsp;Edit</button>
+
+    <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto">
+        {{codeSnaps.btnIcon}}
+    </pre>
+
+    <h6 margin.y="16px">Link Buttons</h6>
+
+    <p>Goto <a href="" ngwBtn="link">Home</a> Page</p>
+
+    <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto">
+        {{codeSnaps.link}}
+    </pre>
+
+
+</div>

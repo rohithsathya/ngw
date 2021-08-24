@@ -17,10 +17,261 @@
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/9.5.3/jsoneditor.min.js" integrity="sha512-QAOXn2qwUfMyfzPadaJjIJs1+vrv8fXsRX7OExiD9D5hoEY6O+FfjHILqp3nt4lK6vOLoNmQbSbBjSz1ngVaLg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+    <!-- code prettyfyer theme-->
+    <style>
+        .prettyprint {
+            position: relative;
+        }
+        
+        .ngw-copy-btn {
+            cursor: pointer;
+            border: 0;
+            padding: 8px;
+            color: indianred;
+            background-color: transparent;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        
+        .ngw-copy-btn:hover {
+            font-weight: bold;
+            background-color: var(--ngw-theme-base);
+        }
+        
+        .ngw-copy-snack-bar {
+            width: 200px;
+            margin: auto;
+            background-color: var(--ngw-theme-defaultFocus);
+            color: var(--ngw-theme-defaultContent);
+            border-radius: 16px;
+            padding: 8px;
+            margin-bottom: 8px;
+            text-align: center;
+            box-shadow: 0 3px 3px -2px rgb(0 0 0 / 20%), 0 3px 4px 0 rgb(0 0 0 / 14%), 0 1px 8px 0 rgb(0 0 0 / 12%);
+            z-index: 10000;
+            transition: all 0.3s ease-in;
+            /* display: none; */
+            position: relative;
+            bottom: -99px;
+        }
+        
+        .ngw-copy-snack-bar.show-snack-bar {
+            /* display: block; */
+            bottom: 0px;
+        }
+        /* Pretty printing styles. Used with prettify.js. */
+        /* Vim sunburst theme by David Leibovic */
+        
+        pre .str,
+        code .str {
+            color: #65B042;
+        }
+        /* string  - green */
+        
+        pre .kwd,
+        code .kwd {
+            color: #E28964;
+        }
+        /* keyword - dark pink */
+        
+        pre .com,
+        code .com {
+            color: #AEAEAE;
+            font-style: italic;
+        }
+        /* comment - gray */
+        
+        pre .typ,
+        code .typ {
+            color: #89bdff;
+        }
+        /* type - light blue */
+        
+        pre .lit,
+        code .lit {
+            color: #3387CC;
+        }
+        /* literal - blue */
+        
+        pre .pun,
+        code .pun {
+            /* color: #fff; */
+            color: var(--ngw-theme-baseContent);
+        }
+        /* punctuation - white */
+        
+        pre .pln,
+        code .pln {
+            /* color: #fff; */
+            color: var(--ngw-theme-baseContent)
+        }
+        /* plaintext - white */
+        
+        pre .tag,
+        code .tag {
+            color: #89bdff;
+        }
+        /* html/xml tag    - light blue */
+        
+        pre .atn,
+        code .atn {
+            color: #bdb76b;
+        }
+        /* html/xml attribute name  - khaki */
+        
+        pre .atv,
+        code .atv {
+            color: #65B042;
+        }
+        /* html/xml attribute value - green */
+        
+        pre .dec,
+        code .dec {
+            color: #3387CC;
+        }
+        /* decimal - blue */
+        
+        pre.prettyprint,
+        code.prettyprint {
+            /* background-color: #000; */
+            background-color: var(--ngw-theme-baseFocus) !important;
+            border-radius: 8px;
+        }
+        
+        pre.prettyprint {
+            width: 95%;
+            margin: 1em auto;
+            padding: 1em;
+            white-space: pre-wrap;
+        }
+        /* Specify class=linenums on a pre to get line numbering */
+        
+        ol.linenums {
+            margin-top: 0;
+            margin-bottom: 0;
+            color: #AEAEAE;
+        }
+        /* IE indents via margin-left */
+        
+        li.L0,
+        li.L1,
+        li.L2,
+        li.L3,
+        li.L5,
+        li.L6,
+        li.L7,
+        li.L8 {
+            list-style-type: none
+        }
+        /* Alternate shading for lines */
+        
+        li.L1,
+        li.L3,
+        li.L5,
+        li.L7,
+        li.L9 {}
+        
+        @media print {
+            pre .str,
+            code .str {
+                color: #060;
+            }
+            pre .kwd,
+            code .kwd {
+                color: #006;
+                font-weight: bold;
+            }
+            pre .com,
+            code .com {
+                color: #600;
+                font-style: italic;
+            }
+            pre .typ,
+            code .typ {
+                color: #404;
+                font-weight: bold;
+            }
+            pre .lit,
+            code .lit {
+                color: #044;
+            }
+            pre .pun,
+            code .pun {
+                color: #440;
+            }
+            pre .pln,
+            code .pln {
+                color: #000;
+            }
+            pre .tag,
+            code .tag {
+                color: #006;
+                font-weight: bold;
+            }
+            pre .atn,
+            code .atn {
+                color: #404;
+            }
+            pre .atv,
+            code .atv {
+                color: #060;
+            }
+        }
+    </style>
+    <script>
+        let ngwCodeCopy = {
+            apply: () => {
+                let elements = document.getElementsByClassName('prettyprint');
+                for (let i = 0; i < elements.length; i++) {
+                    let buttons = elements[i].getElementsByClassName('ngw-copy-btn');
+                    for (let j = 0; j < buttons.length; j++) {
+                        buttons[j].remove();
+                    }
+                    let btn = document.createElement('button');
+                    btn.className = 'ngw-copy-btn';
+                    btn.textContent = 'Copy Code';
+                    let codeText = elements[i].textContent;
+                    btn.setAttribute("data-clipboard-text", codeText);
+                    btn.addEventListener("click", (event) => {
+                        let codeToCopy = event && event.target ? event.target.getAttribute('data-clipboard-text') : null;
+                        let textArea = document.createElement("textarea");
+                        textArea.textContent = codeToCopy;
+                        textArea.style.position = "fixed";
+                        document.body.appendChild(textArea);
+                        textArea.select();
+                        try {
+                            document.execCommand("copy");
+                            showCopySnackBar();
+                        } catch (e) {
+                            console.warn("Copy to Clipboard failed", e);
+                            return false;
+
+                        } finally {
+                            document.body.removeChild(textArea);
+                        }
+                    });
+                    elements[i].appendChild(btn);
+                }
+            },
+        }
+        showCopySnackBar = () => {
+            //show-snack-bar 
+            document.getElementsByClassName('ngw-copy-snack-bar')[0].classList.add('show-snack-bar');
+            setTimeout(() => {
+                document.getElementsByClassName('ngw-copy-snack-bar')[0].classList.remove('show-snack-bar');
+            }, 1200);
+        }
+    </script>
 
 </head>
 
 <body>
+    <div style="position: fixed; left: 0;bottom: 0; width: 100%;">
+        <div class="ngw-copy-snack-bar">
+            Code Copied!
+        </div>
+    </div>
     <app-root></app-root>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>

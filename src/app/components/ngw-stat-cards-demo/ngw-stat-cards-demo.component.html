@@ -1,0 +1,121 @@
+<div>
+    <h3>Stat Cards</h3>
+    <p>Cards are a standard piece of UI that serves as an entry point to more detailed information.</p>
+
+    <!-- Single Stat -->
+    <h5 margin.y="12px">Single Stat</h5>
+    <div width="250px" wrapper *ngFor="let theme of ['primary','secondary','success','error']" style="display: inline-block;">
+        <div margin="20px" bgColor="baseFocus" padding="12px" shadow="2" radius="16px">
+            <p ngwTypo="body" muted="true" margin="0px">Total Page Views</p>
+            <h1 margin="0px" [textColor]="theme">89,400</h1>
+            <p ngwTypo="body" muted="true">21% more than last month</p>
+        </div>
+    </div>
+    <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto">
+        {{codeSnaps.singleStat}}
+    </pre>
+
+    <!-- stat with icons -->
+    <h5 margin.y="12px">Stat with icon</h5>
+    <div width="350px" wrapper *ngFor="let theme of ['primary','success','error']" style="display: inline-block;">
+        <div row margin="20px" bgColor="baseFocus" padding="12px" shadow="2" radius="16px">
+            <div col="fill">
+                <p ngwTypo="body" muted="true" margin="0px">Total Page Views</p>
+                <h1 margin="0px" [textColor]="theme">89,400</h1>
+                <p ngwTypo="body" muted="true">21% more than last month</p>
+            </div>
+            <div align="centercenter">
+                <i class="material-icons" [textColor]="theme" fontSize="30px">bolt</i>
+            </div>
+        </div>
+    </div>
+    <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto">
+        {{codeSnaps.statWithIcon}}
+    </pre>
+
+    <!-- stat with Avatar -->
+    <h5 margin.y="12px">Stat with icon</h5>
+    <div width="350px" wrapper *ngFor="let theme of ['primary','success','error']" style="display: inline-block;">
+        <div row margin="20px" bgColor="baseFocus" padding="12px" shadow="2" radius="16px">
+            <div col="fill">
+                <h1 margin="0px" fontWeight="bold" [textColor]="theme">86%</h1>
+                <p ngwTypo="body" muted="true" margin="0px">Tasks Completed</p>
+                <button ngwBtn="link">31 Tasks Remaining</button>
+            </div>
+            <div align="centercenter">
+                <img *ngFor="let size of ['56px']" height="{{size}}" width="{{size}}" radius="8px" src="http://daisyui.com/tailwind-css-component-profile-1@94w.png">
+            </div>
+
+        </div>
+    </div>
+    <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto">
+        {{codeSnaps.statWithAvatar}}
+    </pre>
+    <!-- stat row -->
+    <h5 margin.y="12px">Stat Row</h5>
+    <div wrapper margin="20px">
+        <div row radius="16px" shadow="2" bgColor="baseFocus">
+            <div col="33.3%" style="border-right: 1px solid var(--ngw-theme-base);" padding="20px">
+                <div row padding="12px">
+                    <div col="fill">
+                        <p ngwTypo="body" muted="true" margin="0px">Total Page Views</p>
+                        <h1 margin="0px" textColor="primary">89,400</h1>
+                        <p ngwTypo="body" muted="true">21% more than last month</p>
+                    </div>
+                    <div align="centercenter">
+                        <i class="material-icons" textColor="secondary" fontSize="40px">bolt</i>
+                    </div>
+
+                </div>
+            </div>
+
+            <div col="33.3%" style="border-right: 1px solid var(--ngw-theme-base);" padding="20px">
+                <div row padding="12px">
+                    <div col="fill">
+                        <p ngwTypo="body" muted="true" margin="0px">Total Page Views</p>
+                        <h1 margin="0px" textColor="primary">89,400</h1>
+                        <p ngwTypo="body" muted="true">21% more than last month</p>
+                    </div>
+                    <div align="centercenter">
+                        <i class="material-icons" textColor="secondary" fontSize="40px">payments</i>
+                    </div>
+
+                </div>
+            </div>
+            <div col="fill" padding="20px">
+                <div row padding="12px">
+                    <div col="fill">
+                        <p ngwTypo="body" muted="true" margin="0px">Total Page Views</p>
+                        <h1 margin="0px" textColor="primary">89,400</h1>
+                        <p ngwTypo="body" muted="true">21% more than last month</p>
+                    </div>
+                    <div align="centercenter">
+                        <i class="material-icons" textColor="secondary" fontSize="40px">campaign</i>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto">
+        {{codeSnaps.statRow}}
+    </pre>
+
+    <!-- Dashboard Card -->
+    <h5 margin.y="12px">Dashboard Stat Card</h5>
+    <div margin="24px">
+        <div radius="4px" shadow="2" padding="24px" width="200px" bgColor="baseFocus">
+            <p ngwTypo="subheading-2" margin.bottom="12px">Revenue</p>
+            <p ngwTypo="headline">$56,734</p>
+            <p ngwTypo="body" align.y="center" textColor="success">
+                <i class="material-icons">arrow_drop_up</i> 5.77%
+            </p>
+            <p ngwTypo="caption" muted="true">Since last month</p>
+        </div>
+    </div>
+    <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto">
+        {{codeSnaps.dashboardStatCard}}
+    </pre>
+
+
+</div>

@@ -1,0 +1,50 @@
+<div>
+    <h3>Ngw Form Controls</h3>
+    <p>Element used to accept data from the user </p>
+    <h5>API</h5>
+    <table>
+        <tr>
+            <th>Directive</th>
+            <th>Description</th>
+            <th>Allowed Values</th>
+        </tr>
+        <tr>
+            <td> <code>ngwFormControl</code> </td>
+            <td> Defines default ngw style for input</td>
+            <td>none</td>
+        </tr>
+        <tr>
+            <td> <code>color</code> </td>
+            <td> Defines input border color </td>
+            <td> Any Valid ngw theme color<br/><small class="text-muted">(e.g. primary, success)</small></td>
+        </tr>
+    </table>
+    <h6 margin.y="16px">Input Form Control</h6>
+    <form>
+        <div row>
+            <div col="50%" padding="8px">
+                <label ngwTypo="caption">Default State</label>
+                <input type="text" ngwFormControl placeholder="Enter a value" />
+            </div>
+
+            <div col="50%" padding="8px">
+                <label ngwTypo="caption">Success State</label>
+                <input type="text" ngwFormControl color="success" placeholder="Enter a value" />
+            </div>
+
+            <div col="50%" padding="8px">
+                <label ngwTypo="caption">Warning State</label>
+                <input type="text" ngwFormControl color="warning" placeholder="Enter a value" />
+            </div>
+
+            <div col="50%" padding="8px">
+                <label ngwTypo="caption">Error State</label>
+                <input type="text" ngwFormControl color="error" placeholder="Enter a value" />
+            </div>
+        </div>
+    </form>
+    <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto">
+        {{codeSnaps.fc}}
+    </pre>
+
+</div>

@@ -1,0 +1,29 @@
+<div>
+    <h3>Info Cards</h3>
+    <p>Cards are a standard piece of UI that serves as an entry point to more detailed information. </p>
+    <!-- Info 1 -->
+    <h5 margin.y="12px">Info Card 1</h5>
+    <div *ngFor="let theme of ['primary','secondary','success']" style="display: inline-block;" padding="32px" [bgColor]="theme" radius="16px" shadow="3" width="300px" margin="20px">
+        <p textColor="{{theme}}Content"> Rerum reiciendis beatae tenetur excepturi aut pariatur est eos.</p>
+        <div align.x="right">
+            <button ngwBtn="flat" [color]="theme">More Info <i class="material-icons">east</i> </button>
+        </div>
+    </div>
+    <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto">
+        {{codeSnaps.infoCard1}}
+    </pre>
+
+    <!-- Info 2 -->
+    <h5 margin.y="12px">Info Card 2</h5>
+    <div *ngFor="let theme of ['primary','secondary','error']" style="display: inline-block;" padding="32px" [bgColor]="theme" radius="16px" shadow="3" width="300px" margin="20px">
+        <p align.x="center" textColor="{{theme}}Content"> Rerum reiciendis beatae tenetur excepturi aut pariatur est eos.</p>
+        <div align.x="center">
+            <button ngwBtn="flat" [color]="theme" margin.right="5px">Agree </button>
+            <button ngwBtn="flat" [color]="theme">Cancel</button>
+        </div>
+    </div>
+    <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto">
+        {{codeSnaps.infoCard2}}
+    </pre>
+
+</div>

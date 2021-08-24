@@ -1,5 +1,6 @@
 import { AfterViewChecked, Component, OnInit } from '@angular/core';
 declare var PR;
+declare var ngwCodeCopy;
 @Component({
   selector: 'app-getting-started-page',
   templateUrl: './getting-started-page.component.html',
@@ -26,5 +27,6 @@ export class GettingStartedPageComponent implements OnInit,AfterViewChecked {
 
   ngAfterViewChecked(){
     PR.prettyPrint();
+    ngwCodeCopy.apply();
   }
 }

@@ -26,11 +26,11 @@
         <div class="container-fluid" #pageContainer style="max-height: calc(100vh - 170px);overflow: auto;">
 
             <!-- bg-color -->
-            <div *ngIf="currentCompIndex == 0">
+            <div *ngIf="currentComponent.id == 'bgColor'">
                 <h3 class="mt-4"> <code>bgColor</code>, <code>hover.bgColor</code> </h3>
                 <p>Directive used for applying background color for a given element</p>
                 <!-- tabs -->
-                <div margin="auto" width="80%" style="overflow: auto;">
+                <div margin="auto" width="80%" style="overflow: auto;" padding.bottom="20px">
 
                     <div>
                         <table>
@@ -42,12 +42,12 @@
                             <tr>
                                 <td> <code>bgColor</code> </td>
                                 <td> To apply background color </td>
-                                <td> Any Valid css color value and ngw theme color<br/><small class="text-muted">(e.g. red, rgb(234,234,123), #eee, #0d6efd, primary, error-300)</small></td>
+                                <td> Any Valid css color value and ngw theme color<br/><small class="text-muted">(e.g. red, rgb(234,234,123), #eee, #0d6efd, primary, error)</small></td>
                             </tr>
                             <tr>
                                 <td> <code>hover.bgColor</code> </td>
                                 <td> To apply background color </td>
-                                <td> Any Valid css color value and ngw theme color<br/><small class="text-muted">(e.g. red, rgb(234,234,123), #eee, #0d6efd, primary, error-300)</small></td>
+                                <td> Any Valid css color value and ngw theme color<br/><small class="text-muted">(e.g. red, rgb(234,234,123), #eee, #0d6efd, primary,error)</small></td>
                             </tr>
                         </table>
                     </div>
@@ -58,17 +58,19 @@
                         <div row>
                             <div col="50%">
                                 <code>bgColor</code>
-                                <div height="120px" width="120px" bgColor="primary-400" margin="30px"></div>
+                                <div height="120px" width="120px" bgColor="primary" margin="30px"></div>
                             </div>
                             <div col="50%">
                                 <code>hover.bgColor</code>
-                                <div height="120px" width="120px" bgColor="secondary-400" hover.bgColor="green" margin="30px"></div>
+                                <div height="120px" width="120px" bgColor="#bdb76b" hover.bgColor="green" margin="30px" padding="5px" textColor="red">
+                                    mouse hover here...
+                                </div>
                             </div>
                         </div>
                         <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
                         <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
-                            {{codeSnippet[0]}}
+                            {{codeSnaps.bgColor}}
                         </pre>
 
                     </div>
@@ -76,12 +78,12 @@
 
             </div>
 
-            <!-- Border-color -->
-            <div *ngIf="currentCompIndex == 1">
+            <!-- Border -->
+            <div *ngIf="currentComponent.id == 'border'">
                 <h3> <code>border</code>, <code>hover.border</code> </h3>
                 <p>Directive used for applying border for a given element</p>
                 <!-- tabs -->
-                <div margin="auto" width="80%" style="overflow: auto;">
+                <div margin="auto" width="80%" style="overflow: auto;" padding.bottom="20px">
 
                     <div>
                         <table>
@@ -103,7 +105,7 @@
                             <tr>
                                 <td> <code>border.color</code> </td>
                                 <td> To apply border color </td>
-                                <td>Any Valid css color value and ngw theme color<br/><small class="text-muted">(e.g. red, rgb(234,234,123), #eee, #0d6efd, primary, error-300)</small></td>
+                                <td>Any Valid css color value and ngw theme color<br/><small class="text-muted">(e.g. red, rgb(234,234,123), #eee, #0d6efd, primary, error)</small></td>
                             </tr>
                             <tr>
                                 <td> <code>border.style</code> </td>
@@ -124,7 +126,7 @@
                             <tr>
                                 <td> <code>hover.border.color</code> </td>
                                 <td> To apply border color on hover </td>
-                                <td>Any Valid css color value and ngw theme color<br/><small class="text-muted">(e.g. red, rgb(234,234,123), #eee, #0d6efd, primary, error-300)</small></td>
+                                <td>Any Valid css color value and ngw theme color<br/><small class="text-muted">(e.g. red, rgb(234,234,123), #eee, #0d6efd, primary, error)</small></td>
                             </tr>
                             <tr>
                                 <td> <code>hover.border.style</code> </td>
@@ -143,13 +145,13 @@
                             </div>
                             <div col="50%">
                                 <code>hover.border</code>
-                                <div height="120px" width="120px" border="2px solid black" hover.border.color="primary" margin="30px"></div>
+                                <div height="120px" width="120px" border="2px solid black" hover.border.color="primary" margin="30px" padding="5px"> mouse hover here...</div>
                             </div>
                         </div>
                         <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
-                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
-                            {{codeSnippet[1]}}
+                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto">
+                            {{codeSnaps.border}}
                         </pre>
 
                     </div>
@@ -158,11 +160,11 @@
             </div>
 
             <!-- ellipsis -->
-            <div *ngIf="currentCompIndex == 2">
+            <div *ngIf="currentComponent.id == 'ellipsis'">
                 <h3> <code>ellipsis</code></h3>
                 <p>To add ellipsis(...) behavior to text</p>
                 <!-- tabs -->
-                <div margin="auto" width="80%" style="overflow: auto;">
+                <div margin="auto" width="80%" style="overflow: auto;" padding.bottom="20px">
 
                     <div>
                         <table>
@@ -192,8 +194,8 @@
                         </div>
                         <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
-                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
-                            {{codeSnippet[2]}}
+                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto">
+                            {{codeSnaps.ellipsis}}
                         </pre>
 
                     </div>
@@ -202,11 +204,11 @@
             </div>
 
             <!-- fit -->
-            <div *ngIf="currentCompIndex == 3">
+            <div *ngIf="currentComponent.id == 'fit'">
                 <h3 class="mt-4"> <code>fit</code></h3>
                 <p>used to specify how an <code>img</code> should be resized to fit its container.</p>
                 <!-- tabs -->
-                <div margin="auto" width="80%" style="overflow: auto;">
+                <div margin="auto" width="80%" style="overflow: auto;" padding.bottom="20px">
 
                     <div>
                         <table>
@@ -233,8 +235,8 @@
                         </div>
                         <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
-                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
-                            {{codeSnippet[3]}}
+                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto">
+                            {{codeSnaps.fit}}
                         </pre>
 
                     </div>
@@ -243,11 +245,11 @@
             </div>
 
             <!-- fontSize -->
-            <div *ngIf="currentCompIndex == 4">
+            <div *ngIf="currentComponent.id == 'fontSize'">
                 <h3 class="mt-4"> <code>fontSize</code>, <code>hover.fontSize</code> </h3>
                 <p>used for setting the size of a font.</p>
                 <!-- tabs -->
-                <div margin="auto" width="80%" style="overflow: auto;">
+                <div margin="auto" width="80%" style="overflow: auto;" padding.bottom="20px">
 
                     <div>
                         <table>
@@ -284,7 +286,7 @@
                         <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
                         <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
-                            {{codeSnippet[4]}}
+                            {{codeSnaps.fontSize}}
                         </pre>
 
                     </div>
@@ -293,11 +295,11 @@
             </div>
 
             <!-- fontWeight -->
-            <div *ngIf="currentCompIndex == 5">
+            <div *ngIf="currentComponent.id == 'fontWeight'">
                 <h3 class="mt-4"> <code>fontWeight</code>, <code>hover.fontWeight</code> </h3>
                 <p>sets how thick or thin characters in text should be displayed.</p>
                 <!-- tabs -->
-                <div margin="auto" width="80%" style="overflow: auto;">
+                <div margin="auto" width="80%" style="overflow: auto;" padding.bottom="20px">
                     <div>
                         <table>
                             <tr>
@@ -322,18 +324,18 @@
                         <!-- preview section -->
                         <div row>
                             <div col="50%">
-                                <code>fontSize</code>
+                                <code>fontWeight</code>
                                 <p fontWeight="400">This text has weight of 400</p>
                             </div>
                             <div col="50%">
-                                <code>hover.bgColor</code>
+                                <code>hover.fontWeight</code>
                                 <p fontWeight="400" hover.fontWeight="900">This text has weight of 400 and will change to 900 on hover</p>
                             </div>
                         </div>
                         <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
-                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
-                            {{codeSnippet[5]}}
+                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto">
+                            {{codeSnaps.fontWeight}}
                         </pre>
 
                     </div>
@@ -342,11 +344,11 @@
             </div>
 
             <!-- gradientBgColor -->
-            <div *ngIf="currentCompIndex == 6">
+            <div *ngIf="currentComponent.id == 'gBg'">
                 <h3 class="mt-4"> <code>gradientBgColor</code></h3>
                 <p>To add Gradient Background color to elements</p>
                 <!-- tabs -->
-                <div margin="auto" width="80%" style="overflow: auto;">
+                <div margin="auto" width="80%" style="overflow: auto;" padding.bottom="20px">
 
                     <div>
                         <table>
@@ -373,8 +375,8 @@
                         </div>
                         <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
-                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
-                            {{codeSnippet[6]}}
+                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto">
+                            {{codeSnaps.gBg}}
                         </pre>
 
                     </div>
@@ -383,11 +385,11 @@
             </div>
 
             <!-- height -->
-            <div *ngIf="currentCompIndex == 7">
+            <div *ngIf="currentComponent.id == 'height'">
                 <h3 class="mt-4"> <code>height</code>, <code>hover.height</code> </h3>
                 <p>sets the height of an element.</p>
                 <!-- tabs -->
-                <div margin="auto" width="80%" style="overflow: auto;">
+                <div margin="auto" width="80%" style="overflow: auto;" padding.bottom="20px">
                     <div>
                         <table>
                             <tr>
@@ -414,22 +416,22 @@
 
                             <div col="50%">
                                 <code>height</code>
-                                <div height="120px" width="120px" border="1px solid" margin="30px">
+                                <div height="120px" width="120px" border="1px solid" margin="30px" padding="5px">
                                     height = 120px
                                 </div>
                             </div>
 
                             <div col="50%">
                                 <code>hover.height</code>
-                                <div height="120px" hover.height="200px" width="120px" border="1px solid" margin="30px">
+                                <div height="120px" hover.height="200px" width="120px" border="1px solid" margin="30px" padding="5px">
                                     height = 120px hover = 200px
                                 </div>
                             </div>
                         </div>
                         <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
-                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
-                            {{codeSnippet[7]}}
+                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto">
+                            {{codeSnaps.height}}
                         </pre>
 
                     </div>
@@ -438,11 +440,11 @@
             </div>
 
             <!-- margin -->
-            <div *ngIf="currentCompIndex == 8">
+            <div *ngIf="currentComponent.id == 'margin'">
                 <h3 class="mt-4"> <code>margin</code>, <code>hover.margin</code> </h3>
                 <p>sets margin i.e. to create space around elements, outside of any defined borders.</p>
                 <!-- tabs -->
-                <div margin="auto" width="80%" style="overflow: auto;">
+                <div margin="auto" width="80%" style="overflow: auto;" padding.bottom="20px">
                     <div>
                         <table>
                             <tr>
@@ -551,8 +553,8 @@
                         </div>
                         <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
-                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
-                            {{codeSnippet[currentCompIndex]}}
+                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto">
+                            {{codeSnaps.margin}}
                         </pre>
 
                     </div>
@@ -561,11 +563,11 @@
             </div>
 
             <!-- padding -->
-            <div *ngIf="currentCompIndex == 9">
+            <div *ngIf="currentComponent.id == 'padding'">
                 <h3 class="mt-4"> <code>padding</code>, <code>hover.padding</code> </h3>
                 <p>sets padding i.e. to create space around elements, outside of any defined borders.</p>
                 <!-- tabs -->
-                <div margin="auto" width="80%" style="overflow: auto;">
+                <div margin="auto" width="80%" style="overflow: auto;" padding.bottom="20px">
                     <div>
                         <table>
                             <tr>
@@ -673,7 +675,7 @@
                         <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
                         <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
-                            {{codeSnippet[currentCompIndex]}}
+                            {{codeSnaps.padding}}
                         </pre>
 
                     </div>
@@ -682,11 +684,11 @@
             </div>
 
             <!-- position -->
-            <div *ngIf="currentCompIndex == 10">
+            <div *ngIf="currentComponent.id == 'position'">
                 <h3 class="mt-4"> <code>position</code></h3>
                 <p>specifies the type of positioning method used for an element.</p>
                 <!-- tabs -->
-                <div margin="auto" width="80%" style="overflow: auto;">
+                <div margin="auto" width="80%" style="overflow: auto;" padding.bottom="20px">
                     <div>
                         <table>
                             <tr>
@@ -706,14 +708,14 @@
                         <!-- preview section -->
                         <div><code>position</code></div>
                         <div row margin.y="10px" position="relative" height="200px" border="1px solid">
-                            <div col="100%" position="absolute" bgColor="primary-300" style="bottom: 50px;" padding="10px">
+                            <div col="100%" position="absolute" bgColor="primary" textColor="primaryContent" style="bottom: 50px;" padding="10px">
                                 absolutely positioned <br/> bottom 50px
                             </div>
                         </div>
                         <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
-                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
-                            {{codeSnippet[currentCompIndex]}}
+                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto">
+                            {{codeSnaps.position}}
                         </pre>
 
                     </div>
@@ -722,11 +724,11 @@
             </div>
 
             <!-- radius -->
-            <div *ngIf="currentCompIndex == 11">
+            <div *ngIf="currentComponent.id == 'radius'">
                 <h3 class="mt-4"> <code>radius</code>, <code>hover.radius</code> </h3>
                 <p>defines the radius of the element's corners.</p>
                 <!-- tabs -->
-                <div margin="auto" width="80%" style="overflow: auto;">
+                <div margin="auto" width="80%" style="overflow: auto;" padding.bottom="20px">
                     <div>
                         <table>
                             <tr>
@@ -800,15 +802,15 @@
 
                             <div col="50%">
                                 <code>hover.radius</code>
-                                <div height="220px" hover.radius="50%" width="220px" border="1px solid" margin="30px" radius="4px" align.x="center" align.y="center">
-                                    radius = 4px hover = 50%
+                                <div height="120px" hover.radius="50%" width="120px" border="1px solid" margin="30px" radius="16px" align.x="center" align.y="center">
+                                    radius = 16px hover = 50%
                                 </div>
                             </div>
                         </div>
                         <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
-                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
-                            {{codeSnippet[currentCompIndex]}}
+                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto">
+                            {{codeSnaps.radius}}
                         </pre>
 
                     </div>
@@ -817,11 +819,11 @@
             </div>
 
             <!-- shadow -->
-            <div *ngIf="currentCompIndex == 12">
+            <div *ngIf="currentComponent.id == 'shadow'">
                 <h3 class="mt-4"> <code>shadow</code>, <code>hover.shadow</code> </h3>
                 <p>Attaches one or more shadows to an element.</p>
                 <!-- tabs -->
-                <div margin="auto" width="80%" style="overflow: auto;">
+                <div margin="auto" width="80%" style="overflow: auto;" padding.bottom="5px">
                     <div>
                         <table>
                             <tr>
@@ -847,17 +849,17 @@
                         <div row>
                             <div col="50%">
                                 <code>shadow</code>
-                                <div height="120px" width="120px" bgColor="white" margin="30px" shadow="2" padding="5px">shadow=2</div>
+                                <div height="120px" width="120px" bgColor="baseFocus" margin="30px" shadow="3" padding="5px">shadow=3</div>
                             </div>
                             <div col="50%">
                                 <code>hover.shadow</code>
-                                <div height="120px" width="120px" bgColor="white" margin="30px" shadow="2" hover.shadow="5" padding="5px">shadow=2 hover=5</div>
+                                <div height="120px" width="120px" bgColor="baseFocus" margin="30px" shadow="2" hover.shadow="5" padding="5px">shadow=2 hover=5</div>
                             </div>
                         </div>
                         <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
                         <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
-                            {{codeSnippet[currentCompIndex]}}
+                            {{codeSnaps.shadow}}
                         </pre>
 
                     </div>
@@ -866,11 +868,11 @@
             </div>
 
             <!-- textColor -->
-            <div *ngIf="currentCompIndex == 13">
+            <div *ngIf="currentComponent.id == 'textColor'">
                 <h3 class="mt-4"> <code>textColor</code>, <code>hover.textColor</code> </h3>
                 <p>used for setting the color of text.</p>
                 <!-- tabs -->
-                <div margin="auto" width="80%" style="overflow: auto;">
+                <div margin="auto" width="80%" style="overflow: auto;" padding.bottom="20px">
                     <div>
                         <table>
                             <tr>
@@ -905,8 +907,8 @@
                         </div>
                         <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
-                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
-                            {{codeSnippet[currentCompIndex]}}
+                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto">
+                            {{codeSnaps.textColor}}
                         </pre>
 
                     </div>
@@ -915,11 +917,11 @@
             </div>
 
             <!-- width -->
-            <div *ngIf="currentCompIndex == 14">
+            <div *ngIf="currentComponent.id == 'width'">
                 <h3 class="mt-4"> <code>width</code>, <code>hover.width</code> </h3>
                 <p>sets the width of an element.</p>
                 <!-- tabs -->
-                <div margin="auto" width="80%" style="overflow: auto;">
+                <div margin="auto" width="80%" style="overflow: auto;" padding.bottom="20px">
                     <div>
                         <table>
                             <tr>
@@ -961,7 +963,7 @@
                         <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
                         <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
-                            {{codeSnippet[currentCompIndex]}}
+                            {{codeSnaps.width}}
                         </pre>
 
                     </div>
@@ -970,11 +972,11 @@
             </div>
 
             <!--Algin  -->
-            <div *ngIf="currentCompIndex == 15">
+            <div *ngIf="currentComponent.id == 'align'">
                 <h3 class="mt-4"> <code>align</code> </h3>
                 <p>Aligns children elements in a specified way</p>
                 <!-- tabs -->
-                <div margin="auto" width="80%" style="overflow: auto;">
+                <div margin="auto" width="80%" style="overflow: auto;" padding.bottom="20px">
                     <div>
                         <table>
                             <tr>
@@ -1007,46 +1009,46 @@
                             <div col="33%">
                                 <code>align</code>
                                 <div height="120px" width="120px" border="1px solid" margin="30px" align="topcenter">
-                                    <div height="30px" width="30px" bgColor="pink">TC</div>
+                                    <div height="30px" width="30px" bgColor="primary" textColor="primaryContent">TC</div>
                                 </div>
                                 <div height="120px" width="120px" border="1px solid" margin="30px" align="centerright">
-                                    <div height="30px" width="30px" bgColor="pink">CR</div>
+                                    <div height="30px" width="30px" bgColor="primary" textColor="primaryContent">CR</div>
                                 </div>
                                 <div height="120px" width="120px" border="1px solid" margin="30px" align="bottomleft">
-                                    <div height="30px" width="30px" bgColor="pink">BL</div>
+                                    <div height="30px" width="30px" bgColor="primary" textColor="primaryContent">BL</div>
                                 </div>
                             </div>
 
                             <div col="33%">
                                 <code>align.x</code>
                                 <div height="120px" width="120px" border="1px solid" margin="30px" align.x="left">
-                                    <div height="30px" width="30px" bgColor="pink">L</div>
+                                    <div height="30px" width="30px" bgColor="primary" textColor="primaryContent">L</div>
                                 </div>
                                 <div height="120px" width="120px" border="1px solid" margin="30px" align.x="center">
-                                    <div height="30px" width="30px" bgColor="pink">C</div>
+                                    <div height="30px" width="30px" bgColor="primary" textColor="primaryContent">C</div>
                                 </div>
                                 <div height="120px" width="120px" border="1px solid" margin="30px" align.x="right">
-                                    <div height="30px" width="30px" bgColor="pink">R</div>
+                                    <div height="30px" width="30px" bgColor="primary" textColor="primaryContent">R</div>
                                 </div>
                             </div>
 
                             <div col="fill">
-                                <code>align.x</code>
+                                <code>align.y</code>
                                 <div height="120px" width="120px" border="1px solid" margin="30px" align.y="top">
-                                    <div height="30px" width="30px" bgColor="pink">T</div>
+                                    <div height="30px" width="30px" bgColor="primary" textColor="primaryContent">T</div>
                                 </div>
                                 <div height="120px" width="120px" border="1px solid" margin="30px" align.y="center">
-                                    <div height="30px" width="30px" bgColor="pink">C</div>
+                                    <div height="30px" width="30px" bgColor="primary" textColor="primaryContent">C</div>
                                 </div>
                                 <div height="120px" width="120px" border="1px solid" margin="30px" align.y="bottom">
-                                    <div height="30px" width="30px" bgColor="pink">B</div>
+                                    <div height="30px" width="30px" bgColor="primary" textColor="primaryContent">B</div>
                                 </div>
                             </div>
                         </div>
                         <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
                         <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
-                            {{codeSnippet[currentCompIndex]}}
+                            {{codeSnaps.align}}
                         </pre>
 
                     </div>
@@ -1055,11 +1057,11 @@
             </div>
 
             <!-- Row -->
-            <div *ngIf="currentCompIndex == 16">
+            <div *ngIf="currentComponent.id == 'row'">
                 <h3 class="mt-4"> <code>row</code> </h3>
                 <p>Top Level layout element.Rows are horizontal components of the grid system and contain varying numbers of columns. They ensure the columns are positioned properly.</p>
                 <!-- tabs -->
-                <div margin="auto" width="80%" style="overflow: auto;">
+                <div margin="auto" width="80%" style="overflow: auto;" padding.bottom="20px">
                     <div>
                         <table>
                             <tr>
@@ -1085,8 +1087,8 @@
                         </div>
                         <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
-                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
-                            {{codeSnippet[currentCompIndex]}}
+                        <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto">
+                            {{codeSnaps.row}}
                         </pre>
 
                     </div>
@@ -1095,11 +1097,11 @@
             </div>
 
             <!-- Col -->
-            <div *ngIf="currentCompIndex == 17">
+            <div *ngIf="currentComponent.id == 'column'">
                 <h3 class="mt-4"> <code>col</code>, <code>col.lg</code>,<code>col.md</code>,<code>col.sm</code> </h3>
                 <p>Columns are cellular components of the grid system and go inside of a row. They will expand to fill their row.</p>
                 <!-- tabs -->
-                <div margin="auto" width="80%" style="overflow: auto;">
+                <div margin="auto" width="80%" style="overflow: auto;" padding.bottom="20px">
                     <div>
                         <table>
                             <tr>
@@ -1149,7 +1151,7 @@
                         <h5 padding.y="12px">Code</h5>
                         <!-- code section -->
                         <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto" bgColor="white">
-                            {{codeSnippet[currentCompIndex]}}
+                            {{codeSnaps.col}}
                         </pre>
 
                     </div>

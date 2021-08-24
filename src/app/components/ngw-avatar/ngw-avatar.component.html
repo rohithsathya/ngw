@@ -1,0 +1,70 @@
+<div>
+    <h3>Avatar</h3>
+    <p>Avatars are circular components that usually wrap an image or icon. They can be used to represent a person or an object.</p>
+    <!-- Simple Filled -->
+    <h5 margin.y="12px">Simple Avatar</h5>
+
+    <div margin.bottom="20px">
+        <img *ngFor="let size of ['94px','56px','40px']" height="{{size}}" width="{{size}}" radius="8px" margin.right="30px" src="http://daisyui.com/tailwind-css-component-profile-1@94w.png">
+    </div>
+
+    <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto">
+        {{codeSnaps.simple}}
+    </pre>
+
+    <h5 margin.y="12px">Rounded Avatar</h5>
+
+    <div margin.bottom="20px">
+        <img *ngFor="let size of ['94px','56px','40px']" height="{{size}}" width="{{size}}" radius="50%" margin.right="30px" src="http://daisyui.com/tailwind-css-component-profile-1@94w.png">
+    </div>
+
+    <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto">
+        {{codeSnaps.rounded}}
+    </pre>
+
+    <h5 margin.y="12px">Bordered Avatar</h5>
+    <div margin.bottom="20px">
+        <img src="http://daisyui.com/tailwind-css-component-profile-1@94w.png" *ngFor="let size of ['94px','56px','40px']" height="{{size}}" width="{{size}}" radius="8px" margin.right="30px" padding="1px" border.style="solid" border.width="3px" border.color="primary">
+    </div>
+
+    <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto">
+        {{codeSnaps.bordered}}
+    </pre>
+
+    <h5 margin.y="12px">Bordered Rounded Avatar</h5>
+
+    <div margin.bottom="20px">
+        <img src="http://daisyui.com/tailwind-css-component-profile-1@94w.png" *ngFor="let size of ['94px','56px','40px']" height="{{size}}" width="{{size}}" radius="50%" margin.right="30px" padding="1px" border.style="solid" border.width="3px" border.color="primary">
+    </div>
+    <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto">
+        {{codeSnaps.borderedRound}}
+    </pre>
+
+    <h5 margin.y="12px">Initials Avatar</h5>
+    <div margin.bottom="20px">
+        <div margin.right="30px" *ngFor="let size of ['94px','56px','40px']" style="display: inline-block;">
+            <div align="centercenter" height="{{size}}" width="{{size}}" radius="50%" bgColor="baseFocus">
+                <span fontSize="24px">KJO</span>
+            </div>
+        </div>
+    </div>
+    <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto">
+        {{codeSnaps.initials}}
+    </pre>
+
+    <h5 margin.y="12px">AvatarGroup</h5>
+
+    <div margin.bottom="20px">
+        <div *ngIf="['1','2','3','4','5','6'] as users">
+            <img *ngFor="let user of users.slice(0, 5)" radius="50%" height="40px" width="40px" border="3px solid" border.color="baseFocus" margin.left="-15px" src="http://daisyui.com/tailwind-css-component-profile-{{user}}@56w.png">
+            <div *ngIf="users.length > 5" style="display: inline-block;">
+                <div align="centercenter" bgColor="base" radius="50%" height="40px" width="40px" border="3px solid" border.color="baseFocus" margin.left="-15px">
+                    +{{users.length - 5}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <pre class="prettyprint" radius="16px" style="overflow: auto;" margin="auto">
+        {{codeSnaps.group}}
+    </pre>
+</div>
