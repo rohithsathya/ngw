@@ -41,7 +41,7 @@ export class NgwCardsDemoComponent implements OnInit {
       <div col="fill">
           <div row>
               <div margin.right="16px">
-                  <img height="48px" width="48px" shadow="1" radius="50%" src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png" />
+                  <img height="48px" width="48px" shadow="1" radius="50%" src="img.png" />
               </div>
               <div col="fill" padding.top="4px">
                   <h1 ngwTypo="subheading-2" margin.bottom="4px">RSAT</h1>
@@ -118,7 +118,7 @@ export class NgwCardsDemoComponent implements OnInit {
     <div shadow="2" radius="8px" bgColor="baseFocus" padding="64px">
       <div row>
         <div>
-          <img height="40px" width="40px" margin.right="12px" radius="50%" fit="cover" src="https://image.freepik.com/free-vector/mysterious-mafia-man-smoking-cigarette_52683-34828.jpg" />
+          <img height="40px" width="40px" margin.right="12px" radius="50%" fit="cover" src="img.png" />
         </div>
         <div col="fill">
           <p ngwTypo="subheading-2" margin.bottom="4px">Jack Cooper</p>
